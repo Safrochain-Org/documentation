@@ -10,12 +10,12 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "frontMatter": {
     "title": "Drip",
     "description": "Drip distributes tokens to stakers; module params and the distribute-tokens transaction."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "FeeShare",
     "permalink": "/modules/feeshare"

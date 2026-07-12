@@ -1,7 +1,7 @@
 {
   "id": "run-a-node/local-testnet",
   "title": "Local testnet",
-  "description": "Start a local Safrochain node for development.",
+  "description": "Minimal single-node sandbox. For a full local devnet with wasm uploads, use Local devnet.",
   "source": "@site/docs/run-a-node/local-testnet.md",
   "sourceDirName": "run-a-node",
   "slug": "/run-a-node/local-testnet",
@@ -10,15 +10,17 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777284667000,
+  "sidebarPosition": 5,
   "frontMatter": {
     "title": "Local testnet",
-    "description": "Start a local Safrochain node for development."
+    "description": "Minimal single-node sandbox. For a full local devnet with wasm uploads, use Local devnet.",
+    "sidebar_position": 5
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
-    "title": "Hardware requirements",
-    "permalink": "/run-a-node/hardware"
+    "title": "Local devnet",
+    "permalink": "/run-a-node/local-devnet"
   },
   "next": {
     "title": "Join testnet",

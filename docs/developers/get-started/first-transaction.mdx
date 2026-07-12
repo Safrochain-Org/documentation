@@ -1,0 +1,116 @@
+---
+title: Your first transaction
+description: "Send 1 usaf on safro-testnet-1 from Web, React Native, Flutter, or the CLI."
+sidebar_position: 3
+---
+
+Send **1 usaf** to yourself on testnet. Same operation on every platform tab below.
+
+Constants (all platforms):
+
+| Name | Value |
+| --- | --- |
+| `CHAIN_ID` | `safro-testnet-1` |
+| `RPC` | `https://rpc.testnet.safrochain.com:443` |
+| `REST` | `https://rest.testnet.safrochain.com` |
+| `DENOM` | `usaf` |
+
+Prerequisites: [funded testnet address](./testnet-setup).
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (TypeScript)">
+
+```ts
+import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { SigningStargateClient, assertIsDeliverTxSuccess } from "@cosmjs/stargate";
+
+const RPC = "https://rpc.testnet.safrochain.com:443";
+const CHAIN_ID = "safro-testnet-1";
+const DENOM = "usaf";
+
+// Dev only: use Cosmos Kit offline signer in production browser apps.
+const wallet = await DirectSecp256k1HdWallet.fromMnemonic(process.env.MNEMONIC!, {
+  prefix: "addr_safro",
+});
+const [{ address }] = await wallet.getAccounts();
+
+const client = await SigningStargateClient.connectWithSigner(RPC, wallet, {
+  gasPrice: { denom: DENOM, amount: "0.05" },
+});
+
+const res = await client.sendTokens(address, address, [{ denom: DENOM, amount: "1" }], "auto", "first tx");
+assertIsDeliverTxSuccess(res);
+console.log(res.transactionHash);
+```
+
+Production web apps: connect via [Cosmos Kit](../wallets/cosmos-kit) instead of a mnemonic.
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+```ts
+import * as SecureStore from "expo-secure-store";
+import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { SigningStargateClient, assertIsDeliverTxSuccess } from "@cosmjs/stargate";
+
+const RPC = "https://rpc.testnet.safrochain.com:443";
+const DENOM = "usaf";
+
+const mnemonic = await SecureStore.getItemAsync("safro_mnemonic");
+const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic!, { prefix: "addr_safro" });
+const [{ address }] = await wallet.getAccounts();
+
+const client = await SigningStargateClient.connectWithSigner(RPC, wallet, {
+  gasPrice: { denom: DENOM, amount: "0.05" },
+});
+
+const res = await client.sendTokens(address, address, [{ denom: DENOM, amount: "1" }], "auto", "first tx");
+assertIsDeliverTxSuccess(res);
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+import { DirectSecp256k1HdWallet } from '@cosmjs/proto-signing';
+import { SigningStargateClient, assertIsDeliverTxSuccess } from '@cosmjs/stargate';
+
+const RPC = 'https://rpc.testnet.safrochain.com:443';
+const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { prefix: 'addr_safro' });
+const [{ address }] = await wallet.getAccounts();
+
+const client = await SigningStargateClient.connectWithSigner(RPC, wallet, {
+  gasPrice: { denom: 'usaf', amount: '0.05' },
+});
+
+const res = await client.sendTokens(address, address, [{ denom: 'usaf', amount: '1' }], 'auto', 'first tx');
+assertIsDeliverTxSuccess(res);
+```
+
+Run CosmJS in a JS bridge (`flutter_js`) or use [Cosmos Kit + WalletConnect](../wallets/cosmos-kit) for external wallets. See [Flutter guide](../mobile/flutter).
+
+  </TabItem>
+  <TabItem value="cli" label="CLI (dev)">
+
+```bash
+ADDR=$(safrochaind keys show dev -a --keyring-backend file)
+
+safrochaind tx bank send dev "$ADDR" 1usaf \
+  --chain-id safro-testnet-1 \
+  --node https://rpc.testnet.safrochain.com:443 \
+  --gas auto --gas-adjustment 1.3 \
+  --gas-prices 0.05usaf \
+  --keyring-backend file \
+  --yes
+```
+
+  </TabItem>
+</Tabs>
+
+## Next steps
+
+- [Signing overview](../transactions/signing-overview): full sign and broadcast flow
+- [Simulate gas and fees](../transactions/simulate-gas-fees)

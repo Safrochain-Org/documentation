@@ -1,6 +1,6 @@
 ---
 title: Safrochain IBC overview
-description: How Safrochain participates in the Cosmos IBC ecosystem — clients, connections, channels, packets, and supported tokens for cross-chain transfers.
+description: "How Safrochain participates in the Cosmos IBC ecosystem: clients, connections, channels, packets, and supported tokens for cross-chain transfers."
 sidebar_position: 1
 keywords:
   - IBC

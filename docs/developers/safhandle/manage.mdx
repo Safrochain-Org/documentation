@@ -1,0 +1,149 @@
+---
+title: Transfer, release, and lookup
+description: "Transfer or release SafHandle names, reverse-lookup handles by address, and read contract config."
+sidebar_position: 4
+---
+
+After registration, owners can **transfer** a name to another address or **release** it back to the pool. Apps can also **reverse-lookup** which name belongs to an address.
+
+## Transfer ownership
+
+Only the current owner may transfer.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (SDK)">
+
+```ts
+await safHandle.transferName('john.saf', 'addr_safro1newowner...', {
+  signer: offlineSigner,
+  gas: 'auto',
+});
+```
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+```ts
+await safHandle.transferName('john.saf', newOwnerAddress, {
+  signer: offlineSigner,
+  gas: 'auto',
+});
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+await safHandle.transferName('john.saf', newOwnerAddress, {
+  signer: offlineSigner,
+  gas: 'auto',
+});
+```
+
+  </TabItem>
+</Tabs>
+
+CosmJS execute payload:
+
+```json
+{
+  "transfer_name": {
+    "name": "john.saf",
+    "new_owner": "addr_safro1..."
+  }
+}
+```
+
+No registration fee attached. Gas only.
+
+## Release a name
+
+Frees the name for someone else to register. Irreversible from the user's perspective (they lose the handle).
+
+```ts
+await safHandle.releaseName('john.saf', {
+  signer: offlineSigner,
+  gas: 'auto',
+});
+```
+
+Contract message:
+
+```json
+{ "release_name": { "name": "john.saf" } }
+```
+
+## Reverse lookup: handles by address
+
+Find which name (and later phone) an address owns:
+
+```ts
+import { CosmWasmClient } from '@cosmjs/cosmwasm-stargate';
+
+const client = await CosmWasmClient.connect(RPC);
+const handles = await client.queryContractSmart(CONTRACT, {
+  handles: { address: 'addr_safro1...' },
+});
+// v1: { name: "john.saf" } or { name: null }
+```
+
+Use in profile screens: "Your handle: john.saf".
+
+## Read contract config
+
+Before registration UI, fetch live fees:
+
+```ts
+const config = await safHandle.getConfig();
+// {
+//   nameRegistrationFeeUsaf: '50000000',
+//   phoneLinkFeeUsaf: '100000000',
+//   devModuleWallet: 'addr_safro1...',
+//   nativeDenom: 'usaf'
+// }
+```
+
+Or REST / CosmWasm query:
+
+```json
+{ "config": {} }
+```
+
+## Name record detail
+
+Full on-chain record for debugging or explorer views:
+
+```json
+{ "name_record": { "name": "john.saf" } }
+```
+
+Returns owner, registration height, and metadata per [STATE_SCHEMA](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/STATE_SCHEMA.md).
+
+## Events to index
+
+| Action | Attributes |
+| --- | --- |
+| `register_name` | `name`, `owner`, `fee_usaf` |
+| `transfer_name` | `name`, `from`, `to` |
+| `release_name` | `name`, `owner` |
+
+Subscribe via [events and WebSockets](/developers/reference/events-and-websockets):
+
+```
+tm.event='Tx' AND wasm.action='register_name'
+```
+
+## Security notes
+
+- Re-resolve names before every send (owner may have transferred)
+- Pin contract address per network in app config
+- Validate fees from `getConfig()` before signing registration txs
+
+## Next steps
+
+- [Resolve handles](/developers/safhandle/resolve)
+- [Register names](/developers/safhandle/register)
+- [Contract API](https://github.com/Safrochain-Org/safhandle-contract/blob/main/docs/CONTRACT_API.md)

@@ -1,0 +1,90 @@
+---
+title: IBC transfers in apps
+description: "Send ICS-20 token transfers from Safrochain apps using MsgTransfer with CosmJS."
+sidebar_position: 1
+keywords:
+  - IBC
+  - ICS-20
+  - MsgTransfer
+---
+
+For **app developers** sending ICS-20 transfers from Safrochain. Relayer operators: [Hermes setup](/ibc/hermes-setup).
+
+## Channels (mainnet)
+
+| Destination | Safrochain channel | Counterparty |
+| --- | --- | --- |
+| Noble (`noble-1`) | `channel-0` | `channel-581` |
+| Osmosis (`osmosis-1`) | `channel-1` | `channel-110497` |
+
+Full list: [IBC channels](/ibc/channels).
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (TypeScript)">
+
+```ts
+const sourcePort = 'transfer';
+const sourceChannel = 'channel-1'; // Osmosis on mainnet
+const timeoutTimestampNs = BigInt(Date.now() + 10 * 60 * 1000) * 1_000_000n;
+
+const msg = {
+  typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
+  value: {
+    sourcePort,
+    sourceChannel,
+    token: { denom: 'usaf', amount: '1000000' },
+    sender,
+    receiver: 'osmo1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    timeoutTimestamp: timeoutTimestampNs,
+    memo: 'ibc test',
+  },
+};
+
+const res = await client.signAndBroadcast(sender, [msg], 'auto');
+```
+
+Testnet: confirm channel IDs on [channels](/ibc/channels) before shipping.
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+Same `MsgTransfer` message shape as web. Show channel ID in the confirm UI so users can verify the destination path.
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+const msg = {
+  typeUrl: '/ibc.applications.transfer.v1.MsgTransfer',
+  value: {
+    sourcePort: 'transfer',
+    sourceChannel: 'channel-1',
+    token: { denom: 'usaf', amount: '1000000' },
+    sender,
+    receiver: 'osmo1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    timeoutTimestamp: BigInt(Date.now() + 10 * 60 * 1000) * 1_000_000n,
+    memo: 'ibc test',
+  },
+};
+
+const res = await client.signAndBroadcast(sender, [msg], 'auto');
+```
+
+  </TabItem>
+</Tabs>
+
+## Failure modes
+
+| Error | Fix |
+| --- | --- |
+| `channel not found` | Wrong `sourceChannel` |
+| `insufficient funds` | Fund sender with `usaf` |
+| Timeout | Increase `timeoutTimestamp` to 10–30 minutes |
+
+## Next
+
+- [IBC overview](/ibc/overview)
+- [ibc-transfer module](/modules/ibc-transfer-app)

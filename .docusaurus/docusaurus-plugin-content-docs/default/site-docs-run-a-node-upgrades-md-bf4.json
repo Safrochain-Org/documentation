@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1778324537000,
   "sidebarPosition": 9,
   "frontMatter": {
     "title": "Upgrades (cosmovisor)",
     "description": "Coordinated chain upgrades for Safrochain validators and full nodes.",
     "sidebar_position": 9
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Statesync",
     "permalink": "/run-a-node/statesync"

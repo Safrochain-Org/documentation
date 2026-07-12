@@ -65,6 +65,6 @@ Please report privately as described in `SECURITY.md`.
 
 - Discord: https://discord.gg/safrochain
 - GitHub org: https://github.com/Safrochain-Org
-- Email: hello@safrochain.com
+- Email: team@safrochain.com
 - Security: security@safrochain.com
 

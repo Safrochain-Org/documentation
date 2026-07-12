@@ -7,11 +7,11 @@ sidebar_position: 4
 These descriptors follow the [`cosmos/chain-registry`](https://github.com/cosmos/chain-registry)
 schema so that wallets, explorers, and relayers can auto-configure.
 
-## Mainnet: `safrochain-1` (live — launched 2026-06-25)
+## Mainnet: `safrochain-1` (live: launched 2026-06-25)
 
-**PR-ready bundle:** [`chain-registry/safrochain/`](../../../chain-registry/safrochain/) at repo root
+**PR-ready bundle:** [`chain-registry/safrochain/`](https://github.com/Safrochain-Org/safrochain-node/tree/main/chain-registry/safrochain) at repo root
 (includes `chain.json`, `assetlist.json`, `versions.json`, `images/`, and
-[`_IBC/`](../../../chain-registry/_IBC/) channel files). Copy into a fork of
+[`_IBC/`](https://github.com/Safrochain-Org/safrochain-node/tree/main/chain-registry/_IBC) channel files). Copy into a fork of
 [`cosmos/chain-registry`](https://github.com/cosmos/chain-registry).
 
 Review fixes vs earlier drafts:
@@ -111,8 +111,8 @@ Review fixes vs earlier drafts:
 
 IBC channel metadata lives in separate `_IBC/` files (not inline in `chain.json`):
 
-- `_IBC/safrochain-noble.json` — `channel-0` ↔ `channel-581`
-- `_IBC/safrochain-osmosis.json` — `channel-1` ↔ `channel-110497`
+- `_IBC/safrochain-noble.json`: `channel-0` ↔ `channel-581`
+- `_IBC/safrochain-osmosis.json`: `channel-1` ↔ `channel-110497`
 
 ## Testnet: `safro-testnet-1` (live)
 

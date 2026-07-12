@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "sidebarPosition": 5,
   "frontMatter": {
     "title": "Governance",
     "description": "Submit proposals, vote, deposit, and query Safrochain on-chain governance.",
     "sidebar_position": 5
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Staking",
     "permalink": "/cli/staking"

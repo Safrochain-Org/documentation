@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 8,
   "frontMatter": {
     "title": "Statesync",
     "description": "Cryptographic light-client catch-up from a recent height, no tarballs.",
     "sidebar_position": 8
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Snapshots",
     "permalink": "/run-a-node/snapshots"

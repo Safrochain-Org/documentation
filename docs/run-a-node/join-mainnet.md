@@ -40,7 +40,7 @@ Follow the **Mainnet** track in [Install](./install) (Go **1.25.8** + tag
 
 ```bash
 # =============================================================================
-# Mainnet — Go 1.25.8 + safrochaind v0.2.2 (Ubuntu / Debian)
+# Mainnet: Go 1.25.8 + safrochaind v0.2.2 (Ubuntu / Debian)
 # Chain ID: safrochain-1
 # =============================================================================
 

@@ -1,0 +1,75 @@
+---
+title: Events and WebSockets
+description: "Subscribe to CometBFT NewBlock and Tx events on Safrochain; mobile polling fallbacks."
+sidebar_position: 3
+---
+
+CometBFT exposes a WebSocket at `/websocket` on the RPC host.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web / Node">
+
+```bash
+npm i -g wscat
+wscat -c wss://rpc.testnet.safrochain.com/websocket
+```
+
+Subscribe to new blocks:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "subscribe",
+  "id": 1,
+  "params": { "query": "tm.event='NewBlock'" }
+}
+```
+
+Subscribe to transactions:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "subscribe",
+  "id": 2,
+  "params": { "query": "tm.event='Tx'" }
+}
+```
+
+Filter wasm events:
+
+```
+tm.event='Tx' AND wasm._contract_address='addr_safro1...'
+```
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+WebSocket drains battery on mobile. Prefer:
+
+1. Poll `GET /cosmos/tx/v1beta1/txs?events=...` after broadcast
+2. Short-lived WS only on active "waiting for confirmation" screens
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+// Prefer polling after broadcast (battery-friendly)
+const txRes = await fetch(
+  `https://rest.testnet.safrochain.com/cosmos/tx/v1beta1/txs/${txHash}`,
+);
+const tx = await txRes.json();
+```
+
+Optional: short-lived WebSocket only on a "waiting for confirmation" screen.
+
+  </TabItem>
+</Tabs>
+
+## Related
+
+- [Query the chain](../web/query-chain)
+- [Broadcast modes](../transactions/broadcast-modes)

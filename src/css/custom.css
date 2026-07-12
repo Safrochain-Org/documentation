@@ -215,6 +215,108 @@ h5 {
 }
 .navbar__brand {
   color: #ffffff;
+  margin-right: 0.25rem;
+}
+/* Principal section switcher (Infra / Developers): segmented pill beside logo.
+   Docusaurus puts navbar__item + navbar__link + className on the same <a>. */
+.theme-layout-navbar-left.navbar__items,
+.navbar__inner > .navbar__items:first-of-type {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+a.navbar__link.safro-navbar-principal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 2.05rem;
+  margin: 0;
+  padding: 0.38rem 1.05rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.72) !important;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+a.navbar__link.safro-navbar-principal--infra {
+  margin-left: 1.1rem;
+  border-radius: 10px 0 0 10px;
+  border-right-width: 0;
+  padding-left: 1.15rem;
+}
+a.navbar__link.safro-navbar-principal--developers {
+  border-radius: 0 10px 10px 0;
+  padding-right: 1.15rem;
+}
+a.navbar__link.safro-navbar-principal::before {
+  content: '';
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.55;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+a.navbar__link.safro-navbar-principal--infra::before {
+  background: #60a5fa;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.45);
+}
+a.navbar__link.safro-navbar-principal--developers::before {
+  background: #a78bfa;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+}
+a.navbar__link.safro-navbar-principal:hover {
+  color: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  text-decoration: none;
+}
+a.navbar__link.safro-navbar-principal--infra.navbar__link--active {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, rgba(74, 127, 219, 0.42) 0%, rgba(30, 58, 138, 0.55) 100%);
+  border-color: rgba(96, 165, 250, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 4px 14px rgba(30, 58, 138, 0.35);
+}
+a.navbar__link.safro-navbar-principal--developers.navbar__link--active {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, rgba(124, 92, 255, 0.38) 0%, rgba(76, 29, 149, 0.5) 100%);
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 4px 14px rgba(76, 29, 149, 0.32);
+}
+a.navbar__link.safro-navbar-principal.navbar__link--active::before {
+  opacity: 1;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+}
+/* Mobile drawer: stack principal pills full-width */
+@media (max-width: 996px) {
+  .navbar-sidebar .menu__link.safro-navbar-principal {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 10px !important;
+    border-right-width: 1px !important;
+    margin: 0.15rem 0 0.2rem;
+  }
+  .navbar-sidebar .menu__link.safro-navbar-principal--infra {
+    margin-left: 0;
+  }
 }
 /* Mobile sidebar toggle on dark navbar */
 .navbar__toggle {
@@ -352,7 +454,7 @@ html[data-theme='dark'] .navbar-sidebar input[type='search']::placeholder {
 }
 
 /* ---------------------------------------------------------------------------
- * Sidebar — pro tree UI
+ * Sidebar: pro tree UI
  *  - IDE-style vertical guide lines for nested children
  *  - Tight, consistent indentation and row height
  *  - Animated caret + accent left-edge on the active item
@@ -544,8 +646,150 @@ html[data-theme='light'] .theme-doc-sidebar-container::-webkit-scrollbar-thumb {
   border: 1px solid var(--safro-border);
   box-shadow: none;
 }
+[data-theme='dark'] .theme-code-block,
+[data-theme='dark'] .theme-code-block pre {
+  background: #0d1117 !important;
+}
+[data-theme='dark'] .theme-code-block code {
+  color: #e6edf3;
+}
 pre code {
   font-size: 0.86rem;
+}
+/* Tab panels: keep fenced code on the dark syntax theme */
+.tabs-container .theme-code-block pre {
+  margin-bottom: 0;
+}
+
+/* Mermaid diagrams — readable nodes and edges on dark/light backgrounds */
+.docusaurus-mermaid-container {
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dark: default flowchart nodes (diagrams without classDef) */
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default rect,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default path.label-container,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default .basic.label-container {
+  fill: #132a4a !important;
+  stroke: #60a5fa !important;
+  stroke-width: 1.5px !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default .nodeLabel,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default .label,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default text,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default .nodeLabel span,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default .nodeLabel p,
+[data-theme='dark'] .docusaurus-mermaid-container g.node.default .nodeLabel div {
+  fill: #f5f5f5 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Dark: sequence diagram participants */
+[data-theme='dark'] .docusaurus-mermaid-container rect.actor,
+[data-theme='dark'] .docusaurus-mermaid-container .actor {
+  fill: #132a4a !important;
+  stroke: #60a5fa !important;
+  stroke-width: 1.5px !important;
+}
+
+/* Actor names live on tspan children — not the text element itself */
+[data-theme='dark'] .docusaurus-mermaid-container text.actor,
+[data-theme='dark'] .docusaurus-mermaid-container text.actor-box,
+[data-theme='dark'] .docusaurus-mermaid-container text.actor > tspan,
+[data-theme='dark'] .docusaurus-mermaid-container text.actor-box > tspan {
+  fill: #f5f5f5 !important;
+  color: #f5f5f5 !important;
+  stroke: none !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .actor-box foreignObject div,
+[data-theme='dark'] .docusaurus-mermaid-container .actor foreignObject div,
+[data-theme='dark'] .docusaurus-mermaid-container .actor-box foreignObject span {
+  color: #f5f5f5 !important;
+}
+
+/* Dark: flowchart labels rendered as HTML (foreignObject) */
+[data-theme='dark'] .docusaurus-mermaid-container .nodeLabel,
+[data-theme='dark'] .docusaurus-mermaid-container .nodeLabel span,
+[data-theme='dark'] .docusaurus-mermaid-container .nodeLabel p,
+[data-theme='dark'] .docusaurus-mermaid-container .nodeLabel div,
+[data-theme='dark'] .docusaurus-mermaid-container g.label foreignObject div,
+[data-theme='dark'] .docusaurus-mermaid-container g.label foreignObject span {
+  color: #f5f5f5 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .node .label text,
+[data-theme='dark'] .docusaurus-mermaid-container .node .nodeLabel text {
+  fill: #f5f5f5 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .actor-line {
+  stroke: #4a7fdb !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .messageLine0,
+[data-theme='dark'] .docusaurus-mermaid-container .messageLine1 {
+  stroke: #60a5fa !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .messageText,
+[data-theme='dark'] .docusaurus-mermaid-container .loopText {
+  fill: #e2e8f0 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .note {
+  fill: #0f2847 !important;
+  stroke: #4a7fdb !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .noteText {
+  fill: #f5f5f5 !important;
+}
+
+/* Dark: edges and arrows (all diagram types) */
+[data-theme='dark'] .docusaurus-mermaid-container .edgePath .path,
+[data-theme='dark'] .docusaurus-mermaid-container .flowchart-link {
+  stroke: #60a5fa !important;
+  stroke-width: 1.5px !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .edgeLabel rect {
+  fill: #0b1d4a !important;
+  stroke: rgba(96, 165, 250, 0.45) !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container .edgeLabel span,
+[data-theme='dark'] .docusaurus-mermaid-container .edgeLabel p {
+  color: #e2e8f0 !important;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container marker path {
+  fill: #60a5fa !important;
+  stroke: #60a5fa !important;
+}
+
+/* Light: subtle branded flowchart nodes */
+[data-theme='light'] .docusaurus-mermaid-container g.node.default rect,
+[data-theme='light'] .docusaurus-mermaid-container g.node.default path.label-container {
+  fill: #eef4ff !important;
+  stroke: #1e3a8a !important;
+}
+
+[data-theme='light'] .docusaurus-mermaid-container g.node.default .nodeLabel,
+[data-theme='light'] .docusaurus-mermaid-container g.node.default text {
+  fill: #0b1d4a !important;
+}
+
+[data-theme='light'] .docusaurus-mermaid-container .edgePath .path,
+[data-theme='light'] .docusaurus-mermaid-container .flowchart-link {
+  stroke: #1e3a8a !important;
 }
 
 /* Admonitions (clean, not glowy) */
@@ -845,7 +1089,7 @@ html[data-theme='light'] .safro-foot-divider {
 }
 
 /* ---------------------------------------------------------------------------
- * Search bar — built on @easyops-cn/docusaurus-search-local
+ * Search bar: built on @easyops-cn/docusaurus-search-local
  *  - wider input with search icon and ⌘K kbd hint
  *  - polished dropdown panel themed for the dark navy and light variants
  *
@@ -1053,7 +1297,7 @@ html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'] {
   border-color: var(--safro-border) !important;
 }
 
-/* Hit rows only: use role=option — NOT [class*='suggestion'], which also matches the
+/* Hit rows only: use role=option: NOT [class*='suggestion'], which also matches the
    autocomplete.js list wrapper class (*suggestions*) and capped the whole list to one row height. */
 .navbar__search span[role='listbox'] [role='option'] {
   border-radius: 0 !important;
@@ -1436,7 +1680,7 @@ html[data-theme='light'] .safro-hero::before {
 }
 
 /* ---------------------------------------------------------------------------
- * Architecture diagram — the centerpiece on the homepage. Modeled after
+ * Architecture diagram: the centerpiece on the homepage. Modeled after
  * a "platform overview" diagram (Quickwit-style) but in Safrochain blues.
  * --------------------------------------------------------------------------- */
 

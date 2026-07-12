@@ -1,0 +1,64 @@
+---
+title: Query the chain
+description: "Query Safrochain height, balances, validators, and wasm smart state with CosmJS and REST."
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (CosmJS)">
+
+```ts
+import { StargateClient } from '@cosmjs/stargate';
+
+const RPC = 'https://rpc.testnet.safrochain.com:443';
+const DENOM = 'usaf';
+
+const client = await StargateClient.connect(RPC);
+console.log(await client.getHeight(), await client.getChainId());
+
+const address = 'addr_safro1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+console.log(await client.getBalance(address, DENOM));
+
+const validators = await client.getValidators();
+console.log(validators.slice(0, 3).map((v) => v.description?.moniker));
+```
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+Same `StargateClient` APIs. Prefer polling REST on battery-sensitive screens instead of persistent WebSocket.
+
+```ts
+const bal = await client.getBalance(address, DENOM);
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+import { StargateClient } from '@cosmjs/stargate';
+
+const client = await StargateClient.connect('https://rpc.testnet.safrochain.com:443');
+const bal = await client.getBalance(address, 'usaf');
+console.log(bal);
+```
+
+  </TabItem>
+</Tabs>
+
+## Wasm smart query preview
+
+```bash
+REST="https://rest.testnet.safrochain.com"
+curl -s "$REST/cosmwasm/wasm/v1/contract/addr_safro1contract.../smart/$(echo -n '{}' | base64)"
+```
+
+Full execute + query patterns: [Interact from apps](../smart-contracts/interact-from-apps).
+
+## Related
+
+- [Endpoints reference](../reference/endpoints)
+- [Events and WebSockets](../reference/events-and-websockets)

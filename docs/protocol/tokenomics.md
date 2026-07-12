@@ -1,6 +1,6 @@
 ---
-title: Safrochain tokenomics — the SAF token
-description: SAF token basics — denom (usaf), supply, decimals, distribution, and how SAF is used for fees, staking, and governance on Safrochain.
+title: "Safrochain tokenomics: the SAF token"
+description: "SAF token basics: denom (usaf), supply, decimals, distribution, and how SAF is used for fees, staking, and governance on Safrochain."
 keywords:
   - SAF token
   - Safrochain tokenomics

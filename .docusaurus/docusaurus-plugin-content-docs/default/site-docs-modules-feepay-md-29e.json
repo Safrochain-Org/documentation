@@ -10,12 +10,12 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "frontMatter": {
     "title": "FeePay",
     "description": "FeePay registers CosmWasm contracts that can pay fees on behalf of users, with eligibility and usage queries."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Global fee",
     "permalink": "/modules/globalfee"

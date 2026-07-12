@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777286773000,
   "sidebarPosition": 9,
   "frontMatter": {
     "title": "Security hardening",
@@ -28,7 +28,7 @@
       "CIS benchmark"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Validator operations (day-2)",
     "permalink": "/validators/operations"

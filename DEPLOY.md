@@ -55,6 +55,6 @@ your host). GitHub will show a **CNAME** target (usually
 
 ## Troubleshooting
 
-- **“Workflow is not run”** — Source must be **GitHub Actions**, not “branch”.
-- **404** — Check `baseUrl` vs real URL; wait for the green check on the **Deploy to GitHub Pages** job.
-- **Old Vercel errors in history** — Removed; new runs use Pages only.
+- **“Workflow is not run”**: Source must be **GitHub Actions**, not “branch”.
+- **404**: Check `baseUrl` vs real URL; wait for the green check on the **Deploy to GitHub Pages** job.
+- **Old Vercel errors in history**: Removed; new runs use Pages only.

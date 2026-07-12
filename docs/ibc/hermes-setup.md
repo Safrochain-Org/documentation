@@ -7,7 +7,7 @@ sidebar_position: 2
 [Hermes](https://hermes.informal.systems/) is the relayer of choice for
 Safrochain foundation operators. This page is a copy-paste template that
 brings up a single-host relayer between Safrochain and one counterparty.
-Mainnet channels to Noble and Osmosis are **already open** — configure Hermes
+Mainnet channels to Noble and Osmosis are **already open**: configure Hermes
 to relay existing paths; see [Channels](./channels#join-as-a-relayer).
 
 ## Prerequisites
@@ -182,7 +182,7 @@ period vs unbonding period.
 ## Relay existing channels (mainnet)
 
 Noble and Osmosis channels are **already open**. Start Hermes after config
-validation — it will clear packets on:
+validation: it will clear packets on:
 
 | Path | Safrochain | Counterparty |
 | --- | --- | --- |

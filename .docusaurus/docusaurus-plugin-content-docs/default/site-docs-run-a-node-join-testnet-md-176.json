@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1783179519000,
   "sidebarPosition": 5,
   "frontMatter": {
     "title": "Join testnet",
     "description": "Sync a Safrochain node against the live safro-testnet-1 network.",
     "sidebar_position": 5
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Local testnet",
     "permalink": "/run-a-node/local-testnet"

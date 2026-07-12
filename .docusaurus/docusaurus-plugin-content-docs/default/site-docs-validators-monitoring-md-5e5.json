@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1778254739000,
   "sidebarPosition": 6,
   "frontMatter": {
     "title": "Monitoring (Prometheus + Grafana)",
@@ -29,7 +29,7 @@
       "SLO"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Sentry architecture",
     "permalink": "/validators/sentry-architecture"

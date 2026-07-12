@@ -1,0 +1,15 @@
+---
+description: Git attribution and prose style for Safrochain Docs
+alwaysApply: true
+---
+
+# Git commits
+
+- Never add `Co-authored-by: Cursor <cursoragent@cursor.com>` or any other agent co-author trailer to commits.
+- Never add `Co-authored-by`, `Co-Authored-By`, or similar attribution lines unless the user explicitly requests them.
+
+# Prose style
+
+- Never use the em dash character (U+2014) in this project.
+- Prefer `:`, `,`, `;`, or a plain hyphen `-` when separating clauses.
+- In docs that mention the rule, refer to "em dash" or U+2014 in prose; do not include the character as an example.

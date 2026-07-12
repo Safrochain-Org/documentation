@@ -9,7 +9,7 @@ The **ICS-20** application handles **fungible token transfers** across IBC chann
 
 :::note App developer note
 
-For **building dApps** that construct ICS-20 packets in JavaScript, see [Developer: IBC transfer](../developers/ibc-transfer.md).
+For **building dApps** that construct ICS-20 packets in JavaScript, see [Developer: IBC transfers](../developers/integrations/ibc-transfers).
 
 :::
 

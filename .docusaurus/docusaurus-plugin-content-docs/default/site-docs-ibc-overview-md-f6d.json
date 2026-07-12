@@ -1,7 +1,7 @@
 {
   "id": "ibc/overview",
   "title": "Safrochain IBC overview",
-  "description": "How Safrochain participates in the Cosmos IBC ecosystem — clients, connections, channels, packets, and supported tokens for cross-chain transfers.",
+  "description": "How Safrochain participates in the Cosmos IBC ecosystem: clients, connections, channels, packets, and supported tokens for cross-chain transfers.",
   "source": "@site/docs/ibc/overview.md",
   "sourceDirName": "ibc",
   "slug": "/ibc/overview",
@@ -10,11 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1782453551000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "Safrochain IBC overview",
-    "description": "How Safrochain participates in the Cosmos IBC ecosystem — clients, connections, channels, packets, and supported tokens for cross-chain transfers.",
+    "description": "How Safrochain participates in the Cosmos IBC ecosystem: clients, connections, channels, packets, and supported tokens for cross-chain transfers.",
     "sidebar_position": 1,
     "keywords": [
       "IBC",
@@ -28,7 +28,7 @@
       "ICS-20"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Slashing & jail",
     "permalink": "/validators/slashing"

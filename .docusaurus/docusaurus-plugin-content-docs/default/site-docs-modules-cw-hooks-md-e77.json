@@ -10,12 +10,12 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "frontMatter": {
     "title": "CW Hooks",
     "description": "Register CosmWasm contracts for staking and governance sudo hooks: queries and register or unregister transactions."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Clock",
     "permalink": "/modules/clock"

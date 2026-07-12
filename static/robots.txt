@@ -8,7 +8,7 @@ Disallow: /search/
 Disallow: /*?q=
 Disallow: /*.map$
 
-# AI crawlers — opted in. Remove or change to `Disallow` per future policy.
+# AI crawlers: opted in. Remove or change to `Disallow` per future policy.
 User-agent: GPTBot
 Allow: /
 

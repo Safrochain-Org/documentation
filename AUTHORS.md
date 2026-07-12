@@ -4,7 +4,7 @@ Safrochain docs are maintained by the Safrochain Foundation and the community.
 
 ## Maintainers
 
-- Safrochain Foundation (docs team) - hello@safrochain.com
+- Safrochain Foundation (docs team) - team@safrochain.com
 
 ## Contributors
 

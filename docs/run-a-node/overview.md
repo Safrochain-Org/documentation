@@ -1,5 +1,5 @@
 ---
-title: Run a Safrochain node — overview
+title: "Run a Safrochain node: overview"
 description: Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node.
 sidebar_position: 1
 keywords:
@@ -27,7 +27,7 @@ This section covers running a Safrochain full node with **`safrochaind`**.
 
 | Goal | Where to start |
 | --- | --- |
-| Try `safrochaind` in 5 minutes | [Local testnet](./local-testnet) |
+| Try `safrochaind` in 5 minutes | [Local devnet](./local-devnet) |
 | Connect a wallet / dApp to a live chain | [Join testnet](./join-testnet) |
 | Run a public RPC | [Join mainnet](./join-mainnet) (use a TLS proxy in front) |
 | Run a validator | [Become a validator](../validators/become-a-validator) |
@@ -37,7 +37,7 @@ This section covers running a Safrochain full node with **`safrochaind`**.
 
 1. [Install safrochaind](./install): build from source, verify checksum.
 2. [Hardware requirements](./hardware): sizing per role (validator, sentry, RPC, archive).
-3. [Local testnet](./local-testnet): single-process sandbox.
+3. [Local devnet](./local-devnet): single-node `safro-devnet-1` on localhost.
 4. [Join testnet](./join-testnet): live `safro-testnet-1`.
 5. [Join mainnet](./join-mainnet): `safrochain-1` (opens Q3 2026).
 6. [Snapshots](./snapshots): fast catch-up via tarballs.

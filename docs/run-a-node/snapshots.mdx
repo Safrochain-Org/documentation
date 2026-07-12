@@ -18,7 +18,7 @@ The foundation publishes snapshots of the live chain from rpc2 once per day.
 
 | Endpoint | What it returns |
 | --- | --- |
-| [`https://snapshots.safrochain.network/`](https://snapshots.safrochain.network/) | Browser-friendly HTML page — always shows current height, size, time, SHA-256, and a download button |
+| [`https://snapshots.safrochain.network/`](https://snapshots.safrochain.network/) | Browser-friendly HTML page: always shows current height, size, time, SHA-256, and a download button |
 | [`https://snapshots.safrochain.network/latest.json`](https://snapshots.safrochain.network/latest.json) | Machine-readable manifest (height, file, sha256, size_bytes, created) |
 | [`https://snapshots.safrochain.network/latest.tar.lz4`](https://snapshots.safrochain.network/latest.tar.lz4) | Symlink to the most recent snapshot tarball |
 | `https://snapshots.safrochain.network/<file>.tar.lz4` | A specific snapshot by name |
@@ -98,7 +98,7 @@ sudo systemctl start safrochaind
 ```
 
 Then expose `/srv/snapshots/` via nginx + your domain (and back it up
-off-host: any S3-compatible bucket — AWS S3, Cloudflare R2, Backblaze B2).
+off-host: any S3-compatible bucket: AWS S3, Cloudflare R2, Backblaze B2).
 
 ## Common pitfalls
 

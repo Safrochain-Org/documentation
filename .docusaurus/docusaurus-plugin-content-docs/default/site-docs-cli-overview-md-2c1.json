@@ -1,7 +1,7 @@
 {
   "id": "cli/overview",
   "title": "safrochaind CLI overview",
-  "description": "The safrochaind command-line interface — global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.",
+  "description": "The safrochaind command-line interface: global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.",
   "source": "@site/docs/cli/overview.md",
   "sourceDirName": "cli",
   "slug": "/cli/overview",
@@ -10,11 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "safrochaind CLI overview",
-    "description": "The safrochaind command-line interface — global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.",
+    "description": "The safrochaind command-line interface: global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.",
     "sidebar_position": 1,
     "keywords": [
       "safrochaind",
@@ -29,10 +29,10 @@
       "Safrochain commands"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
-    "title": "IBC transfers for apps (ICS-20)",
-    "permalink": "/developers/ibc-transfer"
+    "title": "Channels",
+    "permalink": "/ibc/channels"
   },
   "next": {
     "title": "Keys",

@@ -36,7 +36,7 @@ Follow the **Testnet** track in [Install](./install) (Go **1.23.9** + branch
 
 ```bash
 # =============================================================================
-# Testnet — Go 1.23.9 + safrochaind release/v0.1.0 (Ubuntu / Debian)
+# Testnet: Go 1.23.9 + safrochaind release/v0.1.0 (Ubuntu / Debian)
 # Chain ID: safro-testnet-1
 # =============================================================================
 
@@ -68,7 +68,7 @@ else
     exit 1
 fi
 
-# Build safrochaind release/v0.1.0 (testnet branch — NOT v0.2.x)
+# Build safrochaind release/v0.1.0 (testnet branch: NOT v0.2.x)
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
@@ -80,7 +80,7 @@ safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build
 ```
 
 :::warning
-Do **not** check out `v0.2.2` for testnet — that tag is for mainnet
+Do **not** check out `v0.2.2` for testnet: that tag is for mainnet
 (`safrochain-1`) and requires Go 1.25.8.
 :::
 
@@ -104,7 +104,7 @@ curl -fsSL -o "$HOME_NODE/config/genesis.json" \
 ```
 
 ```bash
-# Alternative mirror (same network — verify JSON if you switch sources)
+# Alternative mirror (same network: verify JSON if you switch sources)
 curl -fsSL -o "$HOME_NODE/config/genesis.json" \
   https://genesis.safrochain.com/testnet/genesis.json
 ```
@@ -116,7 +116,7 @@ jq empty "$HOME_NODE/config/genesis.json" && sha256sum "$HOME_NODE/config/genesi
 The expected SHA-256 is published on the network's GitHub release page when we cut releases.
 
 :::tip Older step-by-step mirror
-The legacy walkthrough [Install a Node](https://docs.safrochain.com/install-a-node-1176655m0) uses the same overall flow; **minimum gas prices and seed addresses must match current chain params** — prefer the values below and [Chain registry](../networks/chain-registry).
+The legacy walkthrough [Install a Node](https://docs.safrochain.com/install-a-node-1176655m0) uses the same overall flow; **minimum gas prices and seed addresses must match current chain params**: prefer the values below and [Chain registry](../networks/chain-registry).
 :::
 
 ### 4. Configure `app.toml`, `config.toml`, and `client.toml`
@@ -145,7 +145,7 @@ grep -q '^minimum-gas-prices' "$HOME_NODE/config/app.toml" \
   || echo 'minimum-gas-prices = "0.05usaf"' >> "$HOME_NODE/config/app.toml"
 ```
 
-Optional API / gRPC (local indexing or tooling): ensure these sections exist — merge by hand if missing:
+Optional API / gRPC (local indexing or tooling): ensure these sections exist: merge by hand if missing:
 
 ```toml
 # ~/.safrochain-testnet/config/app.toml (merge into existing file)
@@ -163,7 +163,7 @@ address = "0.0.0.0:9090"
 enable = true
 ```
 
-#### `config/config.toml` — seeds and P2P
+#### `config/config.toml`: seeds and P2P
 
 Prefer **foundation DNS seeds** when available (IDs published with releases / [Chain registry](../networks/chain-registry)). Replace placeholders with the live node IDs:
 
@@ -177,7 +177,7 @@ pex = true
 addr_book_strict = true
 ```
 
-**Non-interactive seed update** (Linux — GNU `sed`):
+**Non-interactive seed update** (Linux: GNU `sed`):
 
 ```bash
 SEEDS='<NODE_ID>@seed.testnet.safrochain.com:26656'
@@ -194,7 +194,7 @@ sed -i '' -e "s|^seeds *=.*|seeds = \"$SEEDS\"|" "$HOME_NODE/config/config.toml"
 To add **multiple** comma-separated seeds without replacing other keys by hand:
 
 ```bash
-# Example only — substitute IDs from the foundation / Discord announcements
+# Example only: substitute IDs from the foundation / Discord announcements
 SEEDS="2242a526e7841e7e8a551aabc4614e6cd612e7fb@88.99.211.113:26656,642dfd491b8bfc0b842c71c01a12ee1122f3dafe@46.62.140.103:26656"
 sed -i.bak -e "s|^seeds *=.*|seeds = \"$SEEDS\"|" "$HOME_NODE/config/config.toml"   # Linux
 ```

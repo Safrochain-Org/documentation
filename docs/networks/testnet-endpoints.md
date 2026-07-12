@@ -1,6 +1,6 @@
 ---
 title: Safrochain testnet endpoints (RPC, REST, faucet)
-description: Live public RPC, REST (LCD), gRPC, faucet, and explorer URLs for safro-testnet-1 — the easiest way to experiment with Safrochain.
+description: "Live public RPC, REST (LCD), gRPC, faucet, and explorer URLs for safro-testnet-1: the easiest way to experiment with Safrochain."
 sidebar_position: 2
 keywords:
   - Safrochain testnet
@@ -135,4 +135,5 @@ If your wallet supports manual chain registration, use:
   [Discord](https://discord.gg/fe2XAm6ENQ) and
   [Telegram](https://t.me/safrochainannonce) for upgrade announcements.
 - For a fully local development node, follow
-  [Run a Node → Local testnet](../run-a-node/local-testnet).
+  [Run a Node → Local devnet](../run-a-node/local-devnet) or
+  [Local devnet endpoints](./local-devnet-endpoints).

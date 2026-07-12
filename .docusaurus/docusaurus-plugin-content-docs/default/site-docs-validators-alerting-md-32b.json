@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1782372570000,
   "sidebarPosition": 7,
   "frontMatter": {
     "title": "Alerting & runbooks",
@@ -28,7 +28,7 @@
       "SLO"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Monitoring (Prometheus + Grafana)",
     "permalink": "/validators/monitoring"

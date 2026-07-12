@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "How to become a Safrochain validator",
@@ -29,7 +29,7 @@
       "tendermint validator"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Validators overview",
     "permalink": "/validators/overview"

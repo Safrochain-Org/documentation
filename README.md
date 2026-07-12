@@ -7,13 +7,13 @@
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-43853d)](#)
 [![Discord](https://img.shields.io/badge/community-discord-5865F2)](https://discord.gg/safrochain)
 
-The official documentation for **Safrochain** — an Africa-first Layer-1
+The official documentation for **Safrochain**: an Africa-first Layer-1
 blockchain built on the Cosmos SDK and CometBFT consensus. The site is
 published at <https://docs.safrochain.com>.
 
 > Looking for the chain itself? See
 > [`Safrochain-Org/safrochain-node`](https://github.com/Safrochain-Org).
-> This repository contains **only the documentation site** — markdown
+> This repository contains **only the documentation site**: markdown
 > sources, design system, and the Docusaurus build config.
 
 ---
@@ -57,7 +57,7 @@ npm install
 npm start
 ```
 
-Then open <http://localhost:3000>. Hot-reload is on by default — saving
+Then open <http://localhost:3000>. Hot-reload is on by default: saving
 a markdown file refreshes the browser.
 
 ### Prerequisites
@@ -126,7 +126,7 @@ a markdown file refreshes the browser.
    npm run build
    ```
 
-   The build runs in strict mode — broken links and broken anchors
+   The build runs in strict mode: broken links and broken anchors
    fail the build.
 
 ### Style conventions
@@ -136,7 +136,7 @@ a markdown file refreshes the browser.
 - Use ` ``` ` fenced code blocks with a language tag (`bash`, `toml`,
   `yaml`, `json`, `go`, `rust`, `text` for plain output).
 - For copy-pasteable command blocks, prefer `bash` and avoid leading `$`.
-- Em dashes (`—`) are intentionally avoided — use `:`, `,`, or `;`
+- Em dashes (U+2014) are intentionally avoided: use `:`, `,`, or `;`
   depending on context.
 - Cross-reference internal pages with **relative paths** without `.md`,
   e.g. `[Slashing & jail](./slashing)`.
@@ -189,7 +189,7 @@ This only verifies the project builds like CI. Pushing to `main` updates the pub
 
 ## Contributing
 
-We welcome documentation contributions of any size — typo fixes are as
+We welcome documentation contributions of any size: typo fixes are as
 valuable as new sections. Read [`CONTRIBUTING.md`](./CONTRIBUTING.md)
 before opening a PR.
 
@@ -208,7 +208,7 @@ security problems.
 | Telegram | <https://t.me/safrochain> | community, announcements |
 | X / Twitter | <https://twitter.com/safrochain> | network status, releases |
 | GitHub | <https://github.com/Safrochain-Org> | code, issues, PRs |
-| Email | <hello@safrochain.com> | partnerships, press |
+| Email | <team@safrochain.com> | partnerships, press |
 
 For a structured rundown of where to ask which question, see
 [`SUPPORT.md`](./SUPPORT.md).

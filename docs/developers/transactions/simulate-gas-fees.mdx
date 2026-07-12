@@ -1,0 +1,83 @@
+---
+title: Simulate gas and fees
+description: "Estimate gas for MsgSend and MsgExecuteContract on Safrochain using REST simulate and CosmJS auto fees."
+sidebar_position: 2
+---
+
+Safrochain uses **globalfee** with a typical minimum of **0.05 usaf per gas unit**. Always simulate before broadcasting high-value txs.
+
+## REST simulate
+
+```bash
+REST="https://rest.testnet.safrochain.com"
+# POST /cosmos/tx/v1beta1/simulate with encoded tx bytes
+```
+
+CosmJS `"auto"` gas calls simulate under the hood.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (CosmJS)">
+
+```ts
+// MsgSend with auto gas
+await client.sendTokens(from, to, [{ denom: 'usaf', amount: '1000' }], 'auto');
+
+// MsgExecuteContract with explicit fee after simulate
+const fee = await client.simulate(address, [executeMsg], '');
+const gasUsed = Math.ceil(Number(fee) * 1.3);
+const result = await client.signAndBroadcast(address, [executeMsg], {
+  amount: [{ denom: 'usaf', amount: String(Math.ceil(gasUsed * 0.05)) }],
+  gas: String(gasUsed),
+});
+```
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+Same `simulate` and `'auto'` patterns as web CosmJS. Show the estimated fee on your confirm screen before calling `signAndBroadcast`.
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+await client.sendTokens(from, to, [{ denom: 'usaf', amount: '1000' }], 'auto');
+
+const fee = await client.simulate(address, [executeMsg], '');
+const gasUsed = Math.ceil(Number(fee) * 1.3);
+await client.signAndBroadcast(address, [executeMsg], {
+  amount: [{ denom: 'usaf', amount: String(Math.ceil(gasUsed * 0.05)) }],
+  gas: String(gasUsed),
+});
+```
+
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+
+```bash
+safrochaind tx bank send dev "$ADDR" 1usaf \
+  --chain-id safro-testnet-1 \
+  --node https://rpc.testnet.safrochain.com:443 \
+  --gas auto --gas-adjustment 1.3 \
+  --gas-prices 0.05usaf \
+  --dry-run
+```
+
+  </TabItem>
+</Tabs>
+
+## CLI flags (reference)
+
+| Flag | Role |
+| --- | --- |
+| `--gas auto` | Simulate and set gas limit |
+| `--gas-adjustment 1.3` | Safety margin on simulated gas |
+| `--gas-prices 0.05usaf` | Fee rate per gas unit |
+
+See [globalfee module](/modules/globalfee) for chain-wide minimums.
+
+## Next
+
+- [Broadcast modes](./broadcast-modes)

@@ -1,13 +1,13 @@
 # Contributing to Safrochain Docs
 
-First — thank you. The reason Safrochain documentation is good is that
+First, thank you. The reason Safrochain documentation is good is that
 people like you take time to make it better. This guide explains how
 contributions flow, what we expect, and how to ship a change quickly.
 
 ## TL;DR
 
 1. Fork the repo and create a feature branch from `main`.
-2. Edit markdown in `docs/` (or React in `src/`) — see
+2. Edit markdown in `docs/` (or React in `src/`): see
    [`README.md`](./README.md) for layout.
 3. Run `npm run build` locally; the build is **strict** and fails on
    broken links, anchors, or YAML.
@@ -21,7 +21,7 @@ contributions flow, what we expect, and how to ship a change quickly.
 | --- | --- |
 | **Typo & grammar fixes** | clearer wording, fixing dead links |
 | **Clarifications** | adding examples, expanding a paragraph that is too dense |
-| **New pages** | a guide we are missing — open an issue first to discuss the slot |
+| **New pages** | a guide we are missing: open an issue first to discuss the slot |
 | **Code samples** | tested, copy-pasteable `bash` / `toml` / `json` blocks |
 | **Diagrams** | Mermaid or ASCII; SVG accepted under `static/img/` |
 | **Translations** | start a discussion before opening a translation PR |
@@ -64,7 +64,7 @@ nvm use
   ```text
   type(scope): short description
 
-  Optional body — what & why, not how.
+  Optional body: what & why, not how.
   ```
 
   Common types: `docs`, `fix`, `feat`, `chore`, `ci`, `refactor`,
@@ -144,11 +144,11 @@ quotes**. Otherwise YAML breaks.
 
 | Don't | Do |
 | --- | --- |
-| `—` (em dash) | `:` for explanation, `,` for parenthetical, `;` for list joins |
+| em dash (U+2014) | `:` for explanation, `,` for parenthetical, `;` for list joins |
 | `…` (ellipsis char) | `...` (three dots) |
 | Smart quotes (`"…"`, `'…'`) | straight quotes (`"…"`, `'…'`) |
 
-The em-dash rule is a hard build rule for new pages — see
+The em-dash rule is a hard build rule for new pages: see
 [`README.md`](./README.md#style-conventions).
 
 ### Diagrams
@@ -171,13 +171,13 @@ neither works.
 
 ## Pull request flow
 
-1. **Open a PR against `main`.** Fill out the PR template — it asks for
+1. **Open a PR against `main`.** Fill out the PR template: it asks for
    *what changed*, *why*, and *how to verify*.
 2. **CI runs** `npm run build`, `npm run typecheck`, `npm run lint`.
    All three must pass.
 3. For **GitHub Pages**, after merge, check the **Deploy to GitHub Pages** job; open
    the site URL from the run summary (or your custom domain).
-4. **A maintainer reviews.** Expect comments — most are small style
+4. **A maintainer reviews.** Expect comments: most are small style
    fixes. Push more commits to the same branch; re-check the PR build
    in Actions until it is green.
 5. **Squash-merge.** The maintainer sets the conventional-commit
@@ -201,7 +201,7 @@ neither works.
 - Are the commands tested on a clean machine?
 - Are the links live? (CI will catch broken **internal** links; check
   external links manually.)
-- Does the writing carry our voice — direct, plainspoken, technically
+- Does the writing carry our voice: direct, plainspoken, technically
   accurate, no hype?
 - Does it duplicate content already covered elsewhere? If so, link
   rather than copy.
@@ -219,7 +219,7 @@ We aim to acknowledge issues within 3 business days.
 
 ## Reporting security issues
 
-**Do not** open public issues for security problems — in the docs or
+**Do not** open public issues for security problems: in the docs or
 in the chain. Follow [`SECURITY.md`](./SECURITY.md).
 
 ## License of contributions
@@ -237,4 +237,4 @@ yourself.
 ## Questions?
 
 If something here is unclear, the contribution process *itself* is a
-bug — open an issue and we'll fix this guide.
+bug: open an issue and we'll fix this guide.

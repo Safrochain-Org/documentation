@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1778254739000,
   "frontMatter": {
     "title": "Governance",
     "description": "How Safrochain governance works."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
-    "title": "Safrochain tokenomics — the SAF token",
+    "title": "Safrochain tokenomics: the SAF token",
     "permalink": "/protocol/tokenomics"
   },
   "next": {

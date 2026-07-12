@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "sidebarPosition": 7,
   "frontMatter": {
     "title": "Tx",
     "description": "Every signing namespace exposed by safrochaind tx, plus broadcast workflows.",
     "sidebar_position": 7
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Query",
     "permalink": "/cli/query"

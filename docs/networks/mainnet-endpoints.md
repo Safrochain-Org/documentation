@@ -40,7 +40,7 @@ After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2
 | Total supply | `1,000,000,000 SAF` (fixed) |
 | Bech32 prefix | `addr_safro` |
 | Minimum gas price | `0.05 usaf/gas` (chain-wide via [`globalfee`](../modules/globalfee)) |
-| Validators at block 1 | **4** — Ubuntu + Kilimanjaro (SF Foundation, 50k SAF / 8 % each), HusoNode + Winnode (community, 10k SAF / 10 % each) |
+| Validators at block 1 | **4**: Ubuntu + Kilimanjaro (SF Foundation, 50k SAF / 8 % each), HusoNode + Winnode (community, 10k SAF / 10 % each) |
 | Total bonded at block 1 | 120,000 SAF |
 
 ## Genesis
@@ -129,7 +129,7 @@ automatically.
 Validators **never** accept inbound public P2P; only the public seed nodes
 listed above are reachable from the open internet. The public RPC nodes
 (`rpc1`, `rpc2`) are fronted by Cloudflare, so only their HTTPS RPC port
-443 is reachable — their CometBFT P2P sockets are intentionally not
+443 is reachable: their CometBFT P2P sockets are intentionally not
 exposed publicly.
 
 ## Status page

@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777285958000,
   "sidebarPosition": 2,
   "frontMatter": {
     "title": "Keys",
     "description": "safrochaind keys, add, list, show, export, import, delete.",
     "sidebar_position": 2
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "safrochaind CLI overview",
     "permalink": "/cli/overview"

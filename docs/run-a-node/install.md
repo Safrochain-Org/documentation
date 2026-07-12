@@ -68,14 +68,14 @@ unless you understand how to manage multiple Go toolchains side-by-side.
 
 <TabItem value="mainnet" label="Mainnet (safrochain-1)">
 
-### 2.a — Install Go **1.25.8** for mainnet
+### 2.a: Install Go **1.25.8** for mainnet
 
 <Tabs groupId="os" defaultValue="ubuntu">
   <TabItem value="ubuntu" label="Ubuntu / Debian">
 
 ```bash
 # =============================================================================
-# Mainnet — Go 1.25.8 install (Ubuntu / Debian)
+# Mainnet: Go 1.25.8 install (Ubuntu / Debian)
 # Required for: safrochain-1, safrochain-node tag v0.2.2
 # =============================================================================
 
@@ -113,7 +113,7 @@ fi
 
 ```bash
 # =============================================================================
-# Mainnet — Go 1.25.8 install (Fedora / RHEL)
+# Mainnet: Go 1.25.8 install (Fedora / RHEL)
 # =============================================================================
 sudo dnf install -y @development-tools git curl jq make openssl-devel wget
 
@@ -134,7 +134,7 @@ go version | grep -q "go1.25.8" && echo "Go 1.25.8 OK" || { echo "Go 1.25.8 miss
 
 ```bash
 # =============================================================================
-# Mainnet — Go 1.25.8 install (macOS, Intel or Apple Silicon)
+# Mainnet: Go 1.25.8 install (macOS, Intel or Apple Silicon)
 # =============================================================================
 ARCH=$(uname -m | sed 's/x86_64/amd64/;s/arm64/arm64/')
 curl -fsSL "https://go.dev/dl/go1.25.8.darwin-${ARCH}.tar.gz" -o go1.25.8.darwin.tar.gz
@@ -153,11 +153,11 @@ go version | grep -q "go1.25.8" && echo "Go 1.25.8 OK" || { echo "Go 1.25.8 miss
 
 You should see `go version go1.25.8 linux/amd64` (or `darwin/arm64`).
 
-### 2.b — Build `safrochaind` for **mainnet** (tag `v0.2.2`)
+### 2.b: Build `safrochaind` for **mainnet** (tag `v0.2.2`)
 
 ```bash
 # =============================================================================
-# Mainnet — clone, checkout v0.2.2, build
+# Mainnet: clone, checkout v0.2.2, build
 # Chain ID: safrochain-1
 # =============================================================================
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
@@ -193,14 +193,14 @@ safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build
 
 <TabItem value="testnet" label="Testnet (safro-testnet-1)">
 
-### 2.a — Install Go **1.23.9** for testnet
+### 2.a: Install Go **1.23.9** for testnet
 
 <Tabs groupId="os" defaultValue="ubuntu">
   <TabItem value="ubuntu" label="Ubuntu / Debian">
 
 ```bash
 # =============================================================================
-# Testnet — Go 1.23.9 install (Ubuntu / Debian)
+# Testnet: Go 1.23.9 install (Ubuntu / Debian)
 # Required for: safro-testnet-1, safrochain-node tag release/v0.1.0
 # =============================================================================
 
@@ -238,7 +238,7 @@ fi
 
 ```bash
 # =============================================================================
-# Testnet — Go 1.23.9 install (Fedora / RHEL)
+# Testnet: Go 1.23.9 install (Fedora / RHEL)
 # =============================================================================
 sudo dnf install -y @development-tools git curl jq make openssl-devel wget
 
@@ -259,7 +259,7 @@ go version | grep -q "go1.23.9" && echo "Go 1.23.9 OK" || { echo "Go 1.23.9 miss
 
 ```bash
 # =============================================================================
-# Testnet — Go 1.23.9 install (macOS, Intel or Apple Silicon)
+# Testnet: Go 1.23.9 install (macOS, Intel or Apple Silicon)
 # =============================================================================
 ARCH=$(uname -m | sed 's/x86_64/amd64/;s/arm64/arm64/')
 curl -fsSL "https://go.dev/dl/go1.23.9.darwin-${ARCH}.tar.gz" -o go1.23.9.darwin.tar.gz
@@ -278,11 +278,11 @@ go version | grep -q "go1.23.9" && echo "Go 1.23.9 OK" || { echo "Go 1.23.9 miss
 
 You should see `go version go1.23.9 linux/amd64` (or `darwin/arm64`).
 
-### 2.b — Build `safrochaind` for **testnet** (tag `release/v0.1.0`)
+### 2.b: Build `safrochaind` for **testnet** (tag `release/v0.1.0`)
 
 ```bash
 # =============================================================================
-# Testnet — clone, checkout release/v0.1.0, build
+# Testnet: clone, checkout release/v0.1.0, build
 # Chain ID: safro-testnet-1
 # =============================================================================
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node

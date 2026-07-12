@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777624665000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "Introduction to Safrochain",
@@ -28,7 +28,7 @@
     ],
     "slug": "/intro"
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "next": {
     "title": "What is Safrochain?",
     "permalink": "/getting-started/what-is-safrochain"

@@ -1,0 +1,65 @@
+---
+title: Token factory in apps
+description: "Create native denoms from Safrochain apps using the tokenfactory module and CosmJS."
+sidebar_position: 3
+---
+
+The **tokenfactory** module lets accounts create new native denoms with a factory prefix. Operator CLI details: [tokenfactory module](/modules/tokenfactory).
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (TypeScript)">
+
+```ts
+// MsgCreateDenom (typeUrl varies by chain version; confirm against your node)
+const msg = {
+  typeUrl: '/safrochain.tokenfactory.v1beta1.MsgCreateDenom',
+  value: {
+    sender: address,
+    subdenom: 'MYTOKEN',
+  },
+};
+
+await client.signAndBroadcast(address, [msg], 'auto');
+// Factory denom format: factory/{creator}/MYTOKEN
+```
+
+Verify exact message types against your running `safrochaind` version and [tokenfactory](/modules/tokenfactory) docs.
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+Same protobuf message as web. Mint and burn msgs follow the same `signAndBroadcast` pattern after denom creation.
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+const msg = {
+  typeUrl: '/safrochain.tokenfactory.v1beta1.MsgCreateDenom',
+  value: { sender: address, subdenom: 'MYTOKEN' },
+};
+
+await client.signAndBroadcast(address, [msg], 'auto');
+```
+
+  </TabItem>
+  <TabItem value="cli" label="CLI">
+
+```bash
+safrochaind tx tokenfactory create-denom MYTOKEN \
+  --from creator \
+  --chain-id safro-testnet-1 \
+  --node https://rpc.testnet.safrochain.com:443 \
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
+```
+
+  </TabItem>
+</Tabs>
+
+## Next
+
+- [Chain constants](../reference/chain-constants)
+- [Signing overview](../transactions/signing-overview)

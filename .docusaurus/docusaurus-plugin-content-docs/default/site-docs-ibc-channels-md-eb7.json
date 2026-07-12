@@ -1,7 +1,7 @@
 {
   "id": "ibc/channels",
   "title": "Channels",
-  "description": "Canonical IBC channel registry for Safrochain mainnet, opens at launch (Q3 2026).",
+  "description": "Canonical IBC channel registry for Safrochain mainnet (safrochain-1): live Noble and Osmosis paths.",
   "source": "@site/docs/ibc/channels.md",
   "sourceDirName": "ibc",
   "slug": "/ibc/channels",
@@ -10,20 +10,20 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1782453551000,
   "sidebarPosition": 3,
   "frontMatter": {
     "title": "Channels",
-    "description": "Canonical IBC channel registry for Safrochain mainnet, opens at launch (Q3 2026).",
+    "description": "Canonical IBC channel registry for Safrochain mainnet (safrochain-1): live Noble and Osmosis paths.",
     "sidebar_position": 3
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Hermes relayer setup",
     "permalink": "/ibc/hermes-setup"
   },
   "next": {
-    "title": "Build on Safrochain: developer quickstart",
-    "permalink": "/developers/quickstart"
+    "title": "safrochaind CLI overview",
+    "permalink": "/cli/overview"
   }
 }

@@ -1,0 +1,74 @@
+---
+title: Connect browser wallets
+description: "Keplr and Leap experimentalSuggestChain for Safrochain without Cosmos Kit."
+sidebar_position: 3
+---
+
+For vanilla TypeScript apps, call the wallet extension APIs directly.
+
+## Keplr: suggest chain
+
+Full JSON lives in [Testnet endpoints](/networks/testnet-endpoints#wallet-connection-keplr--leap). Minimal flow:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web (Keplr / Leap)">
+
+```ts
+declare global {
+  interface Window {
+    keplr?: { experimentalSuggestChain: (c: unknown) => Promise<void>; enable: (id: string) => Promise<void> };
+    getOfflineSigner?: (chainId: string) => import('@cosmjs/proto-signing').OfflineSigner;
+  }
+}
+
+const safroTestnetChainInfo = {
+  chainId: 'safro-testnet-1',
+  chainName: 'Safrochain Testnet',
+  rpc: 'https://rpc.testnet.safrochain.com',
+  rest: 'https://rest.testnet.safrochain.com',
+  stakeCurrency: { coinDenom: 'SAF', coinMinimalDenom: 'usaf', coinDecimals: 6 },
+  bech32Config: {
+    bech32PrefixAccAddr: 'addr_safro',
+    bech32PrefixAccPub: 'addr_safropub',
+    bech32PrefixValAddr: 'addr_safrovaloper',
+    bech32PrefixValPub: 'addr_safrovaloperpub',
+    bech32PrefixConsAddr: 'addr_safrovalcons',
+    bech32PrefixConsPub: 'addr_safrovalconspub',
+  },
+  currencies: [{ coinDenom: 'SAF', coinMinimalDenom: 'usaf', coinDecimals: 6 }],
+  feeCurrencies: [{
+    coinDenom: 'SAF',
+    coinMinimalDenom: 'usaf',
+    coinDecimals: 6,
+    gasPriceStep: { low: 0.05, average: 0.0625, high: 0.075 },
+  }],
+  coinType: 118,
+};
+
+await window.keplr!.experimentalSuggestChain(safroTestnetChainInfo);
+await window.keplr!.enable('safro-testnet-1');
+const offlineSigner = window.getOfflineSigner!('safro-testnet-1');
+```
+
+Leap uses `window.leap` with the same chain object.
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+Mobile apps typically use **WalletConnect** (see [Cosmos Kit](./cosmos-kit)) or deep links (`safro://`) to an installed wallet app. Extension APIs are not available in RN.
+
+  </TabItem>
+</Tabs>
+
+## CORS and gas
+
+- Public RPC/REST endpoints allow browser wallets (see [mainnet endpoints](/networks/mainnet-endpoints)).
+- Set `gasPriceStep` low/average/high to `0.05 / 0.0625 / 0.075` usaf.
+
+## Next steps
+
+- [SafHandle hub](../safhandle): resolve payee before `MsgSend`
+- [Signing overview](../transactions/signing-overview)

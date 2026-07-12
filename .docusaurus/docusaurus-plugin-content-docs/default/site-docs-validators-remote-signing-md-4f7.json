@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1778254739000,
   "sidebarPosition": 4,
   "frontMatter": {
     "title": "Remote signing (TMKMS & Horcrux)",
@@ -28,7 +28,7 @@
       "priv_validator_key.json"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Validator key management",
     "permalink": "/validators/key-management"

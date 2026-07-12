@@ -1,0 +1,73 @@
+---
+title: Broadcast modes
+description: "Sync, async, and block broadcast modes; tx errors; offline and multisig on Safrochain."
+sidebar_position: 3
+---
+
+After signing, CometBFT accepts the tx via RPC `broadcast_tx_*` methods. CosmJS `signAndBroadcast` uses **sync** by default and waits for `CheckTx`.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="platform" defaultValue="web">
+  <TabItem value="web" label="Web">
+
+```ts
+import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
+
+const result = await client.signAndBroadcast(sender, [msg], 'auto');
+assertIsDeliverTxSuccess(result);
+console.log(result.transactionHash, result.height);
+```
+
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+
+```ts
+assertIsDeliverTxSuccess(result);
+// Poll REST /cosmos/tx/v1beta1/txs/{hash} if you need deliver confirmation on slow RPC
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter (CosmJS)">
+
+```ts
+import { assertIsDeliverTxSuccess } from '@cosmjs/stargate';
+
+const result = await client.signAndBroadcast(sender, [msg], 'auto');
+assertIsDeliverTxSuccess(result);
+```
+
+  </TabItem>
+</Tabs>
+
+## Broadcast modes
+
+| Mode | Behavior |
+| --- | --- |
+| `sync` | Returns after `CheckTx` (CosmJS default) |
+| `async` | Returns immediately after mempool accept |
+| `block` | Waits until tx is included in a block |
+
+## Common errors
+
+| Error | Cause | Fix |
+| --- | --- | --- |
+| `account sequence mismatch` | Stale sequence | Re-fetch account, rebuild tx |
+| `insufficient fees` | Below globalfee min | Use `0.05usaf` gas prices |
+| `out of gas` | Gas limit too low | Simulate with higher adjustment |
+
+## Offline and multisig
+
+Generate an unsigned tx for hardware or multisig co-signers:
+
+```bash
+safrochaind tx bank send ... --generate-only > unsigned.json
+```
+
+Full flag reference: [CLI tx](/cli/tx).
+
+## Next
+
+- [Signing overview](./signing-overview)
+- [IBC transfers](../integrations/ibc-transfers)

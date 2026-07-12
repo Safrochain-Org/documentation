@@ -4,7 +4,7 @@ import type { Config } from '@docusaurus/types';
 const SITE_URL = 'https://docs.safrochain.com';
 const SITE_TITLE = 'Safrochain Docs';
 const SITE_DESCRIPTION =
-  'Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 ' +
+  'Build, validate, and operate Safrochain: a Cosmos SDK Layer-1 ' +
   'for fast, affordable mobile-first payments and IBC-connected ' +
   'African economies.';
 const SOCIAL_PROFILES = [
@@ -147,6 +147,19 @@ const config: Config = {
   plugins: [
     require.resolve('./plugins/silence-bundler-warnings.js'),
     [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          { from: '/developers/overview', to: '/developers/start-here' },
+          { from: '/developers/quickstart', to: '/developers/reference/endpoints' },
+          { from: '/developers/cosmjs', to: '/developers/web/cosmjs' },
+          { from: '/developers/flutter', to: '/developers/mobile/flutter' },
+          { from: '/developers/react-native', to: '/developers/mobile/react-native' },
+          { from: '/developers/ibc-transfer', to: '/developers/integrations/ibc-transfers' },
+        ],
+      },
+    ],
+    [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         indexDocs: true,
@@ -177,7 +190,7 @@ const config: Config = {
       // Two-state toggle (dark ↔ light). When this is `true`, Docusaurus
       // adds an intermediate "system" state, so the first click on the
       // navbar toggle moves from `system` to the explicit value that
-      // already matches what's rendered — looking like nothing happened
+      // already matches what's rendered: looking like nothing happened
       // until the second click. Disabling restores a single-click flip.
       respectPrefersColorScheme: false,
     },
@@ -198,13 +211,13 @@ const config: Config = {
       // Docusaurus emits from each doc's frontmatter. The homepage adds
       // its own twitter:title / twitter:description in src/pages/index.tsx.
       { name: 'twitter:image', content: `${SITE_URL}/img/og.png` },
-      { name: 'twitter:image:alt', content: 'Safrochain — Cosmos SDK Layer-1 documentation' },
+      { name: 'twitter:image:alt', content: 'Safrochain: Cosmos SDK Layer-1 documentation' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: SITE_TITLE },
       { property: 'og:title', content: SITE_TITLE },
       { property: 'og:description', content: SITE_DESCRIPTION },
       { property: 'og:image', content: `${SITE_URL}/img/og.png` },
-      { property: 'og:image:alt', content: 'Safrochain — Cosmos SDK Layer-1 documentation' },
+      { property: 'og:image:alt', content: 'Safrochain: Cosmos SDK Layer-1 documentation' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
       { property: 'og:locale', content: 'en_US' },
@@ -222,6 +235,20 @@ const config: Config = {
         height: 38,
       },
       items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'infraSidebar',
+          label: 'Infra',
+          position: 'left',
+          className: 'safro-navbar-principal safro-navbar-principal--infra',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'developersSidebar',
+          label: 'Developers',
+          position: 'left',
+          className: 'safro-navbar-principal safro-navbar-principal--developers',
+        },
         // Same items are hidden on desktop (see `.safro-navbar-mobile-only` in
         // custom.css) but stay in the hamburger menu on narrow viewports.
         {
@@ -254,15 +281,15 @@ const config: Config = {
         },
         {
           type: 'doc',
-          docId: 'developers/quickstart',
-          label: 'Developers',
+          docId: 'cli/overview',
+          label: 'CLI',
           position: 'left',
           className: 'safro-navbar-mobile-only',
         },
         {
           type: 'doc',
-          docId: 'modules/overview',
-          label: 'Modules',
+          docId: 'developers/start-here',
+          label: 'App integrations',
           position: 'left',
           className: 'safro-navbar-mobile-only',
         },
@@ -325,7 +352,7 @@ const config: Config = {
       <div class="safro-foot-brand-name">Safrochain Foundation</div>
       <div class="safro-foot-brand-line">Cosmos SDK Layer-1</div>
       <div class="safro-foot-brand-line">Mobile-first payments &amp; remittances</div>
-      <a href="mailto:hello@safrochain.com">hello@safrochain.com</a>
+      <a href="mailto:team@safrochain.com">team@safrochain.com</a>
     </div>
 
     <div class="safro-foot-divider" aria-hidden="true"></div>
@@ -409,6 +436,19 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.oneDark,
       additionalLanguages: ['bash', 'toml', 'yaml'],
+    },
+    mermaid: {
+      theme: {
+        light: 'neutral',
+        dark: 'dark',
+      },
+      options: {
+        fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+        flowchart: {
+          htmlLabels: true,
+          curve: 'basis',
+        },
+      },
     },
   },
 

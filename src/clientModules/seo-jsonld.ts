@@ -12,7 +12,7 @@
  *     renders.
  *  3. Keep `og:url` and `twitter:url` in sync with the current route.
  *
- * The script is intentionally framework-agnostic — it only touches the
+ * The script is intentionally framework-agnostic: it only touches the
  * DOM when running in a browser context, and is a no-op during SSR.
  */
 

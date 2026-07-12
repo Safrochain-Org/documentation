@@ -10,12 +10,12 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "Whitepaper",
     "description": "Read the Safrochain whitepaper."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Foundation",
     "permalink": "/protocol/foundation"

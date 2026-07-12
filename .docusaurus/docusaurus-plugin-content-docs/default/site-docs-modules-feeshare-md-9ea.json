@@ -10,12 +10,12 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "frontMatter": {
     "title": "FeeShare",
     "description": "Route a share of smart-contract execution fees to deployers and withdrawers: queries and registration transactions."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "FeePay",
     "permalink": "/modules/feepay"

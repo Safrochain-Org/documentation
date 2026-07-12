@@ -223,14 +223,22 @@ function Hero(): React.JSX.Element {
   );
 }
 
-type ArchNodeProps = { title: string; sub?: string };
-function ArchNode({ title, sub }: ArchNodeProps): React.JSX.Element {
-  return (
-    <div className="safro-node">
+type ArchNodeProps = { title: string; sub?: string; href?: string };
+function ArchNode({ title, sub, href }: ArchNodeProps): React.JSX.Element {
+  const inner = (
+    <>
       <div className="safro-node-title">{title}</div>
       {sub ? <div className="safro-node-sub">{sub}</div> : null}
-    </div>
+    </>
   );
+  if (href) {
+    return (
+      <Link className="safro-node safro-node--link" to={href}>
+        {inner}
+      </Link>
+    );
+  }
+  return <div className="safro-node">{inner}</div>;
 }
 
 function ArchArrows({ count = 4 }: { count?: number }): React.JSX.Element {
@@ -264,8 +272,16 @@ function Architecture(): React.JSX.Element {
           <div className="safro-tier">
             <div className="safro-tier-label">Apps & Clients</div>
             <div className="safro-tier-row">
-              <ArchNode title="Wallets" sub="Keplr, Leap, Cosmostation, Ledger" />
-              <ArchNode title="dApps" sub="Web, mobile, CosmWasm contracts" />
+              <ArchNode
+                title="Wallets"
+                sub="Keplr, Leap, Cosmostation, Ledger"
+                href="/developers/wallets/supported-wallets"
+              />
+              <ArchNode
+                title="dApps"
+                sub="Web, mobile, CosmWasm contracts"
+                href="/developers/start-here"
+              />
               <ArchNode title="Block Explorer" sub="explorer.safrochain.com" />
               <ArchNode title="IBC counterparties" sub="ATOM, OSMO, Noble, Stride" />
             </div>
@@ -300,7 +316,7 @@ function Architecture(): React.JSX.Element {
 
           {/* Tier 4: Cosmos SDK application core */}
           <div className="safro-tier safro-tier--core">
-            <div className="safro-tier-label">Cosmos SDK application — safrochaind</div>
+            <div className="safro-tier-label">Cosmos SDK application: safrochaind</div>
             <div className="safro-modules">
               <span className="safro-mod-chip">Bank</span>
               <span className="safro-mod-chip">Staking</span>
@@ -377,15 +393,15 @@ function CardGrid(): React.JSX.Element {
           />
           <HomeCard
             eyebrow="DEVELOPERS"
-            title="CLI reference"
-            desc="Keys, bank, staking, governance, queries: every flag with examples."
-            href="/cli/overview"
+            title="Start here"
+            desc="Mobile, wallets, CosmJS, SafHandle, and smart contracts: pick your path."
+            href="/developers/start-here"
           />
           <HomeCard
             eyebrow="DEVELOPERS"
-            title="Modules"
-            desc="FeePay, FeeShare, Drip, Clock, CW Hooks: chain-specific modules."
-            href="/modules/overview"
+            title="Wallets & Cosmos Kit"
+            desc="Keplr, Leap, Cosmostation, and browser wallet connect for dApps."
+            href="/developers/wallets/cosmos-kit"
           />
         </div>
       </div>
@@ -473,7 +489,7 @@ function CommunityCTA(): React.JSX.Element {
 
 export default function Home(): React.JSX.Element {
   const homepageDescription =
-    'Official Safrochain documentation — build on, validate, and ' +
+    'Official Safrochain documentation: build on, validate, and ' +
     'operate Safrochain, a Cosmos SDK Layer-1 for fast, affordable, ' +
     'mobile-first payments, remittances, and IBC-connected economies.';
 
@@ -496,17 +512,17 @@ export default function Home(): React.JSX.Element {
   return (
     <Layout>
       <Head>
-        <title>Safrochain Docs — Cosmos SDK Layer-1 for mobile-first payments</title>
+        <title>Safrochain Docs: Cosmos SDK Layer-1 for mobile-first payments</title>
         <meta name="description" content={homepageDescription} />
         <link rel="canonical" href="https://docs.safrochain.com/" />
         <meta
           name="keywords"
           content="Safrochain, Safrochain docs, Cosmos SDK, Layer-1, blockchain, validator, IBC, CometBFT, SAF, mobile-first payments, remittances, African blockchain, RPC, REST, gRPC, staking, governance"
         />
-        <meta property="og:title" content="Safrochain Docs — Cosmos SDK Layer-1" />
+        <meta property="og:title" content="Safrochain Docs: Cosmos SDK Layer-1" />
         <meta property="og:description" content={homepageDescription} />
         <meta property="og:url" content="https://docs.safrochain.com/" />
-        <meta name="twitter:title" content="Safrochain Docs — Cosmos SDK Layer-1" />
+        <meta name="twitter:title" content="Safrochain Docs: Cosmos SDK Layer-1" />
         <meta name="twitter:description" content={homepageDescription} />
         <script type="application/ld+json">
           {JSON.stringify(homeJsonLd)}

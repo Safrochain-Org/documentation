@@ -10,12 +10,12 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "Brand assets",
     "description": "Official logos and palette."
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Whitepaper",
     "permalink": "/resources/whitepaper"

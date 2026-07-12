@@ -1,6 +1,6 @@
 ---
 title: safrochaind CLI overview
-description: The safrochaind command-line interface — global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.
+description: "The safrochaind command-line interface: global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes."
 sidebar_position: 1
 keywords:
   - safrochaind

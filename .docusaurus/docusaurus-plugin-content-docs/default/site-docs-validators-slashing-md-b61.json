@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "sidebarPosition": 6,
   "frontMatter": {
     "title": "Slashing & jail",
     "description": "Downtime, double-sign, unjailing, and the unbonding period.",
     "sidebar_position": 6
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Disaster recovery",
     "permalink": "/validators/disaster-recovery"

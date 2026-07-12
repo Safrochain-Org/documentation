@@ -1,7 +1,7 @@
 {
   "name": "Safrochain Docs",
   "short_name": "Safrochain",
-  "description": "Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 for fast, affordable, mobile-first payments and IBC-connected economies.",
+  "description": "Build, validate, and operate Safrochain: a Cosmos SDK Layer-1 for fast, affordable, mobile-first payments and IBC-connected economies.",
   "start_url": "/",
   "scope": "/",
   "id": "/",

@@ -13,390 +13,546 @@
             {
               "id": "cli/bank",
               "path": "/cli/bank",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "cli/governance",
               "path": "/cli/governance",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "cli/keys",
               "path": "/cli/keys",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "cli/overview",
               "path": "/cli/overview",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "cli/query",
               "path": "/cli/query",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "cli/staking",
               "path": "/cli/staking",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "cli/tx",
               "path": "/cli/tx",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
-              "id": "developers/cosmjs",
-              "path": "/developers/cosmjs",
-              "sidebar": "docsSidebar"
+              "id": "developers/get-started/choose-your-stack",
+              "path": "/developers/get-started/choose-your-stack",
+              "sidebar": "developersSidebar"
             },
             {
-              "id": "developers/ibc-transfer",
-              "path": "/developers/ibc-transfer",
-              "sidebar": "docsSidebar"
+              "id": "developers/get-started/first-transaction",
+              "path": "/developers/get-started/first-transaction",
+              "sidebar": "developersSidebar"
             },
             {
-              "id": "developers/quickstart",
-              "path": "/developers/quickstart",
-              "sidebar": "docsSidebar"
+              "id": "developers/get-started/local-devnet",
+              "path": "/developers/get-started/local-devnet",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/get-started/testnet-setup",
+              "path": "/developers/get-started/testnet-setup",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/integrations/ibc-transfers",
+              "path": "/developers/integrations/ibc-transfers",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/integrations/payments-flow",
+              "path": "/developers/integrations/payments-flow",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/integrations/token-factory",
+              "path": "/developers/integrations/token-factory",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/mobile/flutter",
+              "path": "/developers/mobile/flutter",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/mobile/keys-and-ux",
+              "path": "/developers/mobile/keys-and-ux",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/mobile/react-native",
+              "path": "/developers/mobile/react-native",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/reference/chain-constants",
+              "path": "/developers/reference/chain-constants",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/reference/endpoints",
+              "path": "/developers/reference/endpoints",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/reference/events-and-websockets",
+              "path": "/developers/reference/events-and-websockets",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/safhandle/index",
+              "path": "/developers/safhandle/",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/safhandle/manage",
+              "path": "/developers/safhandle/manage",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/safhandle/register",
+              "path": "/developers/safhandle/register",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/safhandle/resolve",
+              "path": "/developers/safhandle/resolve",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/smart-contracts/build-in-rust",
+              "path": "/developers/smart-contracts/build-in-rust",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/smart-contracts/deploy-and-manage",
+              "path": "/developers/smart-contracts/deploy-and-manage",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/smart-contracts/interact-from-apps",
+              "path": "/developers/smart-contracts/interact-from-apps",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/smart-contracts/local-dev-and-testing",
+              "path": "/developers/smart-contracts/local-dev-and-testing",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/smart-contracts/overview",
+              "path": "/developers/smart-contracts/overview",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/start-here",
+              "path": "/developers/start-here",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/transactions/broadcast-modes",
+              "path": "/developers/transactions/broadcast-modes",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/transactions/signing-overview",
+              "path": "/developers/transactions/signing-overview",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/transactions/simulate-gas-fees",
+              "path": "/developers/transactions/simulate-gas-fees",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/wallets/connect-browser-wallets",
+              "path": "/developers/wallets/connect-browser-wallets",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/wallets/cosmos-kit",
+              "path": "/developers/wallets/cosmos-kit",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/wallets/supported-wallets",
+              "path": "/developers/wallets/supported-wallets",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/web/cosmjs",
+              "path": "/developers/web/cosmjs",
+              "sidebar": "developersSidebar"
+            },
+            {
+              "id": "developers/web/query-chain",
+              "path": "/developers/web/query-chain",
+              "sidebar": "developersSidebar"
             },
             {
               "id": "getting-started/quick-links",
               "path": "/getting-started/quick-links",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "getting-started/what-is-safrochain",
               "path": "/getting-started/what-is-safrochain",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "ibc/channels",
               "path": "/ibc/channels",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "ibc/hermes-setup",
               "path": "/ibc/hermes-setup",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "ibc/overview",
               "path": "/ibc/overview",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "intro",
               "path": "/intro",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/auth",
               "path": "/modules/auth",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/authz",
               "path": "/modules/authz",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/bank",
               "path": "/modules/bank",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/clock",
               "path": "/modules/clock",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/consensus",
               "path": "/modules/consensus",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/crisis",
               "path": "/modules/crisis",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/cw-hooks",
               "path": "/modules/cw-hooks",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/distribution",
               "path": "/modules/distribution",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/drip",
               "path": "/modules/drip",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/evidence",
               "path": "/modules/evidence",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/feegrant",
               "path": "/modules/feegrant",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/feepay",
               "path": "/modules/feepay",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/feeshare",
               "path": "/modules/feeshare",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/globalfee",
               "path": "/modules/globalfee",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/gov",
               "path": "/modules/gov",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/ibc-core",
               "path": "/modules/ibc-core",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/ibc-fee",
               "path": "/modules/ibc-fee",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/ibc-hooks",
               "path": "/modules/ibc-hooks",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/ibc-transfer-app",
               "path": "/modules/ibc-transfer-app",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/interchain-accounts",
               "path": "/modules/interchain-accounts",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/interchain-query",
               "path": "/modules/interchain-query",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/mint",
               "path": "/modules/mint",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/nft",
               "path": "/modules/nft",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/overview",
               "path": "/modules/overview",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/params",
               "path": "/modules/params",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/slashing",
               "path": "/modules/slashing",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/staking",
               "path": "/modules/staking",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/tokenfactory",
               "path": "/modules/tokenfactory",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/upgrade",
               "path": "/modules/upgrade",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/vesting",
               "path": "/modules/vesting",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "modules/wasm",
               "path": "/modules/wasm",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "networks/chain-registry",
               "path": "/networks/chain-registry",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
+            },
+            {
+              "id": "networks/local-devnet-endpoints",
+              "path": "/networks/local-devnet-endpoints",
+              "sidebar": "infraSidebar"
             },
             {
               "id": "networks/mainnet-endpoints",
               "path": "/networks/mainnet-endpoints",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "networks/testnet-endpoints",
               "path": "/networks/testnet-endpoints",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "protocol/foundation",
               "path": "/protocol/foundation",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "protocol/governance",
               "path": "/protocol/governance",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "protocol/tokenomics",
               "path": "/protocol/tokenomics",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "resources/brand-assets",
               "path": "/resources/brand-assets",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "resources/faq",
               "path": "/resources/faq",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "resources/whitepaper",
               "path": "/resources/whitepaper",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/hardware",
               "path": "/run-a-node/hardware",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/install",
               "path": "/run-a-node/install",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/join-mainnet",
               "path": "/run-a-node/join-mainnet",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/join-testnet",
               "path": "/run-a-node/join-testnet",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
+            },
+            {
+              "id": "run-a-node/local-devnet",
+              "path": "/run-a-node/local-devnet",
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/local-testnet",
               "path": "/run-a-node/local-testnet",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/overview",
               "path": "/run-a-node/overview",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/snapshots",
               "path": "/run-a-node/snapshots",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/statesync",
               "path": "/run-a-node/statesync",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "run-a-node/upgrades",
               "path": "/run-a-node/upgrades",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/alerting",
               "path": "/validators/alerting",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/become-a-validator",
               "path": "/validators/become-a-validator",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/disaster-recovery",
               "path": "/validators/disaster-recovery",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/key-management",
               "path": "/validators/key-management",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/monitoring",
               "path": "/validators/monitoring",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/operations",
               "path": "/validators/operations",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/overview",
               "path": "/validators/overview",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/remote-signing",
               "path": "/validators/remote-signing",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/security",
               "path": "/validators/security",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/sentry-architecture",
               "path": "/validators/sentry-architecture",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             },
             {
               "id": "validators/slashing",
               "path": "/validators/slashing",
-              "sidebar": "docsSidebar"
+              "sidebar": "infraSidebar"
             }
           ],
           "draftIds": [],
           "sidebars": {
-            "docsSidebar": {
+            "infraSidebar": {
               "link": {
                 "path": "/intro",
                 "label": "intro"
+              }
+            },
+            "developersSidebar": {
+              "link": {
+                "path": "/developers/start-here",
+                "label": "developers/start-here"
               }
             }
           }

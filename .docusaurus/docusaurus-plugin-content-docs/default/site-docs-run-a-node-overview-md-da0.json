@@ -1,6 +1,6 @@
 {
   "id": "run-a-node/overview",
-  "title": "Run a Safrochain node — overview",
+  "title": "Run a Safrochain node: overview",
   "description": "Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node.",
   "source": "@site/docs/run-a-node/overview.md",
   "sourceDirName": "run-a-node",
@@ -10,10 +10,10 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1778254739000,
   "sidebarPosition": 1,
   "frontMatter": {
-    "title": "Run a Safrochain node — overview",
+    "title": "Run a Safrochain node: overview",
     "description": "Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node.",
     "sidebar_position": 1,
     "keywords": [
@@ -28,7 +28,7 @@
       "mainnet node"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Chain registry",
     "permalink": "/networks/chain-registry"

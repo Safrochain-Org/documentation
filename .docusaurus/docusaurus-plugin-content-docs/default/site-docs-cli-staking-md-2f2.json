@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1779124722000,
   "sidebarPosition": 4,
   "frontMatter": {
     "title": "Staking",
     "description": "Delegate, redelegate, unbond, and run validator operations with safrochaind.",
     "sidebar_position": 4
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Bank",
     "permalink": "/cli/bank"

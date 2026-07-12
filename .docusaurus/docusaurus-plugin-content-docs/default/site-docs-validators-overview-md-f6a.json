@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1778254739000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "Validators overview",
@@ -26,7 +26,7 @@
       "validator operations"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Upgrades (cosmovisor)",
     "permalink": "/run-a-node/upgrades"

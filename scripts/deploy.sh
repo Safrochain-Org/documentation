@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Local check: same steps as CI (no cloud deploy). Production goes out by
-# pushing to main — GitHub Actions builds and deploys to GitHub Pages.
+# pushing to main: GitHub Actions builds and deploys to GitHub Pages.
 
 set -euo pipefail
 

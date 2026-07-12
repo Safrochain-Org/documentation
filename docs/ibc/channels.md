@@ -1,13 +1,13 @@
 ---
 title: Channels
-description: Canonical IBC channel registry for Safrochain mainnet (safrochain-1) — live Noble and Osmosis paths.
+description: "Canonical IBC channel registry for Safrochain mainnet (safrochain-1): live Noble and Osmosis paths."
 sidebar_position: 3
 ---
 
 :::info Mainnet IBC is live
 ICS-20 transfer channels to **Noble** and **Osmosis** are **OPEN** on `safrochain-1`.
 All identifiers below were verified on-chain (2026-06-25). Independent relayers
-can relay the same paths — see [Join as a relayer](#join-as-a-relayer).
+can relay the same paths: see [Join as a relayer](#join-as-a-relayer).
 :::
 
 ## Mainnet: `safrochain-1`
@@ -174,7 +174,7 @@ safrochaind tx ibc-transfer transfer transfer channel-1 \
   --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```
 
-#### USDC (Noble → Osmosis, transit — not a direct Safrochain hop)
+#### USDC (Noble → Osmosis, transit: not a direct Safrochain hop)
 
 The Foundation relayer also clears Noble↔Osmosis USDC for users who route
 liquidity through Osmosis. This path does **not** use Safrochain channels.
@@ -203,14 +203,14 @@ keys are never committed to source control.
 
 ### Join as a relayer
 
-Channels are already open — **do not** run `hermes create channel` unless you
+Channels are already open: **do not** run `hermes create channel` unless you
 are opening a **new** counterparty. To relay an existing path:
 
-1. Install Hermes — see [Hermes setup](./hermes-setup).
+1. Install Hermes: see [Hermes setup](./hermes-setup).
 2. Configure `safrochain-1` plus the counterparty (`noble-1` or `osmosis-1`).
 3. Import a funded key on **each** chain (fee token: `usaf`, `uusdc`/`ustake` on Noble, `uosmo` on Osmosis).
 4. Run `hermes config validate` and `hermes health-check`.
-5. Start Hermes — it discovers open channels and clears packets automatically.
+5. Start Hermes: it discovers open channels and clears packets automatically.
 
 Minimal Hermes path filter (optional, in `config.toml`):
 

@@ -10,14 +10,14 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1782453551000,
   "sidebarPosition": 2,
   "frontMatter": {
     "title": "Hermes relayer setup",
     "description": "Full Hermes config template, systemd unit, and health checks for relaying Safrochain.",
     "sidebar_position": 2
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Safrochain IBC overview",
     "permalink": "/ibc/overview"

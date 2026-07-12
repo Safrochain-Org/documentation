@@ -10,16 +10,16 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1783179519000,
   "sidebarPosition": 2,
   "frontMatter": {
     "title": "Install safrochaind",
     "description": "Build safrochaind from source on Linux or macOS, and verify the binary.",
     "sidebar_position": 2
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
-    "title": "Run a Safrochain node — overview",
+    "title": "Run a Safrochain node: overview",
     "permalink": "/run-a-node/overview"
   },
   "next": {

@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1782372570000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "Safrochain mainnet endpoints (RPC, REST, gRPC)",
@@ -29,7 +29,7 @@
       "Cosmos RPC"
     ]
   },
-  "sidebar": "docsSidebar",
+  "sidebar": "infraSidebar",
   "previous": {
     "title": "Quick links",
     "permalink": "/getting-started/quick-links"
