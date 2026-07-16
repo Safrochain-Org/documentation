@@ -109,13 +109,17 @@ keyring to a public machine or repository.
 Verify the balance:
 
 ```bash
-safrochaind query bank balances "addr_safro1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+safrochaind query bank balances "$(safrochaind keys show validator -a --keyring-backend file)"
 ```
 
-:::note Use the literal address
-A nested `"$(safrochaind keys show validator -a)"` only resolves if that key
-name exists in the keyring that is active at that moment — it breaks across
-machines, sessions, and keyring backends. Paste the actual address string.
+:::note Keep `--keyring-backend` consistent
+You created the key with `--keyring-backend file` in step 2, so the nested
+lookup needs the same flag. Without it the CLI falls back to the default `os`
+backend, where the key doesn't exist, and the command fails with a confusing
+`key not found` even though the key is fine.
+
+If you're checking a balance from a machine that has no keyring at all, pass
+the `addr_safro1…` address literally instead.
 :::
 
 ## 4 · Get your consensus pubkey

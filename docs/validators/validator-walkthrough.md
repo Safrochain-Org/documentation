@@ -398,16 +398,20 @@ easy and expensive mistake — count the zeros.
 Now check the balance actually arrived:
 
 ```bash
-safrochaind query bank balances "addr_safro1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+safrochaind query bank balances "$(safrochaind keys show validator -a --keyring-backend file)" \
   --node https://rpc.safrochain.network:443
 ```
 
-:::tip Paste the literal address, don't nest a lookup
-You'll see examples elsewhere that write `"$(safrochaind keys show validator -a)"`
-instead of an address. That only works if that exact key name is in your
-currently-active keyring at that moment — it breaks across machines, sessions,
-and keyring backends, usually while you're stressed. Paste the actual address
-string.
+The inner command looks up the address of the key you made in Part 9, so you
+don't have to paste it by hand.
+
+:::tip If it says `key not found`
+The key is almost certainly fine. `--keyring-backend file` has to match what
+you used to create it — leave the flag off and the CLI looks in the default
+`os` backend instead, where nothing exists.
+
+Checking from a different machine that has no keyring? Pass your
+`addr_safro1…` address literally instead of the nested lookup.
 :::
 
 ## Part 11 — Get your consensus pubkey
@@ -657,7 +661,7 @@ Things that actually go wrong, and what to do:
 | Peer IP doesn't respond | Hardcoded IP from an old guide is dead | Use the official seeds; don't trust static IPs from docs or chat |
 | `out of gas`, fee still charged | `--gas auto --gas-adjustment 1.3` under-estimated | Flat `--gas 250000`, or `--gas-adjustment 1.8`+ |
 | Tx "succeeded" but nothing happened | You trusted the broadcast response | Always `query tx <hash>` and check `code: 0` |
-| Balance check returns nothing | `$(keys show …)` subshell hit the wrong keyring | Paste the literal `addr_safro1…` string |
+| Balance check says `key not found` | `--keyring-backend file` missing from the nested `keys show` | Add the flag so it matches how you created the key |
 | `--moniker` flag rejected on `edit-validator` | Wrong flag name | It's `--new-moniker` |
 | Validator exists but earns nothing | Outside the active set | Check rank/stake; you need enough to take a chair |
 
