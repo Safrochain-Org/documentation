@@ -36,7 +36,7 @@ predictable fees, and IBC rails to the wider Cosmos ecosystem.
 - **Token**: **SAF**
 - **Supply**: **1,000,000,000 SAF** (fixed)
 - **Denom**: `usaf` (`1 SAF = 1_000_000 usaf`)
-- **Mainnet target**: **Q3 2026**
+- **Mainnet**: **live** — `safrochain-1`, genesis `2026-06-25T10:00:00Z`
 
 ## External links
 
