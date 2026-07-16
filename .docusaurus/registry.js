@@ -22,6 +22,7 @@ export default {
   "22dd74f7": [() => import(/* webpackChunkName: "22dd74f7" */ "@generated/docusaurus-plugin-content-docs/default/p/index-466.json"), "@generated/docusaurus-plugin-content-docs/default/p/index-466.json", require.resolveWeak("@generated/docusaurus-plugin-content-docs/default/p/index-466.json")],
   "22e0b11e": [() => import(/* webpackChunkName: "22e0b11e" */ "@site/docs/ibc/hermes-setup.md"), "@site/docs/ibc/hermes-setup.md", require.resolveWeak("@site/docs/ibc/hermes-setup.md")],
   "237ff7b8": [() => import(/* webpackChunkName: "237ff7b8" */ "@site/docs/developers/integrations/payments-flow.mdx"), "@site/docs/developers/integrations/payments-flow.mdx", require.resolveWeak("@site/docs/developers/integrations/payments-flow.mdx")],
+  "25626d15": [() => import(/* webpackChunkName: "25626d15" */ "@site/src/pages/chat.tsx"), "@site/src/pages/chat.tsx", require.resolveWeak("@site/src/pages/chat.tsx")],
   "25bbdea8": [() => import(/* webpackChunkName: "25bbdea8" */ "@site/docs/developers/smart-contracts/interact-from-apps.mdx"), "@site/docs/developers/smart-contracts/interact-from-apps.mdx", require.resolveWeak("@site/docs/developers/smart-contracts/interact-from-apps.mdx")],
   "29e50b41": [() => import(/* webpackChunkName: "29e50b41" */ "@site/docs/modules/feepay.md"), "@site/docs/modules/feepay.md", require.resolveWeak("@site/docs/modules/feepay.md")],
   "2a39e9bb": [() => import(/* webpackChunkName: "2a39e9bb" */ "@site/docs/developers/get-started/choose-your-stack.md"), "@site/docs/developers/get-started/choose-your-stack.md", require.resolveWeak("@site/docs/developers/get-started/choose-your-stack.md")],
@@ -115,4 +116,5 @@ export default {
   "f93e5b98": [() => import(/* webpackChunkName: "f93e5b98" */ "@site/docs/modules/ibc-fee.md"), "@site/docs/modules/ibc-fee.md", require.resolveWeak("@site/docs/modules/ibc-fee.md")],
   "fb142bd1": [() => import(/* webpackChunkName: "fb142bd1" */ "@site/docs/developers/safhandle/index.mdx"), "@site/docs/developers/safhandle/index.mdx", require.resolveWeak("@site/docs/developers/safhandle/index.mdx")],
   "fc468fa9": [() => import(/* webpackChunkName: "fc468fa9" */ "@site/docs/developers/mobile/keys-and-ux.md"), "@site/docs/developers/mobile/keys-and-ux.md", require.resolveWeak("@site/docs/developers/mobile/keys-and-ux.md")],
-  "fcd2f1d9": [() => import(/* webpackChunkName: "fcd2f1d9" */ "@site/docs/networks/mainnet-endpoints.md"), "@site/docs/networks/mainnet-endpoints.md", require.resolveWeak("@site/docs/networks/mainnet-endpoints.md")],};
+  "fcd2f1d9": [() => import(/* webpackChunkName: "fcd2f1d9" */ "@site/docs/networks/mainnet-endpoints.md"), "@site/docs/networks/mainnet-endpoints.md", require.resolveWeak("@site/docs/networks/mainnet-endpoints.md")],
+  "fd666b3e": [() => import(/* webpackChunkName: "fd666b3e" */ "@site/docs/cli/ask-me.md"), "@site/docs/cli/ask-me.md", require.resolveWeak("@site/docs/cli/ask-me.md")],};

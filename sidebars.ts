@@ -85,6 +85,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'cli/overview',
+        'cli/ask-me',
         'cli/keys',
         'cli/bank',
         'cli/staking',

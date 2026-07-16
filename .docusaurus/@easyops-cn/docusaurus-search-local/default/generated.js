@@ -1,5 +1,5 @@
 export const removeDefaultStemmer = false;
-export { default as Mark } from "/Users/bdan/Projects/SAFROCHAIN/node/Docs/node_modules/mark.js/dist/mark.js"
+export { default as Mark } from "D:\\opensource-project\\documentation-safrochain\\node_modules\\mark.js\\dist\\mark.js"
 export const searchResultContextMaxLength = 80;
 export const explicitSearchResultPath = true;
 export const searchBarShortcut = true;

@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1779124722000,
+  "lastUpdatedAt": 1783853629000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "safrochaind CLI overview",
@@ -35,7 +35,7 @@
     "permalink": "/ibc/channels"
   },
   "next": {
-    "title": "Keys",
-    "permalink": "/cli/keys"
+    "title": "Ask me — CLI quick reference",
+    "permalink": "/cli/ask-me"
   }
 }
