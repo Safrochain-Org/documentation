@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1777624665000,
+  "lastUpdatedAt": 1539502055000,
   "frontMatter": {
     "title": "Safrochain modules overview",
     "description": "Every module wired into safrochaind: Safrochain extensions, Cosmos SDK core, IBC, and CosmWasm, with CLI entry points and links to per-module reference pages.",
