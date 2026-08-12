@@ -1,6 +1,6 @@
 ---
 title: Channels
-description: "Canonical IBC channel registry for Safrochain mainnet (safrochain-1): live Noble and Osmosis paths."
+description: "Canonical IBC channel registry for Safrochain mainnet (safrochain-1) and testnet (safro-testnet-1): live Noble and Osmosis paths."
 sidebar_position: 3
 ---
 
@@ -246,9 +246,147 @@ in the matching `nft-transfer` module. Track progress in
 
 ## Testnet: `safro-testnet-1`
 
-The testnet runs the same `ibc-go` module set as mainnet but does not
-participate in cross-chain testnet relays today. To test IBC end-to-end,
-connect two of your **own** local chains using [Hermes setup](./hermes-setup).
+:::info Testnet IBC is live
+ICS-20 transfer channels from **`safro-testnet-1`** to **Osmosis testnet**
+(`osmo-test-5`) and **Noble testnet** (`grand-1`) are **OPEN**, plus a
+foundation **Noble ↔ Osmosis** testnet path. Verified on-chain
+(2026-08-12). Use these for app / relayer dry-runs before mainnet.
+:::
+
+### Topology summary
+
+| Path | A chain | A client | A connection | A channel | B chain | B client | B connection | B channel | State |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Safro ↔ Osmosis | `safro-testnet-1` | `07-tendermint-25` | `connection-17` | `channel-15` | `osmo-test-5` | `07-tendermint-5260` | `connection-4588` | `channel-11823` | OPEN |
+| Safro ↔ Noble | `safro-testnet-1` | `07-tendermint-26` | `connection-18` | `channel-16` | `grand-1` | `07-tendermint-701` | `connection-652` | `channel-962` | OPEN |
+| Noble ↔ Osmosis | `osmo-test-5` | `07-tendermint-5261` | `connection-4589` | `channel-11824` | `grand-1` | `07-tendermint-702` | `connection-654` | `channel-963` | OPEN |
+
+All three use port **`transfer`**, ordering **`ORDER_UNORDERED`**, version
+**`ics20-1`**.
+
+### ICS-20 transfer channels
+
+| Path | Port | Channel (Safro / A) | Channel (counterparty / B) | Escrow (Safrochain) | Primary use |
+| --- | --- | --- | --- | --- | --- |
+| Safro ↔ Osmosis | `transfer` | `channel-15` | `channel-11823` | `addr_safro186mpcj53q3hgfnzdu9wkteczs236vdclk579xg` | OSMO in/out, SAF → Osmosis testnet |
+| Safro ↔ Noble | `transfer` | `channel-16` | `channel-962` | `addr_safro1v0zuhlzznmz8r5csel3dtrm0pst0dmet4j39nj` | USDC in/out, SAF → Noble testnet |
+| Noble ↔ Osmosis | `transfer` | — (not on Safro) | `channel-11824` ↔ `channel-963` | — | OSMO ↔ USDC transit on testnets |
+
+### Public endpoints for testnet relayers
+
+| Chain | Chain ID | RPC | gRPC / LCD |
+| --- | --- | --- | --- |
+| Safrochain testnet | `safro-testnet-1` | `https://rpc.testnet.safrochain.com` | gRPC `https://grpc.testnet.safrochain.com:443` · REST `https://rest.testnet.safrochain.com` |
+| Osmosis testnet | `osmo-test-5` | `https://rpc.osmotest5.osmosis.zone` (alt: `https://rpc.testnet.osmosis.zone`) | gRPC `https://grpc.osmotest5.osmosis.zone:443` · LCD `https://lcd.testnet.osmosis.zone` |
+| Noble testnet | `grand-1` | `https://noble-testnet-rpc.polkachu.com` | gRPC `http://noble-testnet-grpc.polkachu.com:21590` · API `https://noble-testnet-api.polkachu.com` |
+
+Safrochain faucet / wallet JSON: [Testnet endpoints](../networks/testnet-endpoints).
+
+:::tip Osmosis RPC from Contabo
+Some Contabo IPs receive **HTTP 403** from Osmosis public RPCs. Prefer a
+Hetzner (or other non-blocked) host for Hermes, or fall back to
+`rpc.osmotest5.osmosis.zone` when `rpc.testnet.osmosis.zone` is blocked.
+:::
+
+### Verify on-chain (testnet)
+
+```bash
+NODE="https://rpc.testnet.safrochain.com:443"
+
+safrochaind q ibc channel end transfer channel-15 --node "$NODE" -o json | jq '.channel'
+safrochaind q ibc channel end transfer channel-16 --node "$NODE" -o json | jq '.channel'
+
+safrochaind q ibc-transfer escrow-address transfer channel-15 --node "$NODE"
+safrochaind q ibc-transfer escrow-address transfer channel-16 --node "$NODE"
+
+# Counterparty ends
+curl -s "https://lcd.testnet.osmosis.zone/ibc/core/channel/v1/channels/channel-11823/ports/transfer" | jq '.channel.state,.channel.counterparty'
+curl -s "https://noble-testnet-api.polkachu.com/ibc/core/channel/v1/channels/channel-962/ports/transfer" | jq '.channel.state,.channel.counterparty'
+curl -s "https://lcd.testnet.osmosis.zone/ibc/core/channel/v1/channels/channel-11824/ports/transfer" | jq '.channel.state,.channel.counterparty'
+curl -s "https://noble-testnet-api.polkachu.com/ibc/core/channel/v1/channels/channel-963/ports/transfer" | jq '.channel.state,.channel.counterparty'
+```
+
+### Relayed token registry (testnet)
+
+#### OSMO (Osmosis testnet → Safro testnet)
+
+| Field | Value |
+| --- | --- |
+| Base denom | `uosmo` |
+| Safro channel | `channel-15` |
+| Osmosis channel | `channel-11823` |
+| Trace on Safro | `transfer/channel-15/uosmo` |
+| IBC denom on Safro | `ibc/26F3C3DF1FD29D045C9D6E8A999473A8C368EF1AAAA6B19711EC0CB65BAFCBD7` |
+
+#### USDC (Noble testnet → Safro testnet)
+
+| Field | Value |
+| --- | --- |
+| Base denom | `uusdc` |
+| Safro channel | `channel-16` |
+| Noble channel | `channel-962` |
+| Trace on Safro | `transfer/channel-16/uusdc` |
+| IBC denom on Safro | `ibc/FC6C34533ECF1AAD296E41A70D8F16089E90D436904B56EDE19342D6DE172B82` |
+
+#### SAF (Safro testnet → Osmosis testnet)
+
+| Field | Value |
+| --- | --- |
+| Base denom | `usaf` |
+| Safro channel | `channel-15` |
+| Osmosis channel | `channel-11823` |
+| Trace on Osmosis | `transfer/channel-11823/usaf` |
+| IBC denom on Osmosis | `ibc/BCB4EB7C12B4337A68B3E6509CE5AB97584EA368E6FAD16EFEFB1D2CCE537352` |
+
+```bash
+safrochaind tx ibc-transfer transfer transfer channel-15 \
+  <osmo-testnet-bech32> 1000000usaf \
+  --from <sender> --chain-id safro-testnet-1 \
+  --node https://rpc.testnet.safrochain.com:443 \
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
+```
+
+#### SAF (Safro testnet → Noble testnet)
+
+| Field | Value |
+| --- | --- |
+| Base denom | `usaf` |
+| Safro channel | `channel-16` |
+| Noble channel | `channel-962` |
+| Trace on Noble | `transfer/channel-962/usaf` |
+| IBC denom on Noble | `ibc/859ACCB4F2734A08BCB90CB68DBF485B6F7CB5AC58B17813DD1218835D5B5BE8` |
+
+```bash
+safrochaind tx ibc-transfer transfer transfer channel-16 \
+  <noble-testnet-bech32> 1000000usaf \
+  --from <sender> --chain-id safro-testnet-1 \
+  --node https://rpc.testnet.safrochain.com:443 \
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
+```
+
+#### OSMO (Osmosis testnet → Noble testnet)
+
+| Field | Value |
+| --- | --- |
+| Base denom | `uosmo` |
+| Osmosis channel | `channel-11824` |
+| Noble channel | `channel-963` |
+| Trace on Noble | `transfer/channel-963/uosmo` |
+| IBC denom on Noble | `ibc/E5E744601DEE32D05B901FE0478E182DC5AAF19B7A45E30AA1D0D6DBE2B26609` |
+
+### Foundation testnet relayer
+
+Hermes on the foundation monitoring host relays:
+
+| Path | Channels | Status |
+| --- | --- | --- |
+| `safro-testnet-1` ↔ `osmo-test-5` | `channel-15` ↔ `channel-11823` | live |
+| `safro-testnet-1` ↔ `grand-1` | `channel-16` ↔ `channel-962` | live |
+| `osmo-test-5` ↔ `grand-1` | `channel-11824` ↔ `channel-963` | live |
+
+Config mode: packet relay + client refresh only (`connections` /
+`channels` creation disabled after handshake). Do **not** recreate these
+channels unless the path is expired or deliberately replaced.
 
 ## Operator coordination
 

@@ -26,13 +26,24 @@ genesis. Out of the box you get:
 - **ICS-721 NFT transfers**: interchain NFT moves once a counterparty wires
   it up.
 
-Mainnet (`safrochain-1`) has **live** ICS-20 channels to **Noble** and
-**Osmosis**. See the full registry in [Channels](./channels).
+Mainnet (`safrochain-1`) and testnet (`safro-testnet-1`) both have **live**
+ICS-20 channels to **Noble** and **Osmosis**. See the full registry in
+[Channels](./channels).
+
+**Mainnet**
 
 | Path | Safrochain channel | Counterparty channel | Tokens |
 | --- | --- | --- | --- |
 | Safrochain ↔ Noble | `channel-0` | `channel-581` | USDC in, SAF out |
 | Safrochain ↔ Osmosis | `channel-1` | `channel-110497` | OSMO in, SAF out |
+
+**Testnet**
+
+| Path | Safro / A channel | Counterparty / B channel | Tokens |
+| --- | --- | --- | --- |
+| Safro ↔ Osmosis (`osmo-test-5`) | `channel-15` | `channel-11823` | OSMO in, SAF out |
+| Safro ↔ Noble (`grand-1`) | `channel-16` | `channel-962` | USDC in, SAF out |
+| Noble ↔ Osmosis | `channel-963` (Noble) | `channel-11824` (Osmosis) | OSMO ↔ USDC transit |
 
 ## Why a chain operator runs a relayer
 

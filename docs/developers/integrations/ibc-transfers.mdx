@@ -17,7 +17,15 @@ For **app developers** sending ICS-20 transfers from Safrochain. Relayer operato
 | Noble (`noble-1`) | `channel-0` | `channel-581` |
 | Osmosis (`osmosis-1`) | `channel-1` | `channel-110497` |
 
-Full list: [IBC channels](/ibc/channels).
+## Channels (testnet)
+
+| Destination | Safrochain channel | Counterparty |
+| --- | --- | --- |
+| Osmosis testnet (`osmo-test-5`) | `channel-15` | `channel-11823` |
+| Noble testnet (`grand-1`) | `channel-16` | `channel-962` |
+| Noble ↔ Osmosis (no Safro hop) | — | `channel-963` ↔ `channel-11824` |
+
+Full list (mainnet + testnet topology, denoms, escrows): [IBC channels](/ibc/channels).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
