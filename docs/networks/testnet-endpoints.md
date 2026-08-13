@@ -137,3 +137,24 @@ If your wallet supports manual chain registration, use:
 - For a fully local development node, follow
   [Run a Node → Local devnet](../run-a-node/local-devnet) or
   [Local devnet endpoints](./local-devnet-endpoints).
+
+## IBC (testnet)
+
+Live ICS-20 paths (verified **2026-08-13**). Full topology, denoms, and
+Hermes notes: [IBC channels → Testnet](../ibc/channels#testnet-safro-testnet-1).
+
+| Path | Safro / A channel | Counterparty |
+| --- | --- | --- |
+| ↔ Osmosis (`osmo-test-5`) | `transfer/channel-15` | `transfer/channel-11823` |
+| ↔ Noble (`grand-1`) | `transfer/channel-16` | `transfer/channel-962` |
+| Noble ↔ Osmosis (no Safro hop) | — | `channel-963` ↔ `channel-11824` |
+
+| Token on Safro testnet | Trace | IBC denom |
+| --- | --- | --- |
+| USDC (canonical) | `transfer/channel-16/uusdc` | `ibc/FC6C34533ECF1AAD296E41A70D8F16089E90D436904B56EDE19342D6DE172B82` |
+| OSMO | `transfer/channel-15/uosmo` | `ibc/26F3C3DF1FD29D045C9D6E8A999473A8C368EF1AAAA6B19711EC0CB65BAFCBD7` |
+
+Counterparty RPCs for relayers: Osmosis
+`https://rpc.testnet.osmosis.zone` (alt `https://rpc.osmotest5.osmosis.zone`),
+Noble `https://noble-testnet-rpc.polkachu.com`. Hermes setup:
+[Hermes → Testnet](../ibc/hermes-setup#testnet-safro-testnet-1).

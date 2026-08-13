@@ -28,7 +28,8 @@ genesis. Out of the box you get:
 
 Mainnet (`safrochain-1`) and testnet (`safro-testnet-1`) both have **live**
 ICS-20 channels to **Noble** and **Osmosis**. See the full registry in
-[Channels](./channels).
+[Channels](./channels). Testnet Hermes (foundation) runs on **relayer1**
+and clears packets on the canonical channels below (verified 2026-08-13).
 
 **Mainnet**
 

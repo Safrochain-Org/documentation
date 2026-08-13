@@ -266,6 +266,132 @@ osmosisd query bank balances osmo1abc... --node https://rpc.osmosis.zone:443 \
   re-run `hermes config validate` after any chain upgrade to catch
   trusting-period drift.
 
+## Testnet: `safro-testnet-1`
+
+Channels are **already open** (see [Channels → Testnet](./channels#testnet-safro-testnet-1)).
+Foundation Hermes for testnet lives on **relayer1** under
+`~/hermes-testnet/` (packet + client refresh only). Independent operators
+can mirror the same paths.
+
+### Canonical paths
+
+| Path | Safro / A | Counterparty / B |
+| --- | --- | --- |
+| Safro ↔ Osmosis | `transfer/channel-15` | `osmo-test-5` `transfer/channel-11823` |
+| Safro ↔ Noble | `transfer/channel-16` | `grand-1` `transfer/channel-962` |
+| Osmosis ↔ Noble | `osmo-test-5` `transfer/channel-11824` | `grand-1` `transfer/channel-963` |
+
+### Minimal testnet `config.toml`
+
+Use **`account_prefix = 'addr_safro'`** on Safro. Prefer Osmosis RPC
+`https://rpc.testnet.osmosis.zone` and fall back to
+`https://rpc.osmotest5.osmosis.zone` if you get HTTP 403 from the host.
+
+```toml
+[global]
+log_level = 'info'
+
+[mode.clients]
+enabled = true
+refresh = true
+misbehaviour = false
+
+[mode.connections]
+enabled = false
+
+[mode.channels]
+enabled = false
+
+[mode.packets]
+enabled = true
+clear_interval = 50
+clear_on_start = false
+tx_confirmation = true
+
+[[chains]]
+id = 'safro-testnet-1'
+type = 'CosmosSdk'
+rpc_addr = 'https://rpc.testnet.safrochain.com'
+grpc_addr = 'https://grpc.testnet.safrochain.com:443'
+event_source = { mode = 'push', url = 'wss://rpc.testnet.safrochain.com/websocket', batch_delay = '500ms' }
+account_prefix = 'addr_safro'
+key_name = 'safro-testnet'
+key_store_type = 'Test'
+store_prefix = 'ibc'
+default_gas = 200000
+max_gas = 4000000
+gas_multiplier = 1.4
+clock_drift = '10s'
+max_block_time = '15s'
+trusting_period = '9days'
+gas_price = { price = 0.05, denom = 'usaf' }
+address_type = { derivation = 'cosmos' }
+
+[[chains]]
+id = 'osmo-test-5'
+type = 'CosmosSdk'
+rpc_addr = 'https://rpc.testnet.osmosis.zone'
+grpc_addr = 'https://grpc.testnet.osmosis.zone:443'
+event_source = { mode = 'push', url = 'wss://rpc.testnet.osmosis.zone/websocket', batch_delay = '500ms' }
+account_prefix = 'osmo'
+key_name = 'osmosis-testnet'
+key_store_type = 'Test'
+store_prefix = 'ibc'
+default_gas = 300000
+max_gas = 4000000
+gas_multiplier = 1.4
+clock_drift = '10s'
+max_block_time = '10s'
+trusting_period = '3days'
+gas_price = { price = 0.1, denom = 'uosmo' }
+address_type = { derivation = 'cosmos' }
+
+[[chains]]
+id = 'grand-1'
+type = 'CosmosSdk'
+rpc_addr = 'https://noble-testnet-rpc.polkachu.com'
+grpc_addr = 'http://noble-testnet-grpc.polkachu.com:21590'
+event_source = { mode = 'push', url = 'wss://noble-testnet-rpc.polkachu.com/websocket', batch_delay = '500ms' }
+account_prefix = 'noble'
+key_name = 'noble-testnet'
+key_store_type = 'Test'
+store_prefix = 'ibc'
+default_gas = 200000
+max_gas = 4000000
+gas_multiplier = 1.4
+clock_drift = '10s'
+max_block_time = '30s'
+trusting_period = '14days'
+gas_price = { price = 0.15, denom = 'uusdc' }
+address_type = { derivation = 'cosmos' }
+```
+
+```bash
+# Import keys (funded with testnet fee tokens)
+hermes --config ~/hermes-testnet/config.toml keys add --chain safro-testnet-1 --mnemonic-file ./safro-testnet.txt
+hermes --config ~/hermes-testnet/config.toml keys add --chain osmo-test-5 --mnemonic-file ./osmosis-testnet.txt
+hermes --config ~/hermes-testnet/config.toml keys add --chain grand-1 --mnemonic-file ./noble-testnet.txt
+
+hermes --config ~/hermes-testnet/config.toml config validate
+curl -sS -o /dev/null -w 'osmo %{http_code}\n' https://rpc.testnet.osmosis.zone/status
+
+# Clear then start (do NOT create channel)
+hermes --config ~/hermes-testnet/config.toml clear packets --chain safro-testnet-1 --port transfer --channel channel-15
+hermes --config ~/hermes-testnet/config.toml clear packets --chain safro-testnet-1 --port transfer --channel channel-16
+hermes --config ~/hermes-testnet/config.toml clear packets --chain osmo-test-5 --port transfer --channel channel-11824
+hermes --config ~/hermes-testnet/config.toml start
+```
+
+Smoke-test SAF → Osmosis testnet:
+
+```bash
+safrochaind tx ibc-transfer transfer transfer channel-15 \
+  <osmo-testnet-bech32> 1000000usaf \
+  --from <sender> --chain-id safro-testnet-1 \
+  --node https://rpc.testnet.safrochain.com:443 \
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
+```
+
 ## Troubleshooting
 
 | Symptom | Likely cause | Fix |
@@ -275,3 +401,5 @@ osmosisd query bank balances osmo1abc... --node https://rpc.osmosis.zone:443 \
 | `gas estimate too low` | counterparty `min_gas_prices` raised | bump `gas_price.price` |
 | `account sequence mismatch` | another sender used the same key | wait or rotate key |
 | chain handshake fails | port misconfigured (`transfer` ↔ `transfer`) | rerun `create channel` |
+| Osmosis `HTTP 403` from Hermes host | RPC IP allowlist / WAF | switch `rpc.testnet.osmosis.zone` ↔ `rpc.osmotest5.osmosis.zone`, or move host |
+| USDC denom `ibc/2180E84E…` on Safro testnet | legacy `channel-12` voucher | use `channel-16` / `ibc/FC6C3453…` for new transfers |

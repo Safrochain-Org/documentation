@@ -158,7 +158,7 @@ IBC channel metadata lives in separate `_IBC/` files (not inline in `chain.json`
 }
 ```
 
-Testnet IBC channels (live, verified 2026-08-12) — full topology and denoms in
+Testnet IBC channels (live, verified **2026-08-13**) — full topology and denoms in
 [IBC channels → Testnet](../ibc/channels#testnet-safro-testnet-1):
 
 | Path | Safro / A | Counterparty / B |
@@ -166,6 +166,9 @@ Testnet IBC channels (live, verified 2026-08-12) — full topology and denoms in
 | ↔ Osmosis (`osmo-test-5`) | `channel-15` | `channel-11823` |
 | ↔ Noble (`grand-1`) | `channel-16` | `channel-962` |
 | Noble ↔ Osmosis | `channel-963` (Noble) | `channel-11824` (Osmosis) |
+
+Foundation Hermes for these paths runs on **relayer1** (packet relay + client
+refresh). Do not use legacy Safro channels `channel-0`…`channel-14` (Expired clients).
 
 ## `assetlist.json` (mainnet)
 
