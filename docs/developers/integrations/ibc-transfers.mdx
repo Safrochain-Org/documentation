@@ -19,13 +19,21 @@ For **app developers** sending ICS-20 transfers from Safrochain. Relayer operato
 
 ## Channels (testnet)
 
+Verified **2026-08-13** (clients Active, 0 pending packets). Use only these
+channels — older Safro testnet channels (`channel-0`…`channel-14`) have
+**Expired** clients.
+
 | Destination | Safrochain channel | Counterparty |
 | --- | --- | --- |
 | Osmosis testnet (`osmo-test-5`) | `channel-15` | `channel-11823` |
 | Noble testnet (`grand-1`) | `channel-16` | `channel-962` |
 | Noble ↔ Osmosis (no Safro hop) | — | `channel-963` ↔ `channel-11824` |
 
+Canonical USDC on Safro testnet is `transfer/channel-16/uusdc`
+(`ibc/FC6C3453…`), not the legacy `channel-12` voucher.
+
 Full list (mainnet + testnet topology, denoms, escrows): [IBC channels](/ibc/channels).
+Hermes testnet template: [Hermes setup → Testnet](/ibc/hermes-setup#testnet-safro-testnet-1).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
