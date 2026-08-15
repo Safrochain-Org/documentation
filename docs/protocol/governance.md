@@ -16,8 +16,14 @@ Published mainnet genesis is expected to use the following **gov** deposit floor
 
 Other governance thresholds (voting period, quorum, veto, and so on) ship in genesis as configured for that network; treat the values above as **launch defaults**, not immutably fixed policy.
 
+## Active / planned proposals
+
+- [Enable FeeShare on mainnet](../governance/mainnet-feeshare-enable) — set `x/feeshare` `enable_fee_share=true` on `safrochain-1` (no upgrade).
+- [Testnet software upgrade to v0.2.2 (plan `v29`)](../governance/testnet-upgrade-v0.2.2) — align `safro-testnet-1` with mainnet binary.
+
 ## Learn more
 
 - Website governance section (overview in whitepaper): `https://safrochain.com/whitepaper`
 - Node repository: `safrochain-node/x/` module specs
+- CLI: [Governance](../cli/governance)
 

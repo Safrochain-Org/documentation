@@ -81,6 +81,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Governance',
+      collapsed: true,
+      items: [
+        'protocol/governance',
+        'governance/mainnet-feeshare-enable',
+        'governance/testnet-upgrade-v0.2.2',
+        'cli/governance',
+      ],
+    },
+    {
+      type: 'category',
       label: 'CLI Reference',
       collapsed: true,
       items: [
