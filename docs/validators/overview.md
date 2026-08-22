@@ -72,8 +72,9 @@ day-2 operations to graceful exit.
 
 | If you want to… | Read |
 | --- | --- |
+| Launch a validator for the first time | [Launch your first validator](./validator-walkthrough) |
 | Understand operator vs consensus keys | [Key management](./key-management) |
-| Stand up your first validator end-to-end | [Become a validator](./become-a-validator) |
+| Stand up your first validator end-to-end (concise) | [Become a validator](./become-a-validator) |
 | Move signing off the validator host | [Remote signing](./remote-signing) |
 | Lay out sentries and validator topology | [Sentry architecture](./sentry-architecture) |
 | Set up Prometheus + Grafana | [Monitoring](./monitoring) |
@@ -104,7 +105,7 @@ same six pillars.
 
 | Network | Chain ID | Status | Validator slots |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | upcoming (Q3 2026) | confirmed in genesis |
+| Mainnet | `safrochain-1` | **live** since `2026-06-25T10:00:00Z` | open via `MsgCreateValidator` |
 | Testnet | `safro-testnet-1` | live | open, faucet-funded |
 
 Always validate on testnet first. Every page in this section assumes you
