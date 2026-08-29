@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1777285958000,
+  "lastUpdatedAt": 1539502055000,
   "sidebarPosition": 2,
   "frontMatter": {
     "title": "Keys",
@@ -19,8 +19,8 @@
   },
   "sidebar": "infraSidebar",
   "previous": {
-    "title": "safrochaind CLI overview",
-    "permalink": "/cli/overview"
+    "title": "Ask me — CLI quick reference",
+    "permalink": "/cli/ask-me"
   },
   "next": {
     "title": "Bank",

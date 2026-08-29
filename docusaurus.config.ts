@@ -294,6 +294,11 @@ const config: Config = {
           className: 'safro-navbar-mobile-only',
         },
         {
+          to: '/chat',
+          label: 'Ask me',
+          position: 'right',
+        },
+        {
           type: 'search',
           position: 'right',
         },

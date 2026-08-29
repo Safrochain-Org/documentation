@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200">
+  <rect width="100%" height="100%" fill="#071229" />
+  <text x="20" y="40" fill="#fff" font-family="Inter, monospace" font-size="18">safrochaind tx bank send mykey <recipient> 1000000usaf --node https://rpc.testnet.safrochain.com:26657 -y</text>
+  <text x="20" y="90" fill="#9aa8c3" font-family="Inter, monospace" font-size="14">Tx broadcasted: 0x1234abcd... (example)</text>
+</svg>
