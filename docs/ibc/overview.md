@@ -27,16 +27,18 @@ genesis. Out of the box you get:
   it up.
 
 Mainnet (`safrochain-1`) and testnet (`safro-testnet-1`) both have **live**
-ICS-20 channels to **Noble** and **Osmosis**. See the full registry in
-[Channels](./channels). Testnet Hermes (foundation) runs on **relayer1**
-and clears packets on the canonical channels below (verified 2026-08-13).
+ICS-20 channels to **Noble**, **Osmosis**, and (mainnet only) **Injective**.
+See the full registry in [Channels](./channels). Testnet Hermes (foundation)
+runs on **relayer1** and clears packets on the canonical testnet channels
+below (verified 2026-08-13).
 
 **Mainnet**
 
 | Path | Safrochain channel | Counterparty channel | Tokens |
 | --- | --- | --- | --- |
-| Safrochain ↔ Noble | `channel-0` | `channel-581` | USDC in, SAF out |
+| Safrochain ↔ Noble | `channel-0` | `channel-581` | Noble USDC in, SAF out |
 | Safrochain ↔ Osmosis | `channel-1` | `channel-110497` | OSMO in, SAF out |
+| Safrochain ↔ Injective | `channel-2` | `channel-495` | Injective USDC + INJ in, SAF out |
 
 **Testnet**
 
@@ -82,6 +84,7 @@ the **counterparty channel id** (not the Safrochain channel id):
 | --- | --- | --- | --- |
 | Noble | `channel-0` | `transfer/channel-581/usaf` | `ibc/416D906365215CB6641B38CCDAA01385AA4B20E5E8EF2D65702A1B3F383FBBA2` |
 | Osmosis | `channel-1` | `transfer/channel-110497/usaf` | `ibc/DBAA4846F611A7603EFCE6F9F46F4F561D48B1F492A576022F000614A17089CE` |
+| Injective | `channel-2` | `transfer/channel-495/usaf` | `ibc/13E53BB4CF6DE586FF4CACFEEA67A05863CA8387996BD2B674DADE8BFDE1D1C9` |
 
 Compute any IBC denom locally:
 

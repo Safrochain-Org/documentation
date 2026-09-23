@@ -1,13 +1,15 @@
 ---
 title: Channels
-description: "Canonical IBC channel registry for Safrochain mainnet (safrochain-1) and testnet (safro-testnet-1): live Noble and Osmosis paths."
+description: "Canonical IBC channel registry for Safrochain mainnet (safrochain-1) and testnet (safro-testnet-1): Noble, Osmosis, and Injective paths."
 sidebar_position: 3
 ---
 
 :::info Mainnet IBC is live
-ICS-20 transfer channels to **Noble** and **Osmosis** are **OPEN** on `safrochain-1`.
-All identifiers below were verified on-chain (2026-06-25). Independent relayers
-can relay the same paths: see [Join as a relayer](#join-as-a-relayer).
+ICS-20 transfer channels to **Noble**, **Osmosis**, and **Injective** are **OPEN**
+on `safrochain-1`. Noble and Osmosis identifiers were verified on-chain
+(2026-06-25); Injective (`channel-2` ↔ `channel-495`) was verified
+(2026-09-23). Independent relayers can relay the same paths: see
+[Join as a relayer](#join-as-a-relayer).
 :::
 
 ## Mainnet: `safrochain-1`
@@ -18,8 +20,21 @@ can relay the same paths: see [Join as a relayer](#join-as-a-relayer).
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Noble (`noble-1`) | `07-tendermint-0` | `connection-0` | `channel-0` | `07-tendermint-224` | `connection-210` | `channel-581` | OPEN |
 | Osmosis (`osmosis-1`) | `07-tendermint-1` | `connection-1` | `channel-1` | `07-tendermint-3719` | `connection-11075` | `channel-110497` | OPEN |
+| Injective (`injective-1`) | `07-tendermint-2` | `connection-2` | `channel-2` | `07-tendermint-354` | `connection-354` | `channel-495` | OPEN |
 
-Both channels use port **`transfer`**, ordering **`ORDER_UNORDERED`**, and version **`ics20-1`**.
+All channels use port **`transfer`**, ordering **`ORDER_UNORDERED`**, and version **`ics20-1`**.
+
+:::tip USDC: Noble vs Injective
+Circle is migrating Cosmos USDC issuance toward **Injective**. Both paths remain
+**OPEN** on Safrochain today:
+
+- **Noble USDC** (`uusdc` via `channel-0`) — legacy IBC denom `ibc/8E27BA2…`
+- **Injective USDC** (native ERC20 `0xa00C59fF5a080D2b954d0c75e46E22a0c371235a` via
+  `channel-2`) — denom `ibc/1E180C08…`
+
+New integrations should prefer **Injective USDC** on `channel-2` / `channel-495`.
+Wallets must treat the two IBC denoms as **different assets**.
+:::
 
 ICS-20 transfer is enabled (`send_enabled=true`, `receive_enabled=true`). ICS-29
 fee channels are not registered yet (`ibc-fee channels` returns an empty list).
@@ -28,8 +43,9 @@ fee channels are not registered yet (`ibc-fee channels` returns an empty list).
 
 | Counterparty | Port | Channel (Safrochain) | Channel (counterparty) | Escrow (Safrochain) | Foundation relayer | Primary use |
 | --- | --- | --- | --- | --- | --- | --- |
-| Noble (`noble-1`) | `transfer` | `channel-0` | `channel-581` | `addr_safro1a53udazy8ayufvy0s434pfwjcedzqv34wqrjq7` | yes | USDC in/out, SAF → Noble |
+| Noble (`noble-1`) | `transfer` | `channel-0` | `channel-581` | `addr_safro1a53udazy8ayufvy0s434pfwjcedzqv34wqrjq7` | yes | Noble USDC in/out, SAF → Noble |
 | Osmosis (`osmosis-1`) | `transfer` | `channel-1` | `channel-110497` | `addr_safro1kq2rzz6fq2q7fsu75a9g7cpzjeanmk68sfygsy` | yes | OSMO in/out, SAF → Osmosis DEX |
+| Injective (`injective-1`) | `transfer` | `channel-2` | `channel-495` | `addr_safro12k2pyuylm9t7ugdvz67h9pg4gmmvhn5v82y96y` | coordinate | Injective USDC + INJ in/out, SAF → Injective |
 
 ### Public endpoints for relayers
 
@@ -41,6 +57,7 @@ community-operated; any equivalent endpoint works if it supports IBC queries.
 | Safrochain | `safrochain-1` | `https://rpc1.safrochain.network:443` | `https://grpc1.safrochain.network:443` |
 | Noble | `noble-1` | `https://noble-rpc.polkachu.com:443` | `https://noble-grpc.polkachu.com:443` |
 | Osmosis | `osmosis-1` | `https://rpc.osmosis.zone:443` | `https://grpc.osmosis.zone:443` |
+| Injective | `injective-1` | `https://sentry.tm.injective.network:443` | `https://sentry.chain.grpc.injective.network:443` |
 
 Full Safrochain endpoint list: [Mainnet endpoints](../networks/mainnet-endpoints).
 
@@ -56,14 +73,20 @@ safrochaind q ibc client states --node "$NODE" -o json \
 # Connections
 safrochaind q ibc connection end connection-0 --node "$NODE" -o json | jq '.connection.counterparty'
 safrochaind q ibc connection end connection-1 --node "$NODE" -o json | jq '.connection.counterparty'
+safrochaind q ibc connection end connection-2 --node "$NODE" -o json | jq '.connection.counterparty'
+
+# Client status (expect Active)
+safrochaind q ibc client status 07-tendermint-2 --node "$NODE"
 
 # Channels
 safrochaind q ibc channel end transfer channel-0 --node "$NODE" -o json | jq '.channel'
 safrochaind q ibc channel end transfer channel-1 --node "$NODE" -o json | jq '.channel'
+safrochaind q ibc channel end transfer channel-2 --node "$NODE" -o json | jq '.channel'
 
 # Escrow accounts (SAF locked when bridging out)
 safrochaind q ibc-transfer escrow-address transfer channel-0 --node "$NODE"
 safrochaind q ibc-transfer escrow-address transfer channel-1 --node "$NODE"
+safrochaind q ibc-transfer escrow-address transfer channel-2 --node "$NODE"
 
 # Inbound IBC denoms registered on Safrochain
 safrochaind q ibc-transfer denom-traces --node "$NODE" -o json | jq '.denom_traces'
@@ -92,6 +115,53 @@ safrochaind q ibc-transfer denom-trace 8E27BA2D5493AF5636760E354E46004562C46AB7E
 
 echo -n "transfer/channel-0/uusdc" | shasum -a 256
 # 8e27ba2d5493af5636760e354e46004562c46ab7ec0cc4c1ca14e9e20e2545b5
+```
+
+#### USDC (Injective → Safrochain)
+
+Circle **native USDC on Injective** (ERC20 representation on `injective-1`).
+This is the preferred USDC path for new apps as Noble issuance migrates.
+
+| Field | Value |
+| --- | --- |
+| Symbol | `USDC` |
+| Source chain | `injective-1` |
+| Base denom | `erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a` (6 decimals) |
+| Safrochain channel | `channel-2` |
+| Injective channel | `channel-495` |
+| Trace on Safrochain | `transfer/channel-2/erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a` |
+| IBC denom on Safrochain | `ibc/1E180C085A3A2688CDF2A781E5990BE8AA92CE69CB62A8CC6BB9F5EE17DD5C38` |
+
+```bash
+safrochaind q ibc-transfer denom-trace 1E180C085A3A2688CDF2A781E5990BE8AA92CE69CB62A8CC6BB9F5EE17DD5C38 \
+  --node https://rpc1.safrochain.network:443
+
+echo -n "transfer/channel-2/erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a" | shasum -a 256
+# 1e180c085a3a2688cdf2a781e5990be8aa92ce69cb62a8cc6bb9f5ee17dd5c38
+```
+
+Receive from Injective (counterparty sends on `channel-495` with the ERC20
+base denom above). Send **to** Injective using the same Safrochain channel
+`channel-2` with that IBC denom as the token to transfer.
+
+#### INJ (Injective → Safrochain)
+
+| Field | Value |
+| --- | --- |
+| Symbol | `INJ` |
+| Source chain | `injective-1` |
+| Base denom | `inj` (18 decimals on Safrochain voucher) |
+| Safrochain channel | `channel-2` |
+| Injective channel | `channel-495` |
+| Trace on Safrochain | `transfer/channel-2/inj` |
+| IBC denom on Safrochain | `ibc/8EC25D1E0297C50477D9A2FB586A005D1CC92CB21E685CE3344FF4DC03D787D2` |
+
+```bash
+safrochaind q ibc-transfer denom-trace 8EC25D1E0297C50477D9A2FB586A005D1CC92CB21E685CE3344FF4DC03D787D2 \
+  --node https://rpc1.safrochain.network:443
+
+echo -n "transfer/channel-2/inj" | shasum -a 256
+# 8ec25d1e0297c50477d9a2fb586a005d1cc92cb21e685ce3344ff4dc03d787d2
 ```
 
 #### OSMO (Osmosis → Safrochain)
@@ -174,6 +244,33 @@ safrochaind tx ibc-transfer transfer transfer channel-1 \
   --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```
 
+#### SAF (Safrochain → Injective)
+
+| Field | Value |
+| --- | --- |
+| Symbol | `SAF` |
+| Source chain | `safrochain-1` |
+| Base denom | `usaf` (6 decimals) |
+| Safrochain channel | `channel-2` |
+| Injective channel | `channel-495` |
+| Trace on Injective | `transfer/channel-495/usaf` |
+| IBC denom on Injective | `ibc/13E53BB4CF6DE586FF4CACFEEA67A05863CA8387996BD2B674DADE8BFDE1D1C9` |
+
+```bash
+echo -n "transfer/channel-495/usaf" | shasum -a 256
+# 13e53bb4cf6de586ff4cacfeea67a05863ca8387996bd2b674dade8bfde1d1c9
+```
+
+Send from Safrochain:
+
+```bash
+safrochaind tx ibc-transfer transfer transfer channel-2 \
+  <inj-bech32-recipient> 1000000usaf \
+  --from <sender> --chain-id safrochain-1 \
+  --node https://rpc1.safrochain.network:443 \
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
+```
+
 #### USDC (Noble → Osmosis, transit: not a direct Safrochain hop)
 
 The Foundation relayer also clears Noble↔Osmosis USDC for users who route
@@ -196,6 +293,7 @@ The Safrochain Foundation runs Hermes on `safro-relayer-1` for:
 | --- | --- |
 | `safrochain-1` ↔ `noble-1` (`channel-0` ↔ `channel-581`) | live |
 | `safrochain-1` ↔ `osmosis-1` (`channel-1` ↔ `channel-110497`) | live |
+| `safrochain-1` ↔ `injective-1` (`channel-2` ↔ `channel-495`) | channel open · add Hermes path |
 | `noble-1` ↔ `osmosis-1` (USDC transit) | live |
 
 Telemetry and wallet provisioning live in the private operator repo. Relay
@@ -207,8 +305,10 @@ Channels are already open: **do not** run `hermes create channel` unless you
 are opening a **new** counterparty. To relay an existing path:
 
 1. Install Hermes: see [Hermes setup](./hermes-setup).
-2. Configure `safrochain-1` plus the counterparty (`noble-1` or `osmosis-1`).
-3. Import a funded key on **each** chain (fee token: `usaf`, `uusdc`/`ustake` on Noble, `uosmo` on Osmosis).
+2. Configure `safrochain-1` plus the counterparty (`noble-1`, `osmosis-1`, or
+   `injective-1`).
+3. Import a funded key on **each** chain (fee token: `usaf`, `uusdc`/`ustake`
+   on Noble, `uosmo` on Osmosis, `inj` on Injective).
 4. Run `hermes config validate` and `hermes health-check`.
 5. Start Hermes: it discovers open channels and clears packets automatically.
 

@@ -113,6 +113,7 @@ IBC channel metadata lives in separate `_IBC/` files (not inline in `chain.json`
 
 - `_IBC/safrochain-noble.json`: `channel-0` ↔ `channel-581`
 - `_IBC/safrochain-osmosis.json`: `channel-1` ↔ `channel-110497`
+- `_IBC/safrochain-injective.json`: `channel-2` ↔ `channel-495`
 
 ## Testnet: `safro-testnet-1` (live)
 
@@ -229,17 +230,44 @@ refresh). Do not use legacy Safro channels `channel-0`…`channel-14` (Expired c
         }
       ],
       "logo_URIs": { "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png" }
+    },
+    {
+      "description": "Circle USDC (native ERC20 on Injective) over IBC channel-2.",
+      "denom_units": [
+        { "denom": "ibc/1E180C085A3A2688CDF2A781E5990BE8AA92CE69CB62A8CC6BB9F5EE17DD5C38", "exponent": 0 },
+        { "denom": "USDC", "exponent": 6 }
+      ],
+      "base": "ibc/1E180C085A3A2688CDF2A781E5990BE8AA92CE69CB62A8CC6BB9F5EE17DD5C38",
+      "name": "USD Coin (Injective)",
+      "display": "USDC",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": {
+            "chain_name": "injective",
+            "base_denom": "erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a",
+            "channel_id": "channel-495"
+          },
+          "chain": {
+            "channel_id": "channel-2",
+            "path": "transfer/channel-2/erc20:0xa00C59fF5a080D2b954d0c75e46E22a0c371235a"
+          }
+        }
+      ],
+      "logo_URIs": { "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg" }
     }
   ]
 }
 ```
 
-SAF on counterparty chains (for wallet/explorer asset lists on Noble and Osmosis):
+SAF on counterparty chains (for wallet/explorer asset lists on Noble, Osmosis, and Injective):
 
 | Chain | IBC denom | Trace |
 | --- | --- | --- |
 | Noble | `ibc/416D906365215CB6641B38CCDAA01385AA4B20E5E8EF2D65702A1B3F383FBBA2` | `transfer/channel-581/usaf` |
 | Osmosis | `ibc/DBAA4846F611A7603EFCE6F9F46F4F561D48B1F492A576022F000614A17089CE` | `transfer/channel-110497/usaf` |
+| Injective | `ibc/13E53BB4CF6DE586FF4CACFEEA67A05863CA8387996BD2B674DADE8BFDE1D1C9` | `transfer/channel-495/usaf` |
 
 Full channel topology: [IBC channels](../ibc/channels).
 
