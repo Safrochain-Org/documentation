@@ -23,6 +23,13 @@ sign blocks, and earn block rewards plus commission from delegations. This
 guide walks you through the entire lifecycle: prerequisites → key generation
 → `create-validator` → post-launch checks → going live.
 
+:::tip First time?
+This page assumes you're comfortable with Cosmos tooling and moves fast.
+[Launch your first validator](./validator-walkthrough) covers the same ground
+step by step, explaining what each command does and the mistakes that commonly
+trip people up.
+:::
+
 ## 1 · Prerequisites
 
 | Requirement | Value |
@@ -102,8 +109,18 @@ keyring to a public machine or repository.
 Verify the balance:
 
 ```bash
-safrochaind query bank balances "$(safrochaind keys show validator -a)"
+safrochaind query bank balances "$(safrochaind keys show validator -a --keyring-backend file)"
 ```
+
+:::note Keep `--keyring-backend` consistent
+You created the key with `--keyring-backend file` in step 2, so the nested
+lookup needs the same flag. Without it the CLI falls back to the default `os`
+backend, where the key doesn't exist, and the command fails with a confusing
+`key not found` even though the key is fine.
+
+If you're checking a balance from a machine that has no keyring at all, pass
+the `addr_safro1…` address literally instead.
+:::
 
 ## 4 · Get your consensus pubkey
 
@@ -161,7 +178,7 @@ EOF
 safrochaind tx staking create-validator validator.json \
   --from validator \
   --chain-id safro-testnet-1 \
-  --gas auto --gas-adjustment 1.3 \
+  --gas 250000 \
   --gas-prices 0.05usaf \
   --keyring-backend file \
   --node https://rpc.testnet.safrochain.com:443 \
@@ -169,13 +186,13 @@ safrochaind tx staking create-validator validator.json \
 ```
 
   </TabItem>
-  <TabItem value="mainnet" label="Mainnet (Q3 2026)">
+  <TabItem value="mainnet" label="Mainnet (live)">
 
 ```bash
 safrochaind tx staking create-validator validator.json \
   --from validator \
   --chain-id safrochain-1 \
-  --gas auto --gas-adjustment 1.3 \
+  --gas 250000 \
   --gas-prices 0.05usaf \
   --keyring-backend file \
   --node https://rpc.safrochain.network:443 \
@@ -184,6 +201,22 @@ safrochaind tx staking create-validator validator.json \
 
   </TabItem>
 </Tabs>
+
+:::warning Prefer a flat `--gas` over `--gas auto` here
+`--gas auto --gas-adjustment 1.3` can under-estimate `create-validator` and
+fail with `out of gas` — **and the fee is still charged**, because it is
+deducted before execution. Use a flat, generous `--gas`, or raise
+`--gas-adjustment` to `1.8`+ if you prefer simulation.
+
+Then confirm the result rather than trusting the broadcast response, which
+only reports acceptance into the mempool:
+
+```bash
+safrochaind query tx <TXHASH> --node https://rpc.safrochain.network:443
+# code: 0  → success
+# code: 11 → out of gas; raise --gas and retry
+```
+:::
 
 ## 7 · Verify the validator was created
 
@@ -251,6 +284,7 @@ production-ready Docker images and detailed migration guides.
 | Action | Command |
 | --- | --- |
 | Edit description / commission | `safrochaind tx staking edit-validator --commission-rate 0.06 …` |
+| Rename the validator | `safrochaind tx staking edit-validator --new-moniker "new-name" …` (the flag is `--new-moniker`; there is no `--moniker`) |
 | Self-delegate more | `safrochaind tx staking delegate $VALADDR 5000000usaf …` |
 | Unjail after downtime | `safrochaind tx slashing unjail --from validator …` |
 | Unbond (begin exit) | `safrochaind tx staking unbond $VALADDR <amount>usaf …` |

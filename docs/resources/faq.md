@@ -11,7 +11,10 @@ Safrochain is an Africa-first Layer 1 blockchain built on the Cosmos SDK. It pri
 
 SAF is the native token used for fees, staking, and governance. Total fixed supply is **1 billion SAF**.
 
-## When is mainnet launching?
+## Is mainnet live?
 
-Mainnet is planned for **Q3 2026**.
+Yes. `safrochain-1` has been producing blocks since its genesis time of
+**2026-06-25T10:00:00Z**. See [Mainnet endpoints](../networks/mainnet-endpoints)
+for RPC, REST, and seed details, or [Join mainnet](../run-a-node/join-mainnet)
+to run a node.
 

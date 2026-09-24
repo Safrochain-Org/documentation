@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
       link: { type: 'doc', id: 'validators/overview' },
       items: [
         'validators/overview',
+        'validators/validator-walkthrough',
         'validators/become-a-validator',
         {
           type: 'category',
