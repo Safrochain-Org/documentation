@@ -1,8 +1,8 @@
 export default [
-  require("/Users/bdan/Projects/SAFROCHAIN/node/Docs/node_modules/infima/dist/css/default/default.css"),
-  require("/Users/bdan/Projects/SAFROCHAIN/node/Docs/node_modules/@docusaurus/theme-classic/lib/prism-include-languages"),
-  require("/Users/bdan/Projects/SAFROCHAIN/node/Docs/node_modules/@docusaurus/theme-classic/lib/nprogress"),
-  require("/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/css/custom.css"),
-  require("/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/back-nav-fix.ts"),
-  require("/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/seo-jsonld.ts"),
+  require("D:\\opensource-project\\documentation-safrochain\\node_modules\\infima\\dist\\css\\default\\default.css"),
+  require("D:\\opensource-project\\documentation-safrochain\\node_modules\\@docusaurus\\theme-classic\\lib\\prism-include-languages"),
+  require("D:\\opensource-project\\documentation-safrochain\\node_modules\\@docusaurus\\theme-classic\\lib\\nprogress"),
+  require("D:\\opensource-project\\documentation-safrochain\\src\\css\\custom.css"),
+  require("D:\\opensource-project\\documentation-safrochain\\src\\clientModules\\back-nav-fix.ts"),
+  require("D:\\opensource-project\\documentation-safrochain\\src\\clientModules\\seo-jsonld.ts"),
 ];

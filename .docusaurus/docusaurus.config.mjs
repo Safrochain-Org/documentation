@@ -210,11 +210,11 @@ export default {
     ]
   ],
   "clientModules": [
-    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/back-nav-fix.ts",
-    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/seo-jsonld.ts"
+    "D:\\opensource-project\\documentation-safrochain\\src\\clientModules\\back-nav-fix.ts",
+    "D:\\opensource-project\\documentation-safrochain\\src\\clientModules\\seo-jsonld.ts"
   ],
   "plugins": [
-    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/plugins/silence-bundler-warnings.js",
+    "D:\\opensource-project\\documentation-safrochain\\plugins\\silence-bundler-warnings.js",
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -247,7 +247,7 @@ export default {
       }
     ],
     [
-      "/Users/bdan/Projects/SAFROCHAIN/node/Docs/node_modules/@easyops-cn/docusaurus-search-local/dist/server/server/index.js",
+      "D:\\opensource-project\\documentation-safrochain\\node_modules\\@easyops-cn\\docusaurus-search-local\\dist\\server\\server\\index.js",
       {
         "indexDocs": true,
         "indexBlog": false,
@@ -419,6 +419,11 @@ export default {
           "label": "App integrations",
           "position": "left",
           "className": "safro-navbar-mobile-only"
+        },
+        {
+          "to": "/chat",
+          "label": "Ask me",
+          "position": "right"
         },
         {
           "type": "search",

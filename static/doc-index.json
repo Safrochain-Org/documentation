@@ -1,0 +1,647 @@
+{
+  "generatedAt": "2026-07-16T15:28:42.203Z",
+  "entries": [
+    {
+      "title": "Ask me — CLI quick reference",
+      "path": "/cli/ask-me",
+      "section": "cli",
+      "excerpt": "--- title: \"Ask me — CLI quick reference\" description: \"Practical Safrochain CLI examples: query balances, send tokens, and broadcast transactions with copy-paste command snippets.\" sidebar_position: 2 keywords: - cli - safrochaind - transaction"
+    },
+    {
+      "title": "Bank",
+      "path": "/cli/bank",
+      "section": "cli",
+      "excerpt": "--- title: Bank description: Send SAF, query balances, supply, and denoms with safrochaind. sidebar_position: 3 --- The `bank` module handles native token transfers and balance queries. Safrochain's base denom is **`usaf`** (1 SAF = 10^6 usaf). Display denom is"
+    },
+    {
+      "title": "Governance",
+      "path": "/cli/governance",
+      "section": "cli",
+      "excerpt": "--- title: Governance description: Submit proposals, vote, deposit, and query Safrochain on-chain governance. sidebar_position: 5 --- Safrochain inherits Cosmos SDK 0.50's `gov v1beta1` and `gov v1` flows. Proposals can be:"
+    },
+    {
+      "title": "Keys",
+      "path": "/cli/keys",
+      "section": "cli",
+      "excerpt": "--- title: Keys description: safrochaind keys, add, list, show, export, import, delete. sidebar_position: 2 --- `safrochaind keys` is a thin wrapper around the Cosmos SDK keyring. It manages **operator (account)** keys, the keys that hold funds, delegate,"
+    },
+    {
+      "title": "safrochaind CLI overview",
+      "path": "/cli/overview",
+      "section": "cli",
+      "excerpt": "--- title: safrochaind CLI overview description: \"The safrochaind command-line interface: global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.\" sidebar_position: 1 keywords: - safrochaind - CLI - Cosmos SDK CLI"
+    },
+    {
+      "title": "Query",
+      "path": "/cli/query",
+      "section": "cli",
+      "excerpt": "--- title: Query description: Every read-only namespace exposed by safrochaind query. sidebar_position: 6 --- `safrochaind query` is a read-only client. It hits the node specified by `--node` (default: `tcp://localhost:26657`) and returns gRPC results"
+    },
+    {
+      "title": "Staking",
+      "path": "/cli/staking",
+      "section": "cli",
+      "excerpt": "--- title: Staking description: Delegate, redelegate, unbond, and run validator operations with safrochaind. sidebar_position: 4 --- The `staking` module powers Safrochain's proof-of-stake. Delegators bond `SAF` to validators and earn pro-rata rewards; validators sign blocks and"
+    },
+    {
+      "title": "Tx",
+      "path": "/cli/tx",
+      "section": "cli",
+      "excerpt": "--- title: Tx description: Every signing namespace exposed by safrochaind tx, plus broadcast workflows. sidebar_position: 7 --- `safrochaind tx` is the signing/broadcasting client. Every command:"
+    },
+    {
+      "title": "Choose your stack",
+      "path": "/developers/get-started/choose-your-stack",
+      "section": "developers",
+      "excerpt": "--- title: Choose your stack description: \"Compare Flutter, React Native, CosmJS, Cosmos Kit, and SafHandle for Safrochain app development.\" sidebar_position: 1 --- Pick the stack that matches your users and team skills. Most production apps combine **mobile UI** + **SafHandle** + **wallet signing**."
+    },
+    {
+      "title": "Your first transaction",
+      "path": "/developers/get-started/first-transaction",
+      "section": "developers",
+      "excerpt": "--- title: Your first transaction description: \"Send 1 usaf on safro-testnet-1 from Web, React Native, Flutter, or the CLI.\" sidebar_position: 3 --- Send **1 usaf** to yourself on testnet. Same operation on every platform tab below."
+    },
+    {
+      "title": "Connect to local devnet",
+      "path": "/developers/get-started/local-devnet",
+      "section": "developers",
+      "excerpt": "--- title: Connect to local devnet description: \"Point CosmJS, Cosmos Kit, and SafHandle at safro-devnet-1 on localhost.\" sidebar_position: 4 --- Run a chain on your laptop before touching public testnet. Full node setup: [Run a local devnet](/run-a-node/local-devnet)."
+    },
+    {
+      "title": "Testnet setup",
+      "path": "/developers/get-started/testnet-setup",
+      "section": "developers",
+      "excerpt": "--- title: Testnet setup description: \"Fund a testnet wallet, pick RPC/REST endpoints, and verify connectivity before building on safro-testnet-1.\" sidebar_position: 2 --- Use **testnet** (`safro-testnet-1`) for shared examples, or **[local devnet](./local-devnet)** (`safro-devnet-1`) on your machine."
+    },
+    {
+      "title": "IBC transfers in apps",
+      "path": "/developers/integrations/ibc-transfers",
+      "section": "developers",
+      "excerpt": "--- title: IBC transfers in apps description: \"Send ICS-20 token transfers from Safrochain apps using MsgTransfer with CosmJS.\" sidebar_position: 1 keywords: - IBC - ICS-20 - MsgTransfer"
+    },
+    {
+      "title": "Payments flow",
+      "path": "/developers/integrations/payments-flow",
+      "section": "developers",
+      "excerpt": "--- title: Payments flow description: \"End-to-end mobile and web payment flow: connect wallet, resolve SafHandle, simulate, sign, confirm.\" sidebar_position: 2 --- Production send flow for remittance and wallet apps."
+    },
+    {
+      "title": "Token factory in apps",
+      "path": "/developers/integrations/token-factory",
+      "section": "developers",
+      "excerpt": "--- title: Token factory in apps description: \"Create native denoms from Safrochain apps using the tokenfactory module and CosmJS.\" sidebar_position: 3 --- The **tokenfactory** module lets accounts create new native denoms with a factory prefix. Operator CLI details: [tokenfactory module](/modules/tokenfactory)."
+    },
+    {
+      "title": "Flutter integration",
+      "path": "/developers/mobile/flutter",
+      "section": "developers",
+      "excerpt": "--- title: Flutter integration description: \"Integrate Safrochain into Flutter apps with CosmJS and Cosmos Kit (WalletConnect): no separate Dart chain SDK.\" sidebar_position: 1 keywords: - Flutter - CosmJS - Cosmos Kit"
+    },
+    {
+      "title": "Keys and UX patterns",
+      "path": "/developers/mobile/keys-and-ux",
+      "section": "developers",
+      "excerpt": "--- title: Keys and UX patterns description: \"Secure key storage, confirm-before-sign UX, address display, and deep links for Safrochain mobile apps.\" sidebar_position: 3 --- Mobile wallets handle real money. Follow these patterns on Flutter and React Native."
+    },
+    {
+      "title": "React Native integration",
+      "path": "/developers/mobile/react-native",
+      "section": "developers",
+      "excerpt": "--- title: React Native integration description: \"Integrate Safrochain into React Native and Expo with CosmJS, secure storage, and testnet endpoints.\" sidebar_position: 2 --- Use this guide for **React Native** and **Expo** apps. CosmJS APIs match [Web CosmJS](../web/cosmjs); this page covers mobile-specific setup."
+    },
+    {
+      "title": "Chain constants",
+      "path": "/developers/reference/chain-constants",
+      "section": "developers",
+      "excerpt": "--- title: Chain constants description: \"Safrochain testnet and mainnet chain IDs, denoms, bech32 prefix, and gas prices for app developers.\" sidebar_position: 1 --- Copy these into app config and wallet chain JSON."
+    },
+    {
+      "title": "RPC, REST, and broadcast",
+      "path": "/developers/reference/endpoints",
+      "section": "developers",
+      "excerpt": "--- title: RPC, REST, and broadcast description: \"Low-level HTTP primitives for Safrochain testnet: RPC status, REST queries, and CLI broadcast.\" sidebar_position: 2 --- Canonical URLs: [testnet endpoints](/networks/testnet-endpoints), [mainnet endpoints](/networks/mainnet-endpoints)."
+    },
+    {
+      "title": "Events and WebSockets",
+      "path": "/developers/reference/events-and-websockets",
+      "section": "developers",
+      "excerpt": "--- title: Events and WebSockets description: \"Subscribe to CometBFT NewBlock and Tx events on Safrochain; mobile polling fallbacks.\" sidebar_position: 3 --- CometBFT exposes a WebSocket at `/websocket` on the RPC host."
+    },
+    {
+      "title": "SafHandle hub",
+      "path": "/developers/safhandle/index",
+      "section": "developers",
+      "excerpt": "--- title: SafHandle hub description: \"Human-readable @handles and phone numbers on Safrochain: SDK hub linking to canonical GitHub documentation.\" sidebar_position: 1 --- **SafHandle** maps short names (`@john`) and phone numbers to `addr_safro` addresses via an on-chain CosmWasm registry. Use it in mobile and web apps so users never paste 45-character addresses."
+    },
+    {
+      "title": "Transfer, release, and lookup",
+      "path": "/developers/safhandle/manage",
+      "section": "developers",
+      "excerpt": "--- title: Transfer, release, and lookup description: \"Transfer or release SafHandle names, reverse-lookup handles by address, and read contract config.\" sidebar_position: 4 --- After registration, owners can **transfer** a name to another address or **release** it back to the pool. Apps can also **reverse-lookup** which name belongs to an address."
+    },
+    {
+      "title": "Register names",
+      "path": "/developers/safhandle/register",
+      "section": "developers",
+      "excerpt": "--- title: Register names description: \"Register short SafHandle names on Safrochain with SafHandle SDK registerName or CosmJS MsgExecuteContract.\" sidebar_position: 3 --- Registration binds a short name (e.g. `john.saf`) to the signer's `addr_safro` on chain. Default fee: **50 SAF** (`50000000` usaf), routed to the dev module wallet."
+    },
+    {
+      "title": "Resolve handles",
+      "path": "/developers/safhandle/resolve",
+      "section": "developers",
+      "excerpt": "--- title: Resolve handles description: \"Resolve @names and phone numbers to addr_safro with SafHandle SDK, CosmJS smart queries, and validation helpers.\" sidebar_position: 2 --- Use **resolve** before every send-by-name flow. The SafHandle contract maps `john` / `john.saf` to an `addr_safro` address. Phone linking is **Phase 2** on testnet v1 (names only today)."
+    },
+    {
+      "title": "Build contracts in Rust",
+      "path": "/developers/smart-contracts/build-in-rust",
+      "section": "developers",
+      "excerpt": "--- title: Build contracts in Rust description: \"CosmWasm contract development on Safrochain: Rust toolchain, cargo test, and wasm optimizer.\" sidebar_position: 2 --- ## Prerequisites"
+    },
+    {
+      "title": "Deploy and manage contracts",
+      "path": "/developers/smart-contracts/deploy-and-manage",
+      "section": "developers",
+      "excerpt": "--- title: Deploy and manage contracts description: \"Store, instantiate, and administer CosmWasm contracts on Safrochain testnet and mainnet.\" sidebar_position: 3 --- Deployment uses `safrochaind tx wasm`. Full flag lists live in [wasm module](/modules/wasm)."
+    },
+    {
+      "title": "Interact from apps",
+      "path": "/developers/smart-contracts/interact-from-apps",
+      "section": "developers",
+      "excerpt": "--- title: Interact from apps description: \"Query and execute CosmWasm contracts from web, React Native, and Flutter apps on Safrochain.\" sidebar_position: 4 --- dApps talk to contracts via **smart queries** (read) and **MsgExecuteContract** (write)."
+    },
+    {
+      "title": "Local dev and testing",
+      "path": "/developers/smart-contracts/local-dev-and-testing",
+      "section": "developers",
+      "excerpt": "--- title: Local dev and testing description: \"Unit test CosmWasm contracts with cw-multi-test and optional local wasmd nodes.\" sidebar_position: 5 --- ## Unit tests (cw-multi-test)"
+    },
+    {
+      "title": "CosmWasm overview",
+      "path": "/developers/smart-contracts/overview",
+      "section": "developers",
+      "excerpt": "--- title: CosmWasm overview description: \"Smart contracts on Safrochain: store, instantiate, execute, and query via the wasm module.\" sidebar_position: 1 --- Safrochain runs **CosmWasm** via the [`wasm` module](/modules/wasm). App developers write contracts in **Rust**, compile to `.wasm`, and call them from CosmJS or REST."
+    },
+    {
+      "title": "Start here",
+      "path": "/developers/start-here",
+      "section": "developers",
+      "excerpt": "--- title: Start here description: \"Welcome to Safrochain developer docs: what to build, why Safrochain, and where to start for mobile, web, wallets, and smart contracts.\" sidebar_position: 1 keywords: - Safrochain developer portal - build on Safrochain - mobile payments"
+    },
+    {
+      "title": "Broadcast modes",
+      "path": "/developers/transactions/broadcast-modes",
+      "section": "developers",
+      "excerpt": "--- title: Broadcast modes description: \"Sync, async, and block broadcast modes; tx errors; offline and multisig on Safrochain.\" sidebar_position: 3 --- After signing, CometBFT accepts the tx via RPC `broadcast_tx_*` methods. CosmJS `signAndBroadcast` uses **sync** by default and waits for `CheckTx`."
+    },
+    {
+      "title": "Signing overview",
+      "path": "/developers/transactions/signing-overview",
+      "section": "developers",
+      "excerpt": "--- title: Signing overview description: \"End-to-end transaction signing on Safrochain: build, sign, and broadcast with Cosmos Kit, CosmJS, or CLI.\" sidebar_position: 1 --- Every app integration follows the same pipeline:"
+    },
+    {
+      "title": "Simulate gas and fees",
+      "path": "/developers/transactions/simulate-gas-fees",
+      "section": "developers",
+      "excerpt": "--- title: Simulate gas and fees description: \"Estimate gas for MsgSend and MsgExecuteContract on Safrochain using REST simulate and CosmJS auto fees.\" sidebar_position: 2 --- Safrochain uses **globalfee** with a typical minimum of **0.05 usaf per gas unit**. Always simulate before broadcasting high-value txs."
+    },
+    {
+      "title": "Connect browser wallets",
+      "path": "/developers/wallets/connect-browser-wallets",
+      "section": "developers",
+      "excerpt": "--- title: Connect browser wallets description: \"Keplr and Leap experimentalSuggestChain for Safrochain without Cosmos Kit.\" sidebar_position: 3 --- For vanilla TypeScript apps, call the wallet extension APIs directly."
+    },
+    {
+      "title": "Cosmos Kit",
+      "path": "/developers/wallets/cosmos-kit",
+      "section": "developers",
+      "excerpt": "--- title: Cosmos Kit description: \"Connect Keplr, Leap, and Cosmostation to a Safrochain web dApp with @cosmos-kit/react.\" sidebar_position: 2 --- [Cosmos Kit](https://docs.hyperweb.io/cosmos-kit) provides a React `ChainProvider`, wallet modal, and offline signers for interchain dApps."
+    },
+    {
+      "title": "Supported wallets",
+      "path": "/developers/wallets/supported-wallets",
+      "section": "developers",
+      "excerpt": "--- title: Supported wallets description: \"Wallets that work with Safrochain: Keplr, Leap, Cosmostation, Ledger, and Cosmos Kit providers.\" sidebar_position: 1 --- Safrochain is **Cosmos-native** (not EVM). Wallets must support `addr_safro` bech32 and `coin_type` 118."
+    },
+    {
+      "title": "CosmJS for web and TypeScript",
+      "path": "/developers/web/cosmjs",
+      "section": "developers",
+      "excerpt": "--- title: CosmJS for web and TypeScript description: \"Install CosmJS and connect to Safrochain testnet: prerequisites and links to query and signing guides.\" sidebar_position: 1 keywords: - CosmJS - StargateClient - SigningStargateClient"
+    },
+    {
+      "title": "Query the chain",
+      "path": "/developers/web/query-chain",
+      "section": "developers",
+      "excerpt": "--- title: Query the chain description: \"Query Safrochain height, balances, validators, and wasm smart state with CosmJS and REST.\" sidebar_position: 2 --- import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';"
+    },
+    {
+      "title": "Quick links",
+      "path": "/getting-started/quick-links",
+      "section": "getting-started",
+      "excerpt": "--- title: Quick links description: Official Safrochain URLs and developer endpoints. --- ## Primary - **Website**: [safrochain.com](https://safrochain.com)"
+    },
+    {
+      "title": "What is Safrochain?",
+      "path": "/getting-started/what-is-safrochain",
+      "section": "getting-started",
+      "excerpt": "--- title: What is Safrochain? description: \"Vision, positioning, and what Safrochain solves: a Cosmos SDK Layer-1 for mobile-first payments, local currencies, stablecoins, remittances, and IBC-connected economies.\" keywords: - what is Safrochain - Cosmos SDK Layer-1 - African blockchain - mobile-first payments"
+    },
+    {
+      "title": "Channels",
+      "path": "/ibc/channels",
+      "section": "ibc",
+      "excerpt": "--- title: Channels description: \"Canonical IBC channel registry for Safrochain mainnet (safrochain-1): live Noble and Osmosis paths.\" sidebar_position: 3 --- :::info Mainnet IBC is live ICS-20 transfer channels to **Noble** and **Osmosis** are **OPEN** on `safrochain-1`."
+    },
+    {
+      "title": "Hermes relayer setup",
+      "path": "/ibc/hermes-setup",
+      "section": "ibc",
+      "excerpt": "--- title: Hermes relayer setup description: Full Hermes config template, systemd unit, and health checks for relaying Safrochain. sidebar_position: 2 --- [Hermes](https://hermes.informal.systems/) is the relayer of choice for Safrochain foundation operators. This page is a copy-paste template that"
+    },
+    {
+      "title": "Safrochain IBC overview",
+      "path": "/ibc/overview",
+      "section": "ibc",
+      "excerpt": "--- title: Safrochain IBC overview description: \"How Safrochain participates in the Cosmos IBC ecosystem: clients, connections, channels, packets, and supported tokens for cross-chain transfers.\" sidebar_position: 1 keywords: - IBC - Inter-Blockchain Communication - ibc-go"
+    },
+    {
+      "title": "Introduction to Safrochain",
+      "path": "/intro",
+      "section": "intro.md",
+      "excerpt": "--- title: Introduction to Safrochain description: Start here. What Safrochain is, how it works, and how to use these docs to build, validate, or run a node on the Cosmos SDK Layer-1. sidebar_position: 1 keywords: - Safrochain - Cosmos SDK - Layer-1 blockchain"
+    },
+    {
+      "title": "Auth",
+      "path": "/modules/auth",
+      "section": "modules",
+      "excerpt": "--- title: Auth description: \"Accounts, sequences, module accounts, and bech32 helpers: safrochaind query auth.\" --- The **auth** module manages **accounts**, account numbers, sequences, and **module accounts**. It underpins every signed transaction. **CLI root**: `safrochaind query auth`"
+    },
+    {
+      "title": "Authz",
+      "path": "/modules/authz",
+      "section": "modules",
+      "excerpt": "--- title: Authz description: \"Generic authorizations to execute messages on someone else's behalf: query and tx authz.\" --- The **authz** module provides **generic authorizations**: one account (**granter**) delegates permission for specific message types to another (**grantee**). **CLI root**: `safrochaind query authz` and `safrochaind tx authz`"
+    },
+    {
+      "title": "Bank",
+      "path": "/modules/bank",
+      "section": "modules",
+      "excerpt": "--- title: Bank description: \"Balances, supply, denom metadata, and token transfers: query and tx bank commands.\" --- The **bank** module tracks **coin balances**, **supply**, **denom metadata**, and enforces send rules. **CLI root**: `safrochaind query bank` and `safrochaind tx bank`"
+    },
+    {
+      "title": "Clock",
+      "path": "/modules/clock",
+      "section": "modules",
+      "excerpt": "--- title: Clock description: \"Register CosmWasm contracts for periodic clock ticks: queries and register, unregister, unjail transactions.\" --- The **clock** module tracks CosmWasm contracts that should receive **scheduled execution** (tick-style automation). Registration ties a contract into the chain’s clock keeper; **unjail** recovers a contract that failed validation rules. **CLI root**: `safrochaind query clock` and `safrochaind tx clock`"
+    },
+    {
+      "title": "Consensus",
+      "path": "/modules/consensus",
+      "section": "modules",
+      "excerpt": "--- title: Consensus description: \"CometBFT-related consensus queries and module consensus params.\" --- The **consensus** module exposes **CometBFT-related queries** and **module consensus parameters**. **CLI root**: `safrochaind query consensus`"
+    },
+    {
+      "title": "Crisis",
+      "path": "/modules/crisis",
+      "section": "modules",
+      "excerpt": "--- title: Crisis description: \"Invariant violation proofs submitted by validators: tx crisis invariant-broken.\" --- The **crisis** module halts the chain if an **invariant** fails; privileged actors can submit proofs. **CLI root**: `safrochaind tx crisis` (query surface is usually unused day-to-day)"
+    },
+    {
+      "title": "CW Hooks",
+      "path": "/modules/cw-hooks",
+      "section": "modules",
+      "excerpt": "--- title: CW Hooks description: \"Register CosmWasm contracts for staking and governance sudo hooks: queries and register or unregister transactions.\" --- **CW Hooks** connects CosmWasm contracts to chain lifecycle hooks so contracts can react to **staking** or **governance** events via sudo messages. **CLI root**: `safrochaind query cw-hooks` and `safrochaind tx cw-hooks`"
+    },
+    {
+      "title": "Distribution",
+      "path": "/modules/distribution",
+      "section": "modules",
+      "excerpt": "--- title: Distribution description: \"Rewards, commissions, community pool: distribution queries and withdraw transactions.\" --- The **distribution** module routes **staking rewards**, **validator commissions**, and **community pool** flows. **CLI root**: `safrochaind query distribution` and `safrochaind tx distribution`"
+    },
+    {
+      "title": "Drip",
+      "path": "/modules/drip",
+      "section": "modules",
+      "excerpt": "--- title: Drip description: \"Drip distributes tokens to stakers; module params and the distribute-tokens transaction.\" --- **Drip** allows controlled **distribution of tokens to all stakers** (typically used by protocol incentives). Parameters are governance-controlled; operators with permission use the distribute transaction. **CLI root**: `safrochaind query drip` and `safrochaind tx drip`"
+    },
+    {
+      "title": "Evidence",
+      "path": "/modules/evidence",
+      "section": "modules",
+      "excerpt": "--- title: Evidence description: \"Light-client evidence queries (misbehavior proofs).\" --- The **evidence** module stores **misbehavior evidence** (for example equivocation) verified by the consensus layer. **CLI root**: `safrochaind query evidence`"
+    },
+    {
+      "title": "Fee grant",
+      "path": "/modules/feegrant",
+      "section": "modules",
+      "excerpt": "--- title: Fee grant description: \"Grant and revoke allowances so another account can pay fees: query and tx feegrant.\" --- The **feegrant** module lets a **granter** pay **transaction fees** for a **grantee** within allowance limits. **CLI root**: `safrochaind query feegrant` and `safrochaind tx feegrant`"
+    },
+    {
+      "title": "FeePay",
+      "path": "/modules/feepay",
+      "section": "modules",
+      "excerpt": "--- title: FeePay description: \"FeePay registers CosmWasm contracts that can pay fees on behalf of users, with eligibility and usage queries.\" --- **FeePay** lets dApps register **fee payer contracts** so eligible wallets can interact without holding SAF for fees in every scenario (subject to module rules and contract logic). **CLI root**: `safrochaind query feepay` and `safrochaind tx feepay`"
+    },
+    {
+      "title": "FeeShare",
+      "path": "/modules/feeshare",
+      "section": "modules",
+      "excerpt": "--- title: FeeShare description: \"Route a share of smart-contract execution fees to deployers and withdrawers: queries and registration transactions.\" --- **FeeShare** registers CosmWasm contracts so a portion of fees can be directed to **deployer** and **withdrawer** addresses, aligning incentives for protocol maintainers. **CLI root**: `safrochaind query feeshare` and `safrochaind tx feeshare`"
+    },
+    {
+      "title": "Global fee",
+      "path": "/modules/globalfee",
+      "section": "modules",
+      "excerpt": "--- title: Global fee description: \"Chain-wide minimum gas prices via the globalfee module: CLI queries and governance-only parameter updates.\" --- The **globalfee** module exposes **minimum gas prices** enforced across the network (aligned with the Cosmos SDK fee market expectations used by validators). Governance updates module parameters; everyday users mainly **query** current minimums. Mainnet genesis ships with a chain-wide minimum of **`0.05 usaf` per unit of gas** in the globalfee module."
+    },
+    {
+      "title": "Governance",
+      "path": "/modules/gov",
+      "section": "modules",
+      "excerpt": "--- title: Governance description: \"Proposals, deposits, votes, and tally: governance queries and submission transactions.\" --- The **gov** module implements **on-chain governance** (text and executable proposals, deposits, voting). Safrochain uses a **wrapped gov** implementation in code; the CLI remains **`gov`** as in upstream Cosmos SDK."
+    },
+    {
+      "title": "IBC core",
+      "path": "/modules/ibc-core",
+      "section": "modules",
+      "excerpt": "--- title: IBC core description: \"IBC clients, connections, and channels: query ibc and tx ibc for core handshake operations.\" --- The **IBC core** module implements the **transport, authentication, and ordering** layer for interchain messaging (clients, connections, channels). **CLI root**: `safrochaind query ibc` and `safrochaind tx ibc`"
+    },
+    {
+      "title": "IBC fee (relayer incentives)",
+      "path": "/modules/ibc-fee",
+      "section": "modules",
+      "excerpt": "--- title: IBC fee (relayer incentives) description: \"Pay fees for incentivized relaying and register payees: query ibc-fee and tx ibc-fee.\" --- The **IBC fee** (ICS-29) module lets chains **prepay fees** so relayers can claim incentives for deliver, acknowledgement, and timeout packets. **CLI root**: `safrochaind query ibc-fee` and `safrochaind tx ibc-fee`"
+    },
+    {
+      "title": "IBC Hooks (`ibchooks`)",
+      "path": "/modules/ibc-hooks",
+      "section": "modules",
+      "excerpt": "--- title: IBC Hooks (`ibchooks`) description: \"Wasm sender address derivation for IBC Hooks: query ibchooks wasm-sender.\" --- The **IBC Hooks** integration derives predictable **Wasm sender addresses** on Safrochain for packets arriving over IBC (used by cross-chain contract calls). **CLI root**: `safrochaind query ibchooks`"
+    },
+    {
+      "title": "ICS-20 transfer (`ibc-transfer`)",
+      "path": "/modules/ibc-transfer-app",
+      "section": "modules",
+      "excerpt": "--- title: ICS-20 transfer (`ibc-transfer`) description: \"Fungible token transfers over IBC: query ibc-transfer and tx ibc-transfer transfer.\" --- The **ICS-20** application handles **fungible token transfers** across IBC channels (`transfer` port). **CLI root**: `safrochaind query ibc-transfer` and `safrochaind tx ibc-transfer`"
+    },
+    {
+      "title": "Interchain Accounts",
+      "path": "/modules/interchain-accounts",
+      "section": "modules",
+      "excerpt": "--- title: Interchain Accounts description: \"Controller and host ICA queries and transactions (alias: ica).\" --- **Interchain Accounts (ICA)** lets one chain control an account on another chain over IBC. Mainnet may launch with **ICA controller and host disabled** in genesis (`controller_enabled=false`, `host_enabled=false`) until governance enables them deliberately."
+    },
+    {
+      "title": "Interchain Queries",
+      "path": "/modules/interchain-query",
+      "section": "modules",
+      "excerpt": "--- title: Interchain Queries description: \"Async ICQ module parameters: query interchainquery.\" --- **Interchain Queries (ICQ)** allows cross-chain **query requests** subject to host allowlists and security policies. **CLI root**: `safrochaind query interchainquery`"
+    },
+    {
+      "title": "Mint",
+      "path": "/modules/mint",
+      "section": "modules",
+      "excerpt": "--- title: Mint description: \"Inflation and minting parameters: query mint (transactions are governance-controlled).\" --- The **mint** module defines **inflation**, **annual provisions**, and minting **parameters** for the staking denom. **Current inflation (genesis target)**: **7%** (0.07)."
+    },
+    {
+      "title": "NFT",
+      "path": "/modules/nft",
+      "section": "modules",
+      "excerpt": "--- title: NFT description: \"NFT classes and NFT ownership queries and transfers.\" --- The **NFT** module implements the Cosmos SDK **NFT** standard (classes and NFT IDs scoped to classes). **CLI root**: `safrochaind query nft` and `safrochaind tx nft`"
+    },
+    {
+      "title": "Safrochain modules overview",
+      "path": "/modules/overview",
+      "section": "modules",
+      "excerpt": "--- title: Safrochain modules overview description: \"Every module wired into safrochaind: Safrochain extensions, Cosmos SDK core, IBC, and CosmWasm, with CLI entry points and links to per-module reference pages.\" keywords: - Safrochain modules - Cosmos SDK - safrochaind CLI - x/tokenfactory"
+    },
+    {
+      "title": "Params (legacy subspaces)",
+      "path": "/modules/params",
+      "section": "modules",
+      "excerpt": "--- title: Params (legacy subspaces) description: \"Legacy params subspace queries for modules still using the params keeper pattern.\" --- The **`params`** CLI exposes **legacy parameter subspaces** for modules that still register keys under the global params keeper. **CLI root**: `safrochaind query params`"
+    },
+    {
+      "title": "Slashing",
+      "path": "/modules/slashing",
+      "section": "modules",
+      "excerpt": "--- title: Slashing description: \"Signing info and downtime penalties: query slashing and tx slashing unjail.\" --- The **slashing** module tracks validator **liveness** and **double-sign** evidence and applies penalties. **CLI root**: `safrochaind query slashing` and `safrochaind tx slashing`"
+    },
+    {
+      "title": "Staking",
+      "path": "/modules/staking",
+      "section": "modules",
+      "excerpt": "--- title: Staking description: \"Validators, delegations, redelegations, unbonding: staking queries and validator transactions.\" --- The **staking** module handles **validators**, **delegations**, **redelegations**, and **unbonding**. **CLI root**: `safrochaind query staking` and `safrochaind tx staking`"
+    },
+    {
+      "title": "Token factory",
+      "path": "/modules/tokenfactory",
+      "section": "modules",
+      "excerpt": "--- title: Token factory description: \"Factory-created denoms, admin mint/burn, and metadata: safrochaind query and tx command reference.\" --- The **token factory** module (`x/tokenfactory`) lets accounts create new coin denominations and manage admin operations (mint, burn, transfer with admin rights, metadata). It is the usual way to issue application-specific assets on top of the bank module. **CLI root**: `safrochaind query tokenfactory` and `safrochaind tx tokenfactory`"
+    },
+    {
+      "title": "Upgrade",
+      "path": "/modules/upgrade",
+      "section": "modules",
+      "excerpt": "--- title: Upgrade description: \"Planned upgrades, applied heights, and authority: query upgrade and governance upgrade proposals.\" --- The **upgrade** module coordinates **chain upgrades** (handlers registered in the node binary). **CLI root**: `safrochaind query upgrade` and `safrochaind tx upgrade`"
+    },
+    {
+      "title": "Vesting",
+      "path": "/modules/vesting",
+      "section": "modules",
+      "excerpt": "--- title: Vesting description: \"Create vesting and permanently locked accounts: tx vesting.\" --- The **vesting** module creates **vesting accounts** with delayed or periodic unlock schedules. **CLI root**: `safrochaind tx vesting` (no dedicated `query vesting` tree; account state is visible via **`query auth account`**)"
+    },
+    {
+      "title": "CosmWasm (`wasm`)",
+      "path": "/modules/wasm",
+      "section": "modules",
+      "excerpt": "--- title: CosmWasm (`wasm`) description: \"Store, instantiate, execute, and query CosmWasm contracts: wasm module CLI reference.\" --- The **wasm** module embeds **CosmWasm** smart contracts (code upload, instantiation, execution, migrations). **CLI root**: `safrochaind query wasm` and `safrochaind tx wasm`"
+    },
+    {
+      "title": "Chain registry",
+      "path": "/networks/chain-registry",
+      "section": "networks",
+      "excerpt": "--- title: Chain registry description: Cosmos chain-registry style descriptor for Safrochain mainnet and testnet. sidebar_position: 4 --- These descriptors follow the [`cosmos/chain-registry`](https://github.com/cosmos/chain-registry) schema so that wallets, explorers, and relayers can auto-configure."
+    },
+    {
+      "title": "Local devnet endpoints",
+      "path": "/networks/local-devnet-endpoints",
+      "section": "networks",
+      "excerpt": "--- title: Local devnet endpoints description: \"localhost RPC, REST, and wallet JSON for safro-devnet-1 when running safrochaind locally.\" sidebar_position: 5 --- Use these values when `safrochaind` runs on your machine. Setup: [Run a local devnet](/run-a-node/local-devnet)."
+    },
+    {
+      "title": "Safrochain mainnet endpoints (RPC, REST, gRPC)",
+      "path": "/networks/mainnet-endpoints",
+      "section": "networks",
+      "excerpt": "--- title: Safrochain mainnet endpoints (RPC, REST, gRPC) description: Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safrochain-1. sidebar_position: 1 keywords: - Safrochain mainnet - safrochain-1 - public RPC"
+    },
+    {
+      "title": "Safrochain testnet endpoints (RPC, REST, faucet)",
+      "path": "/networks/testnet-endpoints",
+      "section": "networks",
+      "excerpt": "--- title: Safrochain testnet endpoints (RPC, REST, faucet) description: \"Live public RPC, REST (LCD), gRPC, faucet, and explorer URLs for safro-testnet-1: the easiest way to experiment with Safrochain.\" sidebar_position: 2 keywords: - Safrochain testnet - safro-testnet-1 - testnet RPC"
+    },
+    {
+      "title": "Foundation",
+      "path": "/protocol/foundation",
+      "section": "protocol",
+      "excerpt": "--- title: Foundation description: Safrochain Foundation overview. --- The **Safrochain Foundation** is registered in **Mauritius** under the Foundations Act 2012 and supervised by the Financial Services Commission (FSC)."
+    },
+    {
+      "title": "Governance",
+      "path": "/protocol/governance",
+      "section": "protocol",
+      "excerpt": "--- title: Governance description: How Safrochain governance works. --- Safrochain uses on-chain governance (Cosmos SDK governance patterns) to coordinate upgrades and parameter changes. ## Planned mainnet genesis (anti-spam deposits)"
+    },
+    {
+      "title": "Safrochain tokenomics: the SAF token",
+      "path": "/protocol/tokenomics",
+      "section": "protocol",
+      "excerpt": "--- title: \"Safrochain tokenomics: the SAF token\" description: \"SAF token basics: denom (usaf), supply, decimals, distribution, and how SAF is used for fees, staking, and governance on Safrochain.\" keywords: - SAF token - Safrochain tokenomics - usaf - micro-SAF"
+    },
+    {
+      "title": "Brand assets",
+      "path": "/resources/brand-assets",
+      "section": "resources",
+      "excerpt": "--- title: Brand assets description: Official logos and palette. --- ## Logos Brand assets originate from `safro-website-updated/public/svg/` and are mirrored into this docs site under `Docs/static/img/`."
+    },
+    {
+      "title": "FAQ",
+      "path": "/resources/faq",
+      "section": "resources",
+      "excerpt": "--- title: FAQ description: Frequently asked questions about Safrochain. --- ## What is Safrochain? Safrochain is an Africa-first Layer 1 blockchain built on the Cosmos SDK. It prioritizes African markets and diaspora corridors while welcoming anyone facing the same constraints: high remittance fees, thin banking access, and need for fast, transparent settlement."
+    },
+    {
+      "title": "Whitepaper",
+      "path": "/resources/whitepaper",
+      "section": "resources",
+      "excerpt": "--- title: Whitepaper description: Read the Safrochain whitepaper. --- - **Web**: `https://safrochain.com/whitepaper` - **PDF**: `https://safrochain.com/whitepaper/safrochain-whitepaper.pdf`"
+    },
+    {
+      "title": "Hardware requirements",
+      "path": "/run-a-node/hardware",
+      "section": "run-a-node",
+      "excerpt": "--- title: Hardware requirements description: CPU, RAM, disk, and network sizing per Safrochain node role. sidebar_position: 3 --- Safrochain nodes have very different sizing depending on their role. Treat the numbers below as **minimums**; CPU and disk should grow with chain age"
+    },
+    {
+      "title": "Install safrochaind",
+      "path": "/run-a-node/install",
+      "section": "run-a-node",
+      "excerpt": "--- title: Install safrochaind description: Build safrochaind from source on Linux or macOS, and verify the binary. sidebar_position: 2 --- import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';"
+    },
+    {
+      "title": "Join mainnet",
+      "path": "/run-a-node/join-mainnet",
+      "section": "run-a-node",
+      "excerpt": "--- title: Join mainnet description: Sync a Safrochain node against safrochain-1. sidebar_position: 6 --- :::info Mainnet is live `safrochain-1` is producing blocks. Genesis time was"
+    },
+    {
+      "title": "Join testnet",
+      "path": "/run-a-node/join-testnet",
+      "section": "run-a-node",
+      "excerpt": "--- title: Join testnet description: Sync a Safrochain node against the live safro-testnet-1 network. sidebar_position: 5 --- The Safrochain testnet (`safro-testnet-1`) is live and is the easiest way to exercise the full validator + node + wallet stack end-to-end."
+    },
+    {
+      "title": "Local devnet",
+      "path": "/run-a-node/local-devnet",
+      "section": "run-a-node",
+      "excerpt": "--- title: Local devnet description: \"Run safro-devnet-1 on localhost for wallet, CosmWasm, and SafHandle development without public testnet.\" sidebar_position: 4 --- Run a **single-validator devnet** on your machine. Chain ID **`safro-devnet-1`** is separate from public testnet so wallets and scripts do not accidentally hit live endpoints."
+    },
+    {
+      "title": "Local testnet",
+      "path": "/run-a-node/local-testnet",
+      "section": "run-a-node",
+      "excerpt": "--- title: Local testnet description: \"Minimal single-node sandbox. For a full local devnet with wasm uploads, use Local devnet.\" sidebar_position: 5 --- :::tip Recommended For app development (CosmJS, CosmWasm, SafHandle), use **[Local devnet](./local-devnet)** with chain ID `safro-devnet-1`, the bootstrap script, and [local endpoints](/networks/local-devnet-endpoints)."
+    },
+    {
+      "title": "Run a Safrochain node: overview",
+      "path": "/run-a-node/overview",
+      "section": "run-a-node",
+      "excerpt": "--- title: \"Run a Safrochain node: overview\" description: Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node. sidebar_position: 1 keywords: - run a Safrochain node - safrochaind - full node"
+    },
+    {
+      "title": "Snapshots",
+      "path": "/run-a-node/snapshots",
+      "section": "run-a-node",
+      "excerpt": "--- title: Snapshots description: Catch up to chain tip from a tarball snapshot of safrochain-1. sidebar_position: 7 --- import LiveSnapshotInfo from '@site/src/components/LiveSnapshotInfo';"
+    },
+    {
+      "title": "Statesync",
+      "path": "/run-a-node/statesync",
+      "section": "run-a-node",
+      "excerpt": "--- title: Statesync description: Cryptographic light-client catch-up from a recent height, no tarballs. sidebar_position: 8 --- Statesync uses CometBFT light-client verification to fetch a recent state snapshot directly from peers. Unlike a tarball, the result is"
+    },
+    {
+      "title": "Upgrades (cosmovisor)",
+      "path": "/run-a-node/upgrades",
+      "section": "run-a-node",
+      "excerpt": "--- title: Upgrades (cosmovisor) description: Coordinated chain upgrades for Safrochain validators and full nodes. sidebar_position: 9 --- Safrochain follows the standard Cosmos SDK upgrade pattern: an on-chain `MsgSoftwareUpgrade` proposal targets a future block height, and every node"
+    },
+    {
+      "title": "Alerting & runbooks",
+      "path": "/validators/alerting",
+      "section": "validators",
+      "excerpt": "--- title: Alerting & runbooks description: Alertmanager rules, paging integrations, and incident runbooks for Safrochain validators. sidebar_position: 7 keywords: - Alertmanager - validator alerts - on-call paging"
+    },
+    {
+      "title": "How to become a Safrochain validator",
+      "path": "/validators/become-a-validator",
+      "section": "validators",
+      "excerpt": "--- title: How to become a Safrochain validator description: \"Step-by-step guide to creating, funding, and running a Safrochain validator on CometBFT proof-of-stake: keys, self-delegation, commission, and signing.\" sidebar_position: 1 keywords: - Safrochain validator - become a validator - CometBFT"
+    },
+    {
+      "title": "Disaster recovery",
+      "path": "/validators/disaster-recovery",
+      "section": "validators",
+      "excerpt": "--- title: Disaster recovery description: Backup, restore, key recovery, and double-sign recovery procedures for Safrochain validators. sidebar_position: 10 keywords: - disaster recovery - validator backup - restore validator"
+    },
+    {
+      "title": "Validator key management",
+      "path": "/validators/key-management",
+      "section": "validators",
+      "excerpt": "--- title: Validator key management description: Operator vs consensus keys, keyring backends, hardware wallets, and offline backups for Safrochain validators. sidebar_position: 3 keywords: - validator keys - operator key - consensus key"
+    },
+    {
+      "title": "Monitoring (Prometheus + Grafana)",
+      "path": "/validators/monitoring",
+      "section": "validators",
+      "excerpt": "--- title: Monitoring (Prometheus + Grafana) description: \"Production monitoring for Safrochain validators: enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals.\" sidebar_position: 6 keywords: - validator monitoring - Prometheus - Grafana"
+    },
+    {
+      "title": "Validator operations (day-2)",
+      "path": "/validators/operations",
+      "section": "validators",
+      "excerpt": "--- title: Validator operations (day-2) description: Edit commission, withdraw rewards, software upgrades, state pruning, and the routine work of running a Safrochain validator. sidebar_position: 8 keywords: - validator operations - edit-validator - withdraw rewards"
+    },
+    {
+      "title": "Validators overview",
+      "path": "/validators/overview",
+      "section": "validators",
+      "excerpt": "--- title: Validators overview description: What a Safrochain validator does, the full lifecycle from setup to retirement, and where to start in this section. sidebar_position: 1 keywords: - Safrochain validator - validator overview - validator lifecycle"
+    },
+    {
+      "title": "Remote signing (TMKMS & Horcrux)",
+      "path": "/validators/remote-signing",
+      "section": "validators",
+      "excerpt": "--- title: Remote signing (TMKMS & Horcrux) description: Move the Safrochain consensus key off the validator host with TMKMS or Horcrux threshold signing. sidebar_position: 4 keywords: - remote signing - TMKMS - Horcrux"
+    },
+    {
+      "title": "Security hardening",
+      "path": "/validators/security",
+      "section": "validators",
+      "excerpt": "--- title: Security hardening description: Operating-system hardening, firewall, SSH, fail2ban, and process isolation for Safrochain validator hosts. sidebar_position: 9 keywords: - validator security - host hardening - SSH hardening"
+    },
+    {
+      "title": "Sentry architecture",
+      "path": "/validators/sentry-architecture",
+      "section": "validators",
+      "excerpt": "--- title: Sentry architecture description: \"Production P2P topology for Safrochain validators: sentry nodes, persistent peers, private validator network.\" sidebar_position: 5 keywords: - sentry node - validator topology - P2P network"
+    },
+    {
+      "title": "Slashing & jail",
+      "path": "/validators/slashing",
+      "section": "validators",
+      "excerpt": "--- title: Slashing & jail description: Downtime, double-sign, unjailing, and the unbonding period. sidebar_position: 6 --- Safrochain inherits the Cosmos SDK `slashing` module. Two penalties apply to validators:"
+    }
+  ]
+}

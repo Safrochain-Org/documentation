@@ -11,6 +11,11 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "cli/ask-me",
+              "path": "/cli/ask-me",
+              "sidebar": "infraSidebar"
+            },
+            {
               "id": "cli/bank",
               "path": "/cli/bank",
               "sidebar": "infraSidebar"
