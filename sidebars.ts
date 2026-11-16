@@ -84,6 +84,7 @@ const sidebars: SidebarsConfig = {
       label: 'Governance',
       collapsed: true,
       items: [
+        'governance/mainnet-upgrade-v0.3.0',
         'protocol/governance',
         'governance/mainnet-feeshare-enable',
         'governance/testnet-upgrade-v0.2.2',
