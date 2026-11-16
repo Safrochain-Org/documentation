@@ -33,7 +33,7 @@ The testnet is currently live and is the easiest way to experiment with
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
-| Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.2`, then **`v0.3.0`** from block 4,557,100 | `1.25.8` (v0.2.2), `1.26.11` (v0.3.0) |
 
 ## Genesis
 

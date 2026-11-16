@@ -15,8 +15,8 @@ blocks straight into a terminal.
 
 | Tool | Mainnet | Testnet |
 | --- | --- | --- |
-| Go | **1.25.8** | **1.23.9** |
-| safrochain-node tag | **`v0.2.2`** | **`release/v0.1.0`** |
+| Go | **1.25.8** (`v0.2.2`), **1.26.11** (`v0.3.0`, fetched automatically) | **1.23.9** |
+| safrochain-node tag | **`v0.2.2`**, then **`v0.3.0`** from block 4,557,100 | **`release/v0.1.0`** |
 | make | any | any |
 | git | any | any |
 | C toolchain | `build-essential` (Linux) or Xcode CLI tools (macOS) | same |
@@ -24,7 +24,8 @@ blocks straight into a terminal.
 
 :::warning Pick the right network
 Mainnet and testnet **do not share a Go toolchain**. Mainnet (`safrochain-1`)
-requires **Go 1.25.8** and tag `v0.2.2`. Testnet (`safro-testnet-1`) requires
+runs tag `v0.2.2` (Go **1.25.8**) until block 4,557,100 and `v0.3.0` (Go **1.26.11**) after it,
+see [the v0.3.0 upgrade](../governance/mainnet-upgrade-v0.3.0). Testnet (`safro-testnet-1`) requires
 **Go 1.23.9** and tag `release/v0.1.0`. Mixing them produces a binary that
 will fail to start with `Apphash mismatch` or refuse to build.
 :::
@@ -188,6 +189,23 @@ Verify the binary:
 safrochaind version
 safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build_tags:|^commit:'
 ```
+
+### 2.c: Build `v0.3.0` for the upgrade at block 4,557,100
+
+`v0.3.0` replaces `v0.2.2` at block 4,557,100. Its `go.mod` pins Go **1.26.11**, which Go downloads by
+itself on the first build. Use `make build` so the running `v0.2.2` binary is not overwritten:
+
+```bash
+cd ~/safrochain-node
+git fetch --tags
+git checkout v0.3.0
+make build                                   # writes ./bin/safrochaind
+./bin/safrochaind version --long | grep -E '^(version|commit|go):'
+./bin/safrochaind query wasm libwasmvm-version   # 2.2.10
+```
+
+Then stage it for cosmovisor as described in the [upgrade guide](../governance/mainnet-upgrade-v0.3.0), which also lists the
+prebuilt release binaries and their SHA-256.
 
 </TabItem>
 

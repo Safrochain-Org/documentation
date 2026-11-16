@@ -18,6 +18,7 @@ Other governance thresholds (voting period, quorum, veto, and so on) ship in gen
 
 ## Active / planned proposals
 
+- [Mainnet software upgrade to v0.3.0](../governance/mainnet-upgrade-v0.3.0) — coordinated upgrade of `safrochain-1` from `v0.2.2` at block 4,557,100.
 - [Enable FeeShare on mainnet](../governance/mainnet-feeshare-enable) — set `x/feeshare` `enable_fee_share=true` on `safrochain-1` (no upgrade).
 - [Testnet software upgrade to v0.2.2 (plan `v29`)](../governance/testnet-upgrade-v0.2.2) — align `safro-testnet-1` with mainnet binary.
 

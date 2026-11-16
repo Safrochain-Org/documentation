@@ -79,22 +79,25 @@ sudo journalctl -u safrochaind -f
 
 ## 4 · Stage a new release before the upgrade height
 
-When the foundation announces a release tag (for example `v0.3.0`):
+When the foundation announces a release tag (for example `v0.3.0`, see
+[Mainnet software upgrade to v0.3.0](../governance/mainnet-upgrade-v0.3.0)), stage it under the **plan name** directory.
+Either build it from the tag (`git checkout v0.3.0 && make build`, then copy `./bin/safrochaind`), or
+download the statically linked release binary and verify it against the release `SHA256SUMS`:
 
 ```bash
-RELEASE=v0.3.0
+RELEASE=v0.3.0          # release tag
+PLAN=v0.3.0             # on-chain upgrade plan name (cosmovisor directory)
+ARCH=amd64              # or arm64
+BASE="https://github.com/Safrochain-Org/safrochain-node/releases/download/${RELEASE}"
 
-# verify the binary against the published checksum
-URL="https://github.com/Safrochain-Org/safrochain-node/releases/download/${RELEASE}/safrochaind-${RELEASE}-linux-amd64.tar.gz"
-curl -fsSL "$URL" -o /tmp/safrochaind.tar.gz
-curl -fsSL "${URL}.sha256" -o /tmp/safrochaind.tar.gz.sha256
-( cd /tmp && shasum -a 256 -c safrochaind.tar.gz.sha256 )
+cd /tmp
+curl -fLO "${BASE}/safrochaind-${RELEASE}-linux-${ARCH}"
+curl -fLO "${BASE}/SHA256SUMS"
+sha256sum -c --ignore-missing SHA256SUMS      # must print: ... OK
 
-# extract and install under cosmovisor
-mkdir -p ~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin
-tar -xzf /tmp/safrochaind.tar.gz -C ~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin
-~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin/safrochaind version
-~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin/safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:'
+mkdir -p ~/.safrochain/cosmovisor/upgrades/${PLAN}/bin
+install -m 0755 "safrochaind-${RELEASE}-linux-${ARCH}" ~/.safrochain/cosmovisor/upgrades/${PLAN}/bin/safrochaind
+~/.safrochain/cosmovisor/upgrades/${PLAN}/bin/safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:'
 ```
 
 cosmovisor will pick up the new binary automatically when it sees the

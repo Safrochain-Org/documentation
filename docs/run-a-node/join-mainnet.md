@@ -10,11 +10,18 @@ sidebar_position: 6
 sync from genesis.
 :::
 
+:::warning Upgrade to v0.3.0 at block 4,557,100
+`safrochain-1` upgrades from `v0.2.2` to **`v0.3.0`** at block **4,557,100** (about Wednesday
+18 November 2026, 14:00 UTC). A node that syncs from genesis, or from a snapshot taken before that
+height, runs `v0.2.2` and must switch to `v0.3.0` at the height: stage it with cosmovisor
+([step 1b](#1b-stage-v030-for-the-upgrade-at-block-4557100)). Full procedure: [Mainnet software upgrade to v0.3.0](../governance/mainnet-upgrade-v0.3.0).
+:::
+
 ## Network versions
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.2`, then **`v0.3.0`** from block 4,557,100 | `1.25.8` (v0.2.2), `1.26.11` (v0.3.0) |
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
 
 ## Endpoints
@@ -118,6 +125,28 @@ cosmos_sdk_version: v0.50.14
 go: go version go1.25.8 darwin/arm64
 version: v0.2.2
 ```
+
+### 1b. Stage `v0.3.0` for the upgrade at block 4,557,100
+
+Until block 4,557,100 the node runs `v0.2.2`; at that height it must switch to `v0.3.0`. Build it
+next to `v0.2.2` (Go downloads the 1.26.11 toolchain it requires by itself) and stage both binaries
+for cosmovisor, see [Upgrades](./upgrades) for the cosmovisor service:
+
+```bash
+cd ~/safrochain-node
+git fetch --tags
+git checkout v0.3.0
+make build                                   # writes ./bin/safrochaind
+./bin/safrochaind version --long | grep -E '^(version|commit|go):'   # version: v0.3.0
+
+mkdir -p ~/.safrochain/cosmovisor/genesis/bin ~/.safrochain/cosmovisor/upgrades/v0.3.0/bin
+cp "$(go env GOPATH)/bin/safrochaind" ~/.safrochain/cosmovisor/genesis/bin/   # v0.2.2 from step 1
+cp ./bin/safrochaind ~/.safrochain/cosmovisor/upgrades/v0.3.0/bin/            # v0.3.0
+```
+
+Prefer a prebuilt binary? Download the statically linked release binary and verify it against
+`SHA256SUMS` as described in the [upgrade guide](../governance/mainnet-upgrade-v0.3.0#b-download-the-release-binary).
+After the upgrade height, new nodes that state-sync or restore a later snapshot only need `v0.3.0`.
 
 ### 2. Initialise the home
 
@@ -350,7 +379,8 @@ The two values should converge once you finish catching up.
 - **Validator**: `default` pruning, **no public exposure**, P2P only to
   your own sentries / private network.
 
-## After your first upgrade
+## Upgrades
 
 Use **cosmovisor** so your binary swaps automatically at the upgrade
-height. See [Upgrades](./upgrades).
+height. See [Upgrades](./upgrades). The next upgrade is `v0.3.0` at block 4,557,100:
+[Mainnet software upgrade to v0.3.0](../governance/mainnet-upgrade-v0.3.0).
