@@ -31,11 +31,14 @@ source ~/.bashrc
 
 ```text
 ~/.safrochain/cosmovisor/
-  current -> upgrades/v0.2.2          # symlink, cosmovisor manages it
+  current -> upgrades/<plan-name>     # symlink, cosmovisor manages it
   genesis/bin/safrochaind             # the binary you launched the chain with
-  upgrades/v0.2.2/bin/safrochaind     # current release
-  upgrades/v0.3.0/bin/safrochaind     # staged for the next upgrade
+  upgrades/<plan-name>/bin/safrochaind
 ```
+
+:::important Plan name ≠ release tag
+Cosmovisor directories must match the **on-chain upgrade plan name** (the string passed to `MsgSoftwareUpgrade`), not necessarily the git tag. Example: aligning testnet to binary **`v0.2.2`** uses plan name **`v29`** → stage at `cosmovisor/upgrades/v29/bin/safrochaind`. See [Testnet upgrade to v0.2.2](../governance/testnet-upgrade-v0.2.2).
+:::
 
 Bootstrap with the binary you have today:
 

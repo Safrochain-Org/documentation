@@ -43,9 +43,9 @@ fee channels are not registered yet (`ibc-fee channels` returns an empty list).
 
 | Counterparty | Port | Channel (Safrochain) | Channel (counterparty) | Escrow (Safrochain) | Foundation relayer | Primary use |
 | --- | --- | --- | --- | --- | --- | --- |
-| Noble (`noble-1`) | `transfer` | `channel-0` | `channel-581` | `addr_safro1a53udazy8ayufvy0s434pfwjcedzqv34wqrjq7` | yes | Noble USDC in/out, SAF → Noble |
+| Noble (`noble-1`) | `transfer` | `channel-0` | `channel-581` | `addr_safro1a53udazy8ayufvy0s434pfwjcedzqv34wqrjq7` | no (community) | Noble USDC in/out, SAF → Noble |
 | Osmosis (`osmosis-1`) | `transfer` | `channel-1` | `channel-110497` | `addr_safro1kq2rzz6fq2q7fsu75a9g7cpzjeanmk68sfygsy` | yes | OSMO in/out, SAF → Osmosis DEX |
-| Injective (`injective-1`) | `transfer` | `channel-2` | `channel-495` | `addr_safro12k2pyuylm9t7ugdvz67h9pg4gmmvhn5v82y96y` | coordinate | Injective USDC + INJ in/out, SAF → Injective |
+| Injective (`injective-1`) | `transfer` | `channel-2` | `channel-495` | `addr_safro12k2pyuylm9t7ugdvz67h9pg4gmmvhn5v82y96y` | yes | Injective USDC + INJ in/out, SAF → Injective |
 
 ### Public endpoints for relayers
 
@@ -273,7 +273,7 @@ safrochaind tx ibc-transfer transfer transfer channel-2 \
 
 #### USDC (Noble → Osmosis, transit: not a direct Safrochain hop)
 
-The Foundation relayer also clears Noble↔Osmosis USDC for users who route
+Community relayers clear Noble↔Osmosis USDC for users who route
 liquidity through Osmosis. This path does **not** use Safrochain channels.
 
 | Field | Value |
@@ -287,17 +287,47 @@ liquidity through Osmosis. This path does **not** use Safrochain channels.
 
 ### Foundation relayer
 
-The Safrochain Foundation runs Hermes on `safro-relayer-1` for:
+The Safrochain Foundation runs Hermes (v1.13.x) on its monitoring host,
+packet relay + client refresh only, on the **existing** channels:
 
 | Path | Status |
 | --- | --- |
-| `safrochain-1` ↔ `noble-1` (`channel-0` ↔ `channel-581`) | live |
-| `safrochain-1` ↔ `osmosis-1` (`channel-1` ↔ `channel-110497`) | live |
-| `safrochain-1` ↔ `injective-1` (`channel-2` ↔ `channel-495`) | channel open · add Hermes path |
-| `noble-1` ↔ `osmosis-1` (USDC transit) | live |
+| `safrochain-1` ↔ `osmosis-1` (`channel-1` ↔ `channel-110497`) | deployed · go-live when relayer wallets are funded |
+| `safrochain-1` ↔ `injective-1` (`channel-2` ↔ `channel-495`) | deployed · go-live when relayer wallets are funded |
+| `safrochain-1` ↔ `noble-1` (`channel-0` ↔ `channel-581`) | community relayers (not Foundation-relayed) |
+
+Foundation relay transactions carry the memo
+`Relayed by Safrochain Foundation | hermes …`. Community relayers seen on these
+channels: **Vinjan.Inc** (Osmosis, Injective, Noble) and **ChainTools**
+(Osmosis).
+
+:::warning Existing channels only
+Operators (Foundation included) must **never** recreate these paths: no
+`hermes create channel` / `create connection` / `create client` for Osmosis or
+Injective. Use `mode.connections.enabled = false`,
+`mode.channels.enabled = false` and an exact `packet_filter` allowlist.
+:::
 
 Telemetry and wallet provisioning live in the private operator repo. Relay
 keys are never committed to source control.
+
+### Relayer fee budget (reference)
+
+Measured on-chain (Oct 2026): ~1.5 packets/day on Osmosis, ~0.9/day on
+Injective. Each packet costs one tx on each side (receive + acknowledgement,
+both bundled with a light-client update). Typical fee per relay tx:
+Safrochain ≈ 0.015 SAF (0.05 usaf/gas), Osmosis ≈ 0.03 OSMO (a Safrochain
+header update alone uses ~515k gas there), Injective ≈ 0.0002 INJ
+(160000000 inj/gas). Yearly cost for one relayer carrying all traffic:
+
+| Traffic | SAF | OSMO | INJ |
+| --- | --- | --- | --- |
+| Today (×1) | ~15 | ~22 | ~0.07 |
+| Moderate (×3) | ~40 | ~60 | ~0.2 |
+| High (×10) | ~130 | ~190 | ~0.6 |
+
+ICS-29 fee middleware is not enabled on these `ics20-1` channels, so relaying
+is not paid on-chain; it is an infrastructure cost.
 
 ### Join as a relayer
 

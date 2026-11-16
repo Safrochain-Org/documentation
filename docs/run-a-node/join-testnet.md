@@ -195,7 +195,7 @@ To add **multiple** comma-separated seeds without replacing other keys by hand:
 
 ```bash
 # Example only: substitute IDs from the foundation / Discord announcements
-SEEDS="2242a526e7841e7e8a551aabc4614e6cd612e7fb@88.99.211.113:26656,642dfd491b8bfc0b842c71c01a12ee1122f3dafe@46.62.140.103:26656"
+SEEDS="fe71717889a8a2ee528ada4558dd9b03f578157c@88.99.211.113:26656,642dfd491b8bfc0b842c71c01a12ee1122f3dafe@46.62.140.103:26656"
 sed -i.bak -e "s|^seeds *=.*|seeds = \"$SEEDS\"|" "$HOME_NODE/config/config.toml"   # Linux
 ```
 

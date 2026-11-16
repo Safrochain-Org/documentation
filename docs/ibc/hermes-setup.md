@@ -40,18 +40,18 @@ enabled = true
 refresh = true
 misbehaviour = true
 
+# Existing channels only: never open new connections/channels on mainnet.
 [mode.connections]
-enabled = true
+enabled = false
 
 [mode.channels]
-enabled = true
+enabled = false
 
 [mode.packets]
 enabled = true
 clear_interval = 100
 clear_on_start = true
 tx_confirmation = true
-auto_register_counterparty_payee = true
 
 [rest]
 enabled = true
@@ -74,7 +74,7 @@ grpc_addr = 'https://grpc1.safrochain.network:443'
 event_source = { mode = 'push', url = 'wss://rpc1.safrochain.network/websocket', batch_delay = '500ms' }
 rpc_timeout = '15s'
 trusted_node = false
-account_prefix = 'safro'
+account_prefix = 'addr_safro'   # Safrochain bech32 prefix (NOT 'safro')
 key_name = 'relayer-safro'
 key_store_type = 'Test'
 store_prefix = 'ibc'
@@ -140,8 +140,51 @@ max_block_time = '6s'
 trusting_period = '14days'
 trust_threshold = { numerator = '2', denominator = '3' }
 address_type = { derivation = 'cosmos' }
-gas_price = { price = 0.025, denom = 'uosmo' }
+gas_price = { price = 0.03, denom = 'uosmo' }
+dynamic_gas_price = { enabled = true, multiplier = 1.1, max = 0.3 }
+[chains.packet_filter]
+policy = 'allow'
+list = [['transfer', 'channel-110497']]
+
+# ----------------------------------------------------------------------------
+# Injective (live path: channel-2 ↔ channel-495)
+# ----------------------------------------------------------------------------
+[[chains]]
+id = 'injective-1'
+type = 'CosmosSdk'
+compat_mode = '0.38'            # CometBFT 1.0.x is not auto-detected
+rpc_addr = 'https://sentry.tm.injective.network:443'
+grpc_addr = 'https://sentry.chain.grpc.injective.network:443'
+event_source = { mode = 'push', url = 'wss://sentry.tm.injective.network:443/websocket', batch_delay = '500ms' }
+rpc_timeout = '15s'
+trusted_node = false
+account_prefix = 'inj'
+key_name = 'relayer-injective'
+key_store_type = 'Test'
+store_prefix = 'ibc'
+default_gas = 1000000
+max_gas = 15000000
+gas_multiplier = 1.2
+clock_drift = '10s'
+max_block_time = '20s'
+trusting_period = '14days'
+address_type = { derivation = 'ethermint', proto_type = { pk_type = '/injective.crypto.v1beta1.ethsecp256k1.PubKey' } }
+gas_price = { price = 160000000, denom = 'inj' }
+[chains.packet_filter]
+policy = 'allow'
+list = [['transfer', 'channel-495']]
 ```
+
+:::warning Always set a packet filter
+Without an exact `packet_filter` allowlist Hermes scans **every** channel of
+each configured chain (Osmosis has 100k+) and relays — and pays for — any
+channel between two configured chains (e.g. Osmosis ↔ Injective). On
+`safrochain-1` allow only the paths you relay, e.g.
+`list = [['transfer', 'channel-1'], ['transfer', 'channel-2']]`.
+:::
+
+Import the Injective key with the Ethereum HD path so wallets restore the same
+address: `hermes keys add --chain injective-1 --hd-path "m/44'/60'/0'/0/0" --mnemonic-file …`.
 
 ## Import the relayer keys
 
