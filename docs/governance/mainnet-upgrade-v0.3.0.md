@@ -21,7 +21,7 @@ that height. Install the new binary now, it only takes effect at the upgrade hei
 | New version | **`v0.3.0`** |
 | Upgrade plan name | `v0.3.0` (cosmovisor directory `upgrades/v0.3.0`) |
 | Upgrade height | **4,557,100**, about Wed 18 Nov 2026, 14:00 UTC (the exact time depends on block times) |
-| Governance | expedited proposal: 24 h vote, 66.7% Yes needed |
+| Governance | **proposal #2** (expedited): voting ends **Tuesday 17 November 2026, 10:55 UTC**, 66.7% Yes needed |
 | Type | security and stability release, **state-machine breaking** |
 | Release | [github.com/Safrochain-Org/safrochain-node/releases/tag/v0.3.0](https://github.com/Safrochain-Org/safrochain-node/releases/tag/v0.3.0) |
 
@@ -61,8 +61,8 @@ What changes for operators:
 
 | Step | When (UTC) |
 | --- | --- |
-| Expedited proposal submitted | Monday 16 November 2026 |
-| Voting ends | 24 hours after submission |
+| Proposal #2 submitted (expedited) | Monday 16 November 2026, 10:55 |
+| Voting ends | Tuesday 17 November 2026, 10:55 |
 | Upgrade height **4,557,100** | about Wednesday 18 November 2026, 14:00 |
 
 Blocks take about 2.8 s. Estimate the remaining time at any moment:
@@ -75,18 +75,20 @@ echo "blocks left: $((H - NOW)), about $(( (H - NOW) * 28 / 10 / 3600 )) h"
 
 ## 1. Vote
 
-The proposal is titled **Software Upgrade v0.3.0** and links to this page. Find its ID in the
-announcement, on the [explorer](https://explorer.safrochain.com/) (Governance), or with the CLI:
+The proposal is **#2**, titled **Software Upgrade v0.3.0** (submit transaction
+`2E39C7D1932EC20A9C7001CEE187E5A4CC1CD8AF1D89F731D33D7E3E67BD7514`). Check it on the
+[explorer](https://explorer.safrochain.com/) (Governance) or with the CLI:
 
 ```bash
-safrochaind q gov proposals --proposal-status voting-period \
-  --node https://rpc.safrochain.network:443 --output json | jq '.proposals[] | {id, title}'
+safrochaind q gov proposal 2 --node https://rpc.safrochain.network:443 --output json \
+  | jq '.proposal | {id, title, status, voting_end_time}'
+safrochaind q gov tally 2 --node https://rpc.safrochain.network:443
 ```
 
 Vote with your validator operator key:
 
 ```bash
-safrochaind tx gov vote PROPOSAL_ID yes \
+safrochaind tx gov vote 2 yes \
   --from <your-key> --chain-id safrochain-1 \
   --node https://rpc.safrochain.network:443 \
   --gas auto --gas-adjustment 1.4 --gas-prices 0.05usaf
