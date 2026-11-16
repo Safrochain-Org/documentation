@@ -12,7 +12,7 @@ exercise the full validator + node + wallet stack end-to-end.
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
-| Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.2`, then **`v0.3.0`** from block 4,557,100 | `1.25.8` (v0.2.2), `1.26.11` (v0.3.0) |
 
 ## Endpoints
 
@@ -80,8 +80,8 @@ safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build
 ```
 
 :::warning
-Do **not** check out `v0.2.2` for testnet: that tag is for mainnet
-(`safrochain-1`) and requires Go 1.25.8.
+Do **not** check out the mainnet tags (`v0.2.2`, `v0.3.0`) to sync the testnet from genesis:
+the testnet still runs `release/v0.1.0` with Go 1.23.9.
 :::
 
 ### 2. Initialise the home directory

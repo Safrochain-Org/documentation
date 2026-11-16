@@ -24,10 +24,10 @@ All endpoints below are served by the Safrochain Foundation infrastructure.
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.2`, then **`v0.3.0`** from block 4,557,100 | `1.25.8` (v0.2.2), `1.26.11` (v0.3.0) |
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
 
-After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2.2`**, `make install` and `safrochaind version --long` report **Cosmos SDK v0.50.14**, **CometBFT v0.38.21**, and **Go go1.25.8** (OS/arch varies, e.g. `darwin/arm64` on Apple Silicon or `linux/amd64` on typical servers).
+After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2.2`**, `make install` and `safrochaind version --long` report **Cosmos SDK v0.50.14**, **CometBFT v0.38.21**, and **Go go1.25.8** (OS/arch varies, e.g. `darwin/arm64` on Apple Silicon or `linux/amd64` on typical servers). From block 4,557,100 the network runs **`v0.3.0`** (Cosmos SDK v0.50.15, CometBFT v0.38.26, Go go1.26.11): see [the upgrade guide](../governance/mainnet-upgrade-v0.3.0).
 
 ## Chain identity
 
@@ -53,7 +53,7 @@ After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2
 | Genesis time | `2026-06-25T10:00:00Z` |
 | Initial height | `1` |
 | File size | 27,596 bytes (≈ 27 KB) |
-| Binary | `safrochaind v0.2.2` (Cosmos SDK 0.50.14, CometBFT 0.38.21) |
+| Binary | `safrochaind v0.2.2` (Cosmos SDK 0.50.14, CometBFT 0.38.21) until block 4,557,100, then `v0.3.0` (Cosmos SDK 0.50.15, CometBFT 0.38.26) |
 
 ## RPC (CometBFT JSON-RPC over HTTPS)
 

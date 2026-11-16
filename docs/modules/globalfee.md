@@ -8,7 +8,7 @@ The **globalfee** module exposes **minimum gas prices** enforced across the netw
 Mainnet genesis ships with a chain-wide minimum of **`0.05 usaf` per unit of gas** in the globalfee module.
 At ~200 000 gas for a typical IBC transfer this comes to **≈ 0.01 SAF** per tx: a sensible spam floor
 without making the chain expensive. Validators should set a matching `minimum-gas-prices` in `app.toml`
-so node policy and network policy stay aligned (the `v0.2.2` `safrochaind` binary defaults `app.toml`
+so node policy and network policy stay aligned (the `safrochaind` binary, `v0.2.2` and later, defaults `app.toml`
 to `0.05usaf` for fresh `safrochaind init` homes).
 
 **CLI root**: `safrochaind query globalfee` and `safrochaind tx globalfee`
