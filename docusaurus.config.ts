@@ -223,6 +223,13 @@ const config: Config = {
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:url', content: SITE_URL },
     ],
+    announcementBar: {
+      id: 'mainnet-upgrade-v0-3-0',
+      content:
+        'Mainnet upgrade to <b>v0.3.0</b> at block <b>4,557,100</b> (about Wed 18 Nov 2026, 14:00 UTC). ' +
+        '<a href="/governance/mainnet-upgrade-v0.3.0">Instructions for validators and node operators</a>',
+      isCloseable: true,
+    },
     navbar: {
       title: '',
       hideOnScroll: false,
